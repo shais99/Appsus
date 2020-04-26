@@ -14,6 +14,7 @@ export default class Email extends React.Component {
         email: null,
         currCmp: 'list',
         isSendEmail: false,
+        currTab: 'inbox'
     }
     componentDidMount() {
     }
@@ -25,13 +26,13 @@ export default class Email extends React.Component {
     filterByBox(filterBy) {
         this.isFocusOff()
         var emails = emailService.filterByBox(filterBy)
-        this.setState({ filterBy: filterBy, emails: emails, isSendEmail: false })
+        this.setState({ filterBy: filterBy, emails: emails, isSendEmail: false,  currTab: filterBy})
     }
     filterByStar() {
         this.onToggleCompose()
         this.isFocusOff()
         var emails = emailService.filterByStar()
-        this.setState({ filterBy: 'star', emails: emails , isSendEmail: false })
+        this.setState({ filterBy: 'star', emails: emails, isSendEmail: false, currTab: 'star' })
     }
 
 
@@ -59,7 +60,7 @@ export default class Email extends React.Component {
     }
     isFocusOff = () => {
 
-        this.setState({ isFocus: null, email: null , isSendEmail: false })
+        this.setState({ isFocus: null, email: null, isSendEmail: false })
     }
     onRemoveEmail = (ev, emailId) => {
         ev.stopPropagation()
@@ -72,7 +73,7 @@ export default class Email extends React.Component {
         ev.preventDefault()
         console.log('creating new email', newEmail)
         emailService.createEmail(newEmail.name, newEmail.to, newEmail.body, false, 'sent')
-        this.setState({ isFocus: null, email: null , isSendEmail: false })
+        this.setState({ isFocus: null, email: null, isSendEmail: false })
 
     }
     toggleStarEmail = (email) => {
@@ -82,25 +83,42 @@ export default class Email extends React.Component {
     }
 
     onToggleCompose = () => {
-        if (!this.state.isSendEmail) return this.setState({ isSendEmail: true })
+        if (!this.state.isSendEmail) return this.setState({ isSendEmail: true,  currTab: 'compose' })
         this.setState({ isSendEmail: false })
     }
-    
+
 
     render() {
+        const { currTab } = this.state
         return (
             <section className="email-main-content">
                 <div className="flex email-content">
                     <div className="box-side-nav">
-                        <p onClick={() => this.filterByStar()}>Starred</p>
-                        <p onClick={() => this.filterByBox('inbox')}>Inbox</p>
-                        <p onClick={() => this.filterByBox('sent')}>Sent</p>
+                        <div className={`email-send-btn flex even align-center ${currTab === 'compose' ? 'active-tab' : ''}`}>
+                            <img onClick={() => this.onToggleCompose('important')} src="../assets/img/googlePlus.png" alt="" />
+                            <p>Compose</p>
+                        </div>
+                        <div className={`email-send-btn flex even align-center ${currTab === 'starred' ? 'active-tab' : ''}`} onClick={() => this.filterByStar()}>
+                            <img src="../assets/img/star.png" alt="" />
+                            <p>Starred</p>
+                        </div>
+                        <div className={`email-send-btn flex even align-center ${currTab === 'inbox' ? 'active-tab' : ''}`} onClick={() => this.filterByBox('inbox')}>
+                            <img src="../assets/img/inbox.png" alt="" />
+                            <p>Inbox</p>
+                        </div>
+
+
+
+                        <div id="sent" className={`email-send-btn flex even align-center ${currTab === 'sent' ? 'active-tab' : ''}`} onClick={() => this.filterByBox('sent')}>
+                            <img src="../assets/img/sent.png" alt="" />
+                            <p>Sent</p>
+                        </div>
+
                         <p onClick={() => this.filterByBox('important')}>Important</p>
-                        <button onClick={() => this.onToggleCompose('important')}>send Mail</button>
                     </div>
                     <div>
                         {this.state.isSendEmail && <SendEmail sendEmail={this.sendEmail}></SendEmail>}
-                        {this.state.isFocus && !this.state.isSendEmail &&<EmailDetails email={this.state.email} isFocusOff={this.isFocusOff}></EmailDetails>}
+                        {this.state.isFocus && !this.state.isSendEmail && <EmailDetails email={this.state.email} isFocusOff={this.isFocusOff}></EmailDetails>}
                         {!this.state.isFocus && !this.state.isSendEmail && <ListEmail onRemoveEmail={this.onRemoveEmail} toggleStarEmail={this.toggleStarEmail} getEmails={this.getEmails} onSetFilter={this.onSetFilter} isFocus={this.isFocus}></ListEmail>}
                     </div>
                 </div>

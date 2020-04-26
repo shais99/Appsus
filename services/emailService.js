@@ -33,17 +33,20 @@ function createEmail(name, to, body, isFocus, box) {
     }
     gEmails.unshift(email)
 }
+var currFilter = 'inbox'
 
 function query(filterBy) {
-    console.log("query -> filterBy on service", filterBy)
+    console.log("currFilter", currFilter)
+
+
     if (filterBy) {
         const emails = gEmails.filter(email => {
-            console.log('email body', email.body)
-            return (email.name.includes(filterBy) || email.body.includes(filterBy))
+            return (email.name.includes(filterBy) && email.box === currFilter || email.body.includes(filterBy) && email.box === currFilter)
         })
         return emails
     }
-    return gEmails
+
+    return filterByBox(currFilter)
 }
 
 function toggleStarEmail(email) {
@@ -52,7 +55,7 @@ function toggleStarEmail(email) {
 }
 
 function filterByBox(filterBy) {
-    // debugger
+    currFilter = filterBy
     if (filterBy) {
         const emails = gEmails.filter(email => {
             // if (email.box === filterBy) return true
