@@ -35,7 +35,40 @@ var gNotes = [
                 { txt: "Do this", doneAt: 187111111 }
             ]
         }
-    }
+    },
+    {
+        id: utilService.makeId(),
+        type: "NoteTodos",
+        info: {
+            label: "How was it:",
+            todos: [
+                { txt: "Do that", doneAt: null },
+                { txt: "Do this", doneAt: 187111111 }
+            ]
+        }
+    },
+    {
+        id: utilService.makeId(),
+        type: "NoteTodos",
+        info: {
+            label: "How was it:",
+            todos: [
+                { txt: "Do that", doneAt: null },
+                { txt: "Do this", doneAt: 187111111 }
+            ]
+        }
+    },
+    {
+        id: utilService.makeId(),
+        type: "NoteTodos",
+        info: {
+            label: "How was it:",
+            todos: [
+                { txt: "Do that", doneAt: null },
+                { txt: "Do this", doneAt: 187111111 }
+            ]
+        }
+    },
 ]
 
 function query() {
