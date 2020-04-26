@@ -8,6 +8,7 @@
     src: url(fonts/OpenSans-Bold.ttf)
 }
 
+
 /* BASICS */
 
 body {
@@ -15,7 +16,12 @@ body {
     font-family: openSans;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
 }
 
@@ -28,14 +34,17 @@ a {
     text-decoration: none;
 }
 
+
 /* CONTAINER */
 
 .container {
-    width: 1060px;
+    width: 1061px;
     margin: 0 auto;
 }
 
+
 /* *** COMPONENTS *** */
+
 
 /* HEADER */
 
@@ -61,10 +70,8 @@ a {
 }
 
 
-
-
-
 /* *** HELPERS *** */
+
 
 /* List Helpers */
 
@@ -73,6 +80,7 @@ a {
     margin: 0;
     padding: 0;
 }
+
 
 /* Flex Helpers */
 
