@@ -15,11 +15,7 @@ createEmail('abi34rw', 'sha423i22w')
 function createEmail(name, to) {
     var email = {
         name: name,
-        toEmail: to,
-        body: body,
-        date: date,
-
-
+        toEmail: to
     }
     gEmails.push(email)
 }
