@@ -1,0 +1,105 @@
+@font-face {
+    font-family: openSans;
+    src: url(fonts/OpenSans-Regular.ttf)
+}
+
+@font-face {
+    font-family: openSansBold;
+    src: url(fonts/OpenSans-Bold.ttf)
+}
+
+/* BASICS */
+
+body {
+    margin: 0;
+    font-family: openSans;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+/* CONTAINER */
+
+.container {
+    width: 1060px;
+    margin: 0 auto;
+}
+
+/* *** COMPONENTS *** */
+
+/* HEADER */
+
+.main-header {
+    margin-top: 10px;
+}
+
+.logo {
+    font-family: openSansBold;
+    font-size: 2rem;
+    color: rgb(255, 113, 4);
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+.logo-icon {
+    width: 55px;
+    margin-right: 5px;
+}
+
+.main-nav li {
+    margin-right: 10px;
+}
+
+
+
+
+
+/* *** HELPERS *** */
+
+/* List Helpers */
+
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Flex Helpers */
+
+.flex {
+    display: flex;
+}
+
+.flex.align-center {
+    align-items: center;
+}
+
+.flex.column {
+    flex-direction: column;
+}
+
+.flex.justify-center {
+    justify-content: center;
+}
+
+.flex.space-between {
+    justify-content: space-between;
+}
+
+.flex.wrap {
+    flex-wrap: wrap;
+}
+
+.flex.align-start {
+    align-items: flex-start;
+}
