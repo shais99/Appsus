@@ -3,7 +3,7 @@ export default function NoteTxt(props) {
     return (
         <React.Fragment>
             TYPE FOR DEVELOPER: {note.type}<br />
-            {note.info.txt}
+            {note.info.value}
         </React.Fragment>
     )
 }

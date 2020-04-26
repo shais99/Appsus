@@ -11,7 +11,7 @@ export default class Notes extends React.Component {
     componentDidMount() {
         this.loadNotes()
     }
-    loadNotes() {
+    loadNotes = () => {
         noteService.query()
             .then(notes => {
                 this.setState({ notes })
@@ -21,8 +21,8 @@ export default class Notes extends React.Component {
         const { notes } = this.state
         return (
             <main className="main-notes container">
-                <AddNote />
-                {notes && <NoteList notes={notes} />}
+                <AddNote loadNotes={this.loadNotes} />
+                {notes && <NoteList notes={notes}/>}
             </main>
         )
     }

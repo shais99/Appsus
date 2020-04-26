@@ -38,6 +38,11 @@ a {
     text-decoration: none;
 }
 
+iframe, audio {
+    width: 100%;
+    outline: none;
+}
+
 
 /* CONTAINER */
 
@@ -78,12 +83,12 @@ a {
 /* *** NOTES PAGE *** */
 
 .notes-main-add {
-    background-color: #d1d8e0;
+    background-color: #dbe1e7;
     padding: 10px;
 }
 
 .add-note-input {
-    width: 50%;
+    width: 33vw;
     padding: 15px;
     outline: none;
     font-family: openSans;
@@ -96,6 +101,12 @@ a {
     width: 20px;
     margin-right: 12px;
     cursor: pointer;
+    opacity: .5;
+    transition: .3s;
+}
+
+.add-note-options img:hover {
+    opacity: 1;
 }
 
 .note-list {
@@ -103,17 +114,27 @@ a {
     padding: 10px 0;
 }
 
+.add-note-options .opacity {
+    opacity: 1;
+}
+
 .single-note {
-    background-color: green;
+    background-color: #ffe06e;
+    box-shadow: 0 0 3px 0px rgba(0,0,0,0.6);
     min-height: 150px;
     margin: 0 0 10px;
     padding: 15px;
     break-inside: avoid;
+    border-radius: 3px;
+}
+
+.note-img {
+    margin-top: 10px;
+    max-width: 100%;
 }
 
 
 /* *** HELPERS *** */
-
 
 /* List Helpers */
 

@@ -1,5 +1,3 @@
-import { thisExpression } from "@babel/types"
-
 export default class ListEmail extends React.Component {
 
     state = {
