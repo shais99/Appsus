@@ -8,7 +8,6 @@
     src: url(fonts/OpenSans-Bold.ttf)
 }
 
-
 /* BASICS */
 
 body {
@@ -16,12 +15,7 @@ body {
     font-family: openSans;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
@@ -34,22 +28,20 @@ a {
     text-decoration: none;
 }
 
-
 /* CONTAINER */
 
 .container {
-    width: 1061px;
+    width: 85vw;
     margin: 0 auto;
 }
 
-
 /* *** COMPONENTS *** */
-
 
 /* HEADER */
 
 .main-header {
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .logo {
@@ -69,9 +61,39 @@ a {
     margin-right: 10px;
 }
 
+/* *** NOTES PAGE *** */
+
+.notes-main-add {
+    background-color: #d1d8e0;
+    padding: 10px;
+}
+
+.add-note-input {
+    width: 50%;
+    padding: 15px;
+    outline: none;
+    font-family: openSans;
+    border-radius: 5px;
+    border: none;
+    margin-right: 15px;
+}
+
+.add-note-options img {
+    width: 20px;
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.note-list {
+    column-count: 4;
+}
+
+.single-note {
+    width: 25vw;
+    background-color: green;
+}
 
 /* *** HELPERS *** */
-
 
 /* List Helpers */
 
@@ -80,7 +102,6 @@ a {
     margin: 0;
     padding: 0;
 }
-
 
 /* Flex Helpers */
 
