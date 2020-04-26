@@ -1,57 +1,85 @@
 export default {
     getEmails,
-    remove,
-    query
+    removeEmail,
+    query,
+    filterByBox,
+    toggleStarEmail,
+    filterByStar,
+    createEmail
 }
 
 import utilService from './utilService.js'
 
 
 const gEmails = []
-createEmail('abi34rw', 'sha423i22w', 'abi23434rw', utilService.getTime(), false)
-createEmail('abi34rw', 'sha423i22w', 'abi23434rw', utilService.getTime(), false)
-createEmail('abi34rw', 'sha423i22w', 'abi23434rw', utilService.getTime(), false)
-createEmail('abi34rw', 'sha423i22w', 'abi23434rw', utilService.getTime(), true)
+createEmail('Abir', 'sha423i22w', 'abi23434rw', utilService.getTime(), false, 'sent')
+createEmail('Shai', 'sha423i22w', 'abi23434rw', utilService.getTime(), false, 'inbox')
+createEmail('abi34rw', 'sha423i22w', 'abi23434rw', utilService.getTime(), false, 'inbox')
+createEmail('abi34rw', 'gogo', 'gogogo', true, 'sent')
 
-function createEmail(name, to, body, date, isFocus) {
+function createEmail(name, to, body, isFocus, box) {
     var email = {
         id: utilService.makeId(),
-        name: name,
+        name,
         toEmail: to,
-        body: body,
-        date: date,
+        body,
+        date: utilService.getTime(),
         isSent: null,
         isRead: false,
-        box: 'inbox',
+        box,
         isSaved: true,
-        isFocus: isFocus,
-
+        isFocus,
+        isStarred: false,
     }
-    gEmails.push(email)
+    gEmails.unshift(email)
 }
 
 function query(filterBy) {
     console.log("query -> filterBy on service", filterBy)
-    var emails = gEmails;
-    if (filterBy && filterBy !== '') {
-        var text = filterBy
-        emails = gEmails.filter(email => email.name.includes(text))
+    if (filterBy) {
+        const emails = gEmails.filter(email => {
+            console.log('email body', email.body)
+            return (email.name.includes(filterBy) || email.body.includes(filterBy))
+        })
+        return emails
     }
-    return emails
+    return gEmails
 }
 
+function toggleStarEmail(email) {
+    if (email.isStarred === true) return email.isStarred = false
+    email.isStarred = true
+}
 
+function filterByBox(filterBy) {
+    if (filterBy) {
+        const emails = gEmails.filter(email => {
+            if (email.box === filterBy) return true
 
+        })
+        console.log("filterByBox -> emails", emails)
+        return emails
+    }
+
+}
+
+function filterByStar() {
+    const emails = gEmails.filter(email => {
+        console.log('email body', email.body)
+        if (email.isStarred) return true
+
+    })
+    return emails
+}
 
 function getEmails() {
     return gEmails
 }
 
-function remove(emailId) {
+function removeEmail(emailId) {
     const emailIdx = _getIdxById(emailId)
     gEmails.splice(emailIdx, 1)
 
-    storageService.store(STORAGE_KEY, gEmails)
     return Promise.resolve();
 }
 
