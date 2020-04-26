@@ -23,7 +23,7 @@ export default class SendEmail extends React.Component {
     render() {
         // const { filterBy, search } = this.state
         var email = this.state.newEmail
-        return (<section>
+        return (<section className="email-form-content">
             <p>IM HERE</p>
 
             <form onSubmit={(event) => this.props.sendEmail(event, email)} className="email-form-container flex column">

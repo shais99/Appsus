@@ -51,12 +51,12 @@ export default class ListEmail extends React.Component {
                     {emails.map((email, idx) => {
                         return (
                             <div onClick={() => this.props.isFocus(email)} className="email-card flex space-between align-center" key={idx}>
-                                <img onClick={(event) => this.toggleStarEmail(event,email)} className="email-card-star" src={`assets/img/${this.isStarred(email)}.png`} alt="" srcSet="" />
+                                <img onClick={(event) => this.toggleStarEmail(event,email)} className="email-card-star biggerAnim" src={`assets/img/${this.isStarred(email)}.png`} alt="" srcSet="" />
                                 <h2 className="email-card-name">Name: {email.name}</h2>
                                 <p className="email-card-to" >Recipient: {email.to}</p>
                                 <p className="email-card-msg" >Messege: {email.body}</p>
                                 <p className="email-card-date" >Sent AT: {email.date}</p>
-                                <img onClick={(event) => this.props.onRemoveEmail(event,email.id)} className="email-card-star" src={`assets/img/delete.png`} alt="" srcSet="" />
+                                <img onClick={(event) => this.props.onRemoveEmail(event,email.id)} className="email-card-star smallerAnim" src={`assets/img/delete.png`} alt="" srcSet="" />
                             </div>
                         )
                     })}
