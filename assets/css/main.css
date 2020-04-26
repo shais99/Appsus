@@ -111,3 +111,13 @@ a {
 .flex.align-start {
     align-items: flex-start;
 }
+
+
+/* // Email Styles */
+
+.email-main-content {
+    width: 100vw;
+    min-height: 70vh;
+    background-color: grey;
+    margin: 0 auto;
+}
