@@ -38,7 +38,8 @@ a {
     text-decoration: none;
 }
 
-iframe, audio {
+iframe,
+audio {
     width: 100%;
     outline: none;
 }
@@ -120,7 +121,7 @@ iframe, audio {
 
 .single-note {
     background-color: #ffe06e;
-    box-shadow: 0 0 3px 0px rgba(0,0,0,0.6);
+    box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.6);
     min-height: 150px;
     margin: 0 0 10px;
     padding: 15px;
@@ -135,6 +136,7 @@ iframe, audio {
 
 
 /* *** HELPERS *** */
+
 
 /* List Helpers */
 
@@ -175,6 +177,10 @@ iframe, audio {
     align-items: flex-start;
 }
 
+.flex.align-end {
+    align-items: flex-end;
+}
+
 
 /* // Email Styles */
 
@@ -193,11 +199,17 @@ iframe, audio {
     width: 80vw;
 }
 
+.email-section form {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.233);
+    margin-bottom: 1rem;
+}
+
 .email-card {
     width: 100%;
     background-color: rgba(197, 197, 197, 0.616);
-    margin-bottom: 3px;
+    margin-bottom: 0.7rem;
     border-radius: 20px;
+    height: 5vh;
     padding-left: 10px;
     padding-right: 10px;
     box-shadow: 0px 0px 26px 5px rgba(0, 0, 0, 0.35);
@@ -210,8 +222,11 @@ iframe, audio {
     text-align: center;
     color: black;
     font-size: 20px;
+    margin-bottom: 3vh;
+    margin-top: 3vh;
     user-select: none;
     outline: none;
+    border: none;
 }
 
 .email-card>* {
@@ -224,8 +239,9 @@ iframe, audio {
 }
 
 .email-content {
-    background-color: green;
+    background-color: #d1d8e0;
     text-align: center;
+    min-height: 85vh;
 }
 
 .email-card-star {
@@ -237,28 +253,79 @@ iframe, audio {
 }
 
 
-/* // EMail preview */
+/* Send EMail */
+
+.email-form-container input {
+    text-align: center;
+    height: 5vh;
+}
+
+.email-form-container textarea {
+    text-align: center;
+    height: 5vh;
+}
+
+.email-form-container {
+    background-color: #fff;
+}
+
+
+/* // EMail Details */
 
 .email-card-details {
-    position: absolute;
-    left: 5vw;
-    background-color: rgb(134, 134, 134);
+    background-color: #d1d8e0;
     width: 90vw;
-    height: 70vh;
-    top: 13vh;
+    height: 100%;
+}
+
+.email-card-details button {
+    width: 50px;
+    height: 30px;
+}
+
+.email-preview-name {
+    width: 20%;
+    font-size: 15px;
+}
+
+.email-preview-body {
+    background-color: rgba(89, 90, 90, 0.199);
+    width: 90%;
+    min-height: 60%;
+    border-radius: 15px;
+    text-align: start;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 1.6rem;
+    color: rgba(0, 0, 0, 0.596);
+    box-shadow: 0px 0px 26px 5px rgba(243, 240, 240, 0.137);
+}
+
+.email-preview-topinfo {
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 1%;
+    border-radius: 30px;
+    background-color: rgba(61, 60, 60, 0.199);
+}
+
+.email-preview-date {
+    margin-left: 60%;
+    color: rgba(231, 225, 225, 0.473);
+    font-size: 1rem;
 }
 
 
 /* // email box side nav  */
 
 .box-side-nav {
-    background-color: lightblue;
     width: 15vw;
-    height: 60vh;
-    margin-left: 1vw;
-    font-size: 30px;
+    height: 90vh;
+    font-size: 1.6rem;
+    color: rgba(0, 0, 0, 0.637);
+    border-right: 1px solid rgba(0, 0, 0, 0.233);
 }
 
 .box-side-nav>* {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.233);
 }
