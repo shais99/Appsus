@@ -12,6 +12,7 @@
     src: url(fonts/OpenSans-Bold.ttf)
 }
 
+
 /* BASICS */
 
 body {
@@ -19,7 +20,12 @@ body {
     font-family: openSans;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
 }
 
@@ -38,14 +44,17 @@ audio {
     outline: none;
 }
 
+
 /* CONTAINER */
 
 .container {
-    width: 86vw;
+    width: 85vw;
     margin: 0 auto;
 }
 
+
 /* *** COMPONENTS *** */
+
 
 /* HEADER */
 
@@ -70,6 +79,7 @@ audio {
 .main-nav li {
     margin-right: 10px;
 }
+
 
 /* *** NOTES PAGE *** */
 
@@ -155,7 +165,7 @@ audio {
     border-radius: 5px;
     position: absolute;
     z-index: 99;
-    box-shadow: 0 0 7px 0px rgba(0,0,0,0.75);
+    box-shadow: 0 0 7px 0px rgba(0, 0, 0, 0.75);
     margin-top: 5px;
     visibility: hidden;
     opacity: 0;
@@ -213,6 +223,7 @@ audio {
     visibility: visible;
 }
 
+
 /* *** HELPERS *** */
 
 
@@ -223,6 +234,7 @@ audio {
     margin: 0;
     padding: 0;
 }
+
 
 /* Flex Helpers */
 
@@ -391,6 +403,7 @@ audio {
     color: rgba(231, 225, 225, 0.473);
     font-size: 1rem;
 }
+
 
 /* // email box side nav  */
 
