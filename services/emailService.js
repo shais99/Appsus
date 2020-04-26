@@ -1,18 +1,19 @@
 export default {
     getEmails,
     remove,
+    query
 }
 
 import utilService from './utilService.js'
 
 
 const gEmails = []
-createEmail('abi34rw', 'sha423i22w', 'abi23434rw', utilService.getTime())
-createEmail('abi34rw', 'sha423i22w', 'abi23434rw', utilService.getTime())
-createEmail('abi34rw', 'sha423i22w', 'abi23434rw', utilService.getTime())
-createEmail('abi34rw', 'sha423i22w', 'abi23434rw', utilService.getTime())
+createEmail('abi34rw', 'sha423i22w', 'abi23434rw', utilService.getTime(), false)
+createEmail('abi34rw', 'sha423i22w', 'abi23434rw', utilService.getTime(), false)
+createEmail('abi34rw', 'sha423i22w', 'abi23434rw', utilService.getTime(), false)
+createEmail('abi34rw', 'sha423i22w', 'abi23434rw', utilService.getTime(), true)
 
-function createEmail(name, to, body, date) {
+function createEmail(name, to, body, date, isFocus) {
     var email = {
         id: utilService.makeId(),
         name: name,
@@ -21,11 +22,25 @@ function createEmail(name, to, body, date) {
         date: date,
         isSent: null,
         isRead: false,
-        box: 'inbox'
+        box: 'inbox',
+        isSaved: true,
+        isFocus: isFocus,
 
     }
     gEmails.push(email)
 }
+
+function query(filterBy) {
+    console.log("query -> filterBy on service", filterBy)
+    var emails = gEmails;
+    if (filterBy && filterBy !== '') {
+        var text = filterBy
+        emails = gEmails.filter(email => email.name.includes(text))
+    }
+    return emails
+}
+
+
 
 
 function getEmails() {
