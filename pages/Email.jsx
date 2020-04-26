@@ -1,11 +1,14 @@
 import emailService from "../services/emailService.js"
 import ListEmail from '../cmps/emails/ListEmail.jsx'
+const Router = ReactRouterDOM.HashRouter
+const { Route, Switch } = ReactRouterDOM
+
 
 export default class Email extends React.Component {
-state = {
+    state = {
 
-    emails: null,
-}
+        emails: null,
+    }
 
 
 
@@ -15,16 +18,24 @@ state = {
     }
 
 
-    
+
 
     render() {
         return (
-            <section className="email-main-content">
-                <h2> This is your emails :</h2>
-                <div>
-                    <ListEmail emails={emailService.getEmails()} ></ListEmail>
-                </div>
-            </section>
+            <Router>
+                <section className="email-main-content">
+                    <div className="flex email-content">
+                        <div className="box-side-nav">
+                            <p>inbox</p>
+                            <p>sent</p>
+                        </div>
+                        <div>
+                    <h2> This is your emails :</h2>
+                            <ListEmail getEmails={emailService.getEmails} ></ListEmail>
+                        </div>
+                    </div>
+                </section>
+            </Router>
         )
 
 

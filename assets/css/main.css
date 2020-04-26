@@ -8,6 +8,7 @@
     src: url(fonts/OpenSans-Bold.ttf)
 }
 
+
 /* BASICS */
 
 body {
@@ -15,7 +16,12 @@ body {
     font-family: openSans;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
 }
 
@@ -28,6 +34,7 @@ a {
     text-decoration: none;
 }
 
+
 /* CONTAINER */
 
 .container {
@@ -35,7 +42,9 @@ a {
     margin: 0 auto;
 }
 
+
 /* *** COMPONENTS *** */
+
 
 /* HEADER */
 
@@ -60,6 +69,7 @@ a {
 .main-nav li {
     margin-right: 10px;
 }
+
 
 /* *** NOTES PAGE *** */
 
@@ -93,7 +103,9 @@ a {
     background-color: green;
 }
 
+
 /* *** HELPERS *** */
+
 
 /* List Helpers */
 
@@ -102,6 +114,7 @@ a {
     margin: 0;
     padding: 0;
 }
+
 
 /* Flex Helpers */
 
@@ -141,4 +154,47 @@ a {
     min-height: 70vh;
     background-color: grey;
     margin: 0 auto;
+}
+
+.emails-list {
+    margin-left: 15vw;
+}
+
+.email-card {
+    width: 90%;
+    background-color: rgba(197, 197, 197, 0.616);
+    margin-bottom: 1vh;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 0px 0px 26px 5px rgba(0, 0, 0, 0.35);
+}
+
+.email-card>* {
+    display: inline-block;
+}
+
+.email-card-date {
+    color: rgba(231, 225, 225, 0.473);
+    font-size: 0.7rem;
+}
+
+.email-content {
+    background-color: green;
+    text-align: center;
+}
+
+
+/* // email box side nav  */
+
+.box-side-nav {
+    background-color: lightblue;
+    width: 15vw;
+    height: 60vh;
+    margin-left: 1vw;
+    font-size: 30px;
+}
+
+.box-side-nav>* {
+    border-bottom: 1px solid black;
 }

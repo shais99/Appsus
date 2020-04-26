@@ -1,5 +1,6 @@
 export default {
-    makeId
+    makeId,
+    getTime
 }
 
 function makeId(length = 5) {
@@ -11,4 +12,13 @@ function makeId(length = 5) {
     }
 
     return txt;
+}
+
+// Get Time and Date Returns a String
+function getTime() {
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = date + ' ' + time;
+    return dateTime
 }
