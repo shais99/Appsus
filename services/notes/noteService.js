@@ -75,7 +75,16 @@ export default {
     addNote,
     remove,
     onChangeBgColor,
-    onChangeTxtColor
+    onChangeTxtColor,
+    updateNote
+}
+
+function updateNote(note, txt) {
+    const noteIdx = _getIdxById(note.id)
+    gNotes[noteIdx].info.value = txt
+    
+    storageService.saveToStorage(STORAGE_KEY, gNotes)
+    return Promise.resolve()
 }
 
 function remove(noteId) {

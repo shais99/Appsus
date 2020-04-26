@@ -4,18 +4,22 @@ import NoteImg from './NoteImg.jsx'
 import NoteYoutube from './NoteYoutube.jsx'
 import NoteAudio from './NoteAudio.jsx'
 import NoteTodos from './NoteTodos.jsx'
+import noteService from '../../services/notes/noteService.js'
 
 export default class NotePreview extends React.Component {
     state = {
         isBgColorPicker: false,
         isTxtColorPicker: false
     }
+    onUpdateNote = (note, txt) => {
+        noteService.updateNote(note, txt)
+    }
     get noteToRender() {
         const { note, type } = this.props
 
         switch (type) {
             case 'NoteText':
-                return <NoteTxt note={note} />
+                return <NoteTxt note={note} updateNote={this.onUpdateNote} />
             case 'NoteImg':
                 return <NoteImg note={note} />
             case 'NoteYoutube':

@@ -34,7 +34,7 @@ export default class Notes extends React.Component {
         return (
             <main className="main-notes container">
                 <AddNote loadNotes={this.loadNotes} />
-                {notes && <NoteList onDeleteNote={this.onDeleteNote} onChangeBgColor={this.onChangeBgColor} onChangeTxtColor={this.onChangeTxtColor} notes={notes}/>}
+                {notes && <NoteList onDeleteNote={this.onDeleteNote} loadNotes={this.loadNotes} onChangeBgColor={this.onChangeBgColor} onChangeTxtColor={this.onChangeTxtColor} notes={notes}/>}
             </main>
         )
     }
