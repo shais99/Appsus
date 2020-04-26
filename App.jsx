@@ -4,7 +4,7 @@ const { Route, Switch } = ReactRouterDOM
 
 import Home from './pages/Home.jsx'
 import Books from './pages/Books.jsx'
-import Notes from './pages/Notes.jsx'
+import Notes from './pages/NotesApp.jsx'
 import Email from './pages/Email.jsx'
 import { NavBar } from './cmps/NavBar.jsx'
 
