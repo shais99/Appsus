@@ -12,9 +12,9 @@ import utilService from './utilService.js'
 
 
 const gEmails = []
-createEmail('Abir', 'sha423i22w', 'abi23434rw', utilService.getTime(), false, 'sent')
-createEmail('Shai', 'sha423i22w', 'abi23434rw', utilService.getTime(), false, 'inbox')
-createEmail('abi34rw', 'sha423i22w', 'abi23434rw', utilService.getTime(), false, 'inbox')
+createEmail('Abir', 'sha423i22w', 'abi23434rw', false, 'sent')
+createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox')
+createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox')
 createEmail('abi34rw', 'gogo', 'gogogo', true, 'sent')
 
 function createEmail(name, to, body, isFocus, box) {
@@ -52,9 +52,11 @@ function toggleStarEmail(email) {
 }
 
 function filterByBox(filterBy) {
+    // debugger
     if (filterBy) {
         const emails = gEmails.filter(email => {
-            if (email.box === filterBy) return true
+            // if (email.box === filterBy) return true
+            return email.box === filterBy
 
         })
         console.log("filterByBox -> emails", emails)
