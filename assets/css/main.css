@@ -12,7 +12,6 @@
     src: url(fonts/OpenSans-Bold.ttf)
 }
 
-
 /* BASICS */
 
 body {
@@ -20,12 +19,7 @@ body {
     font-family: openSans;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
@@ -43,7 +37,6 @@ iframe, audio {
     outline: none;
 }
 
-
 /* CONTAINER */
 
 .container {
@@ -51,9 +44,7 @@ iframe, audio {
     margin: 0 auto;
 }
 
-
 /* *** COMPONENTS *** */
-
 
 /* HEADER */
 
@@ -78,7 +69,6 @@ iframe, audio {
 .main-nav li {
     margin-right: 10px;
 }
-
 
 /* *** NOTES PAGE *** */
 
@@ -110,7 +100,7 @@ iframe, audio {
 }
 
 .note-list {
-    column-count: 4;
+    /* column-count: 4; */
     padding: 10px 0;
 }
 
@@ -120,19 +110,106 @@ iframe, audio {
 
 .single-note {
     background-color: #ffe06e;
-    box-shadow: 0 0 3px 0px rgba(0,0,0,0.6);
-    min-height: 150px;
-    margin: 0 0 10px;
+    box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.6);
+    margin: 10px;
     padding: 15px;
-    break-inside: avoid;
     border-radius: 3px;
+    width: 300px;
 }
 
 .note-img {
     margin-top: 10px;
     max-width: 100%;
+    width: 270px;
 }
 
+.note-options {
+    margin-top: 15px;
+}
+
+.note-content {
+    flex-grow: 1;
+}
+
+.note-options img {
+    opacity: .6;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.note-options img:hover {
+    opacity: 1;
+}
+
+.note-options img {
+    width: 18px;
+    margin-right: 15px;
+}
+
+.color-picker {
+    background-color: white;
+    width: 120px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 99;
+    box-shadow: 0 0 7px 0px rgba(0,0,0,0.75);
+    margin-top: 5px;
+    visibility: hidden;
+    opacity: 0;
+    transition: .4s;
+}
+
+.color-picker label {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-top: 3px;
+    cursor: pointer;
+}
+
+.cp-red {
+    background-color: #fc5c65;
+}
+
+.cp-blue {
+    background-color: #4b7bec;
+}
+
+.cp-turq {
+    background-color: #2bcbba;
+}
+
+.cp-orange {
+    background-color: #fd9644;
+}
+
+.cp-yellow {
+    background-color: #fed330;
+}
+
+.cp-grey {
+    background-color: #778ca3;
+}
+
+.cp-green {
+    background-color: #26de81;
+}
+
+.cp-basic {
+    background-color: #ffe06e;
+}
+
+.cp-black {
+    background-color: #000000;
+}
+
+.shown {
+    opacity: 1;
+    visibility: visible;
+}
 
 /* *** HELPERS *** */
 
@@ -143,7 +220,6 @@ iframe, audio {
     margin: 0;
     padding: 0;
 }
-
 
 /* Flex Helpers */
 
@@ -174,7 +250,6 @@ iframe, audio {
 .flex.align-start {
     align-items: flex-start;
 }
-
 
 /* // Email Styles */
 
@@ -236,7 +311,6 @@ iframe, audio {
     filter: brightness(1.4);
 }
 
-
 /* // EMail preview */
 
 .email-card-details {
@@ -247,7 +321,6 @@ iframe, audio {
     height: 70vh;
     top: 13vh;
 }
-
 
 /* // email box side nav  */
 

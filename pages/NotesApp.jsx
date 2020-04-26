@@ -17,12 +17,24 @@ export default class Notes extends React.Component {
                 this.setState({ notes })
             })
     }
+    onDeleteNote = (noteId) => {
+        noteService.remove(noteId)
+        this.loadNotes()
+    }
+    onChangeBgColor = (noteId, color) => {
+        noteService.onChangeBgColor(noteId, color)
+        this.loadNotes()
+    }
+    onChangeTxtColor = (noteId, color) => {
+        noteService.onChangeTxtColor(noteId, color)
+        this.loadNotes()
+    }
     render() {
         const { notes } = this.state
         return (
             <main className="main-notes container">
                 <AddNote loadNotes={this.loadNotes} />
-                {notes && <NoteList notes={notes}/>}
+                {notes && <NoteList onDeleteNote={this.onDeleteNote} onChangeBgColor={this.onChangeBgColor} onChangeTxtColor={this.onChangeTxtColor} notes={notes}/>}
             </main>
         )
     }

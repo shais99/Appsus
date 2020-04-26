@@ -1,7 +1,15 @@
-export default function NoteTodos(props) {
-    return (
-        <div>
-            NOTE TODOS
-        </div>
-    )
+import TodoList from './TodoList.jsx'
+
+export default class NoteTodos extends React.Component {
+
+    render() {
+        
+        const { todo } = this.props
+        
+        return (
+            <React.Fragment>
+                <TodoList todo={todo} />
+            </React.Fragment>
+        )
+    }
 }

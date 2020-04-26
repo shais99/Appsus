@@ -2,8 +2,8 @@ export default function NoteImg(props) {
     const { note } = props
     return (
         <React.Fragment>
-            TYPE FOR DEVELOPER: {note.type}<br />
-                <img className="note-img" src={note.info.value} title={note.info.title} />
+            <div className="note-img-title">{note.info.title}</div>
+            <img className="note-img" src={note.info.value} />
         </React.Fragment>
     )
 }

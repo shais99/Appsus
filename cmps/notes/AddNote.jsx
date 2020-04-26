@@ -12,10 +12,26 @@ export default class AddNote extends React.Component {
         currType: 'NoteText',
         note: {
             value: null,
-        }
+        },
+        placeHolderValue: 'Type Some Text...'
     }
     onChangeType = (type) => {
         this.setState({ currType: type })
+        this.setState({ placeHolderValue: this.getPlaceHolderValue(type)})
+    }
+    getPlaceHolderValue(type) {
+        switch (type) {
+            case 'NoteText':
+                return 'Type Some text...'
+            case 'NoteImg':
+                return 'Enter Img URL...'
+            case 'NoteYoutube':
+                return 'Enter Youtube Embed Link...'
+            case 'NoteAudio':
+                return 'Enter mp3 URL...'
+            case 'NoteTodos':
+                return 'Enter Comma Separated list...'
+        }
     }
     handleInput = ({ target }) => {
         const value = target.value
@@ -37,12 +53,12 @@ export default class AddNote extends React.Component {
         this.props.loadNotes()
     }
     render() {
-        const { currType } = this.state
+        const { currType, placeHolderValue } = this.state
         const { typesMap } = this
         return (
             <div className="notes-main-add flex justify-center">
                 <form onSubmit={this.onAddNote}>
-                    <input type="text" name="noteValue" onChange={this.handleInput} className="add-note-input" placeholder="What's on your mind..." />
+                    <input type="text" name="noteValue" onChange={this.handleInput} className="add-note-input" placeholder={placeHolderValue} />
                 </form>
 
                 <div className="add-note-options flex align-center">
