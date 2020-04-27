@@ -13,6 +13,7 @@ export default {
 
 import utilService from './utilService.js'
 
+var currFilter = 'inbox'
 var gCurrUser = 'Abir Nadav'
 const gEmails = []
 createEmail('Abir', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'sent', 'icecream')
@@ -60,7 +61,6 @@ function createEmail(name, to, body, isFocus, box, subject) {
     }
     gEmails.unshift(email)
 }
-var currFilter = 'inbox'
 
 function query(filterBy) {
     console.log("currFilter", currFilter)
@@ -81,12 +81,13 @@ function query(filterBy) {
 }
 
 function toggleStarEmail(email) {
-    if (email.isStarred === true) return email.isStarred = false
-    email.isStarred = true
+    // if (email.isStarred === true) return email.isStarred = false
+    // email.isStarred = true
+    email.isStarred = !email.isStarred
 }
 
 function sortEmails() {
-    gEmails.sort(function(a, b) { return a.isRead - b.isRead });
+    gEmails.sort(function (a, b) { return a.isRead - b.isRead });
 }
 
 

@@ -59,6 +59,7 @@
     padding: 15px;
     margin-bottom: 20px;
     border-radius: 3px;
+    transition: .5s;
     /* font-family: indieFlower;
     font-size: 1.2rem; */
 }

@@ -12,7 +12,7 @@ export default class AddNote extends React.Component {
     state = {
         currType: 'NoteText',
         note: {
-            value: null,
+            value: '',
         },
     }
     onChangeType = (type) => {
@@ -46,19 +46,22 @@ export default class AddNote extends React.Component {
     }
     onAddNote = (ev) => {
         ev.preventDefault()
+
         const { note, currType } = this.state
         noteService.addNote(note, currType)
         this.props.loadNotes()
 
+        this.setState({ note: { value: '' } })
+
         eventBus.emit('show-msg', { txt: 'Note Added Successfully!' })
     }
     render() {
-        const { currType } = this.state
+        const { currType, note } = this.state
         const { typesMap } = this
         return (
             <div className="flex">
                 <form onSubmit={this.onAddNote}>
-                    <input type="text" autoComplete="off" name="noteValue" onChange={this.handleInput} className="add-note-input" placeholder={this.placeHolderValue} />
+                    <input type="text" autoComplete="off" value={note.value} name="noteValue" onChange={this.handleInput} className="add-note-input" placeholder={this.placeHolderValue} />
                 </form>
 
                 <div className="add-note-options flex align-center">

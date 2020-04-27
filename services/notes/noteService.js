@@ -20,6 +20,20 @@ var gDefaultNotes = [
     },
     {
         id: utilService.makeId(),
+        type: "NoteText",
+        isPinned: false,
+        info: {
+            label: 'Short Story',
+            value: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque minus voluptate aliquid, non repudiandae voluptatibus accusamus beatae adipisci? Non, nostrum?"
+        },
+        style: {
+            backgroundColor: "#ffe06e",
+            color: 'red'
+        },
+        createdAt: utilService.getTime()
+    },
+    {
+        id: utilService.makeId(),
         type: "NoteImg",
         isPinned: false,
         info: {
@@ -165,6 +179,7 @@ function remove(noteId) {
 function onChangeBgColor(noteId, backgroundColor) {
     const noteIdx = _getIdxById(noteId)
 
+    // gNotes[noteIdx].style.backgroundColor = backgroundColor
     gNotes[noteIdx].style = { ...gNotes[noteIdx].style, backgroundColor }
 
     storageService.saveToStorage(STORAGE_KEY, gNotes)
@@ -204,7 +219,8 @@ function _createTodo(txt) {
         txt,
         doneAt: null,
         isChecked: false,
-        isPinned: false
+        isPinned: false,
+        createdAt: utilService.getTime()
     }
 }
 
@@ -217,7 +233,8 @@ function _createTodoNote(todos) {
             label: "New Todo Title",
             todos,
             value: todos
-        }
+        },
+        createdAt: utilService.getTime()
     }
 }
 
@@ -243,7 +260,7 @@ function query(searchBy) {
             return note.info.label.toLowerCase().includes(searchBy.searchBy.toLowerCase())
         })
     }
-    return Promise.resolve(notes);
+    return Promise.resolve(notes.slice());
 }
 
 function _createNotes() {
@@ -259,7 +276,3 @@ function _getIdxById(noteId) {
 function _sortByPinned() {
     gNotes.sort(function (firstNote, secondNote) { return secondNote.isPinned - firstNote.isPinned });
 }
-
-// function _getTodos() {
-//     return gNotes.find(note => note.type === 'NoteTodo')
-// }

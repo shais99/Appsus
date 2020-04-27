@@ -8,10 +8,7 @@ export default class EmailDetails extends React.Component {
             search: ''
         }
     }
-    componentWillMount() {
-        // this.props.email.isRead = true
 
-    }
     componentDidMount() {
         // this.props.email.isRead = true
     }
