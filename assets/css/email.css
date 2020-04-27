@@ -64,13 +64,18 @@
     width: 100%;
     background-color: #ffffffa2;
     margin-bottom: 0.7rem;
-    border-radius: 20px;
+    border-radius: 15px;
     height: 5vh;
     padding-left: 10px;
     padding-right: 10px;
     border: 1px solid rgba(255, 255, 255, 0.253);
     box-shadow: 0px 0px 10px 0px rgb(228, 224, 224);
     cursor: pointer;
+}
+
+.email-card:hover {
+    box-shadow: 0px 0px 10px 0px rgb(226, 217, 217);
+    background-color: #e7e5e5a2;
 }
 
 .email-isRead {
@@ -250,13 +255,14 @@
 }
 
 .email-details-name {
-    width: 20%;
-    font-size: 15px;
+    font-size: 1.3rem;
+    color: grey;
+    margin-left: 10px;
 }
 
 .email-details-body {
     background-color: #ffffff;
-    width: 90%;
+    width: 70vw;
     min-height: 60%;
     border-radius: 15px;
     text-align: start;
@@ -265,19 +271,23 @@
     font-size: 1.6rem;
     color: rgba(0, 0, 0, 0.596);
     border: 1px solid rgba(155, 155, 155, 0.329);
-    box-shadow: 0px 0px 26px 5px rgba(243, 240, 240, 0.137);
-}
-
-.email-details-body {
+    /* box-shadow: 0px 0px 26px 5px rgba(243, 240, 240, 0.137); */
+    word-break: break-all;
+    /* letter-spacing: 1px; */
+    word-spacing: 2px;
+    line-height: 40px;
     box-shadow: 0 0 1pt 1pt #00aaff28;
 }
 
+.email-details-body {}
+
 .email-details-topinfo {
-    width: 95%;
+    width: 90%;
     margin: 0 auto;
-    margin-top: 1%;
     border-radius: 30px;
-    background-color: rgba(228, 224, 224, 0.199);
+    background-color: #353b48;
+    color: white;
+    font-size: 1.4rem;
 }
 
 .email-details-date {
@@ -331,6 +341,11 @@
 
 .box-side-nav p {
     width: 5vw;
+}
+
+.box-side-nav p:hover {
+    transform: scale(1.1);
+    transition: 7s ease-in;
 }
 
 .active-tab {
