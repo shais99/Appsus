@@ -1,12 +1,10 @@
 export default function NoteTxt(props) {
     const { note } = props
-    function onChangeFunc(ev, el) {
+    function onChangeFunc(ev) {
         let value = ev.target.innerText
-        let newValue = ev.data
         props.updateNote(note, value)
-        console.log(ev);
     }
     return (
-        <p contentEditable="true" suppressContentEditableWarning={true} onInput={(event, element => onChangeFunc(event, element))}>{note.info.value}</p>
+        <p contentEditable="true" suppressContentEditableWarning={true} onInput={(event => onChangeFunc(event))}>{note.info.value}</p>
     )
 }

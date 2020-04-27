@@ -19,6 +19,7 @@ var gDefaultNotes = [
     {
         id: utilService.makeId(),
         type: "NoteImg",
+        isPinned: false,
         info: {
             title: 'A little puppy :)',
             value: "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg",
@@ -31,6 +32,7 @@ var gDefaultNotes = [
     {
         id: utilService.makeId(),
         type: "NoteTodos",
+        isPinned: false,
         info: {
             label: "How was it:",
             todos: [
@@ -46,6 +48,7 @@ var gDefaultNotes = [
     {
         id: utilService.makeId(),
         type: "NoteYoutube",
+        isPinned: false,
         info: {
             value: "https://www.youtube.com/embed/tgbNymZ7vqY"
         },
@@ -57,6 +60,7 @@ var gDefaultNotes = [
     {
         id: utilService.makeId(),
         type: "NoteAudio",
+        isPinned: true,
         info: {
             value: "../../assets/sound/horse.mp3"
         },
@@ -77,7 +81,22 @@ export default {
     onChangeBgColor,
     onChangeTxtColor,
     updateNote,
-    todoChecked
+    updateTodo,
+    todoChecked,
+    pinNote,
+    isPinned
+}
+
+function isPinned(noteId) {
+    const noteIdx = _getIdxById(noteId)
+    if (gNotes[noteIdx].isPinned) return 'PINNED'
+    else return ''
+}
+
+function pinNote(noteId) {
+    const noteIdx = _getIdxById(noteId)
+    gNotes[noteIdx].isPinned = !gNotes[noteIdx].isPinned
+    storageService.saveToStorage(STORAGE_KEY, gNotes)
 }
 
 function todoChecked(todo) {
@@ -89,8 +108,21 @@ function todoChecked(todo) {
         todo.doneAt = Date.now()
         todo.isChecked = true
     }
-
     storageService.saveToStorage(STORAGE_KEY, gNotes)
+}
+
+function updateTodo(note, todoId, txt) {
+    console.log('note', note);
+    console.log('todoId', todoId);
+    console.log('txt', txt);
+    const todoIdx = getTodoIdxById(todoId, note.info.todos)
+    note.info.todos[todoIdx].txt = txt
+    storageService.saveToStorage(STORAGE_KEY, gNotes)
+    return Promise.resolve()
+}
+
+function getTodoIdxById(todoId, todos) {
+    return todos.findIndex(todo => todo.id === todoId)
 }
 
 function updateNote(note, txt) {
@@ -152,7 +184,8 @@ function _createTodo(txt) {
         id: utilService.makeId(),
         txt,
         doneAt: null,
-        isChecked: false
+        isChecked: false,
+        isPinned: false
     }
 }
 
@@ -176,11 +209,11 @@ function _createNote(note, type) {
         info: {
             value: note.value
         }
-
     }
 }
 
 function query() {
+    _sortByPinned()
     var notes = gNotes;
     return Promise.resolve(notes);
 }
@@ -193,4 +226,12 @@ function _createNotes() {
 
 function _getIdxById(noteId) {
     return gNotes.findIndex(note => note.id === noteId)
+}
+
+function _sortByPinned() {
+    gNotes.sort(function (firstNote, secondNote) { return secondNote.isPinned - firstNote.isPinned });
+}
+
+function _getTodos() {
+    return gNotes.find(note => note.type === 'NoteTodo')
 }
