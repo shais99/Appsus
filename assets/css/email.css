@@ -235,16 +235,18 @@
 }
 
 .email-details-back {
-    background-color: #00aaff9d;
+    background-color: #00a8ff;
+    padding: 0px;
+    padding: 15px 30px;
+    margin: 0 auto;
+    border-radius: 10px;
     border: none;
-    width: 150px;
-    height: 5vh;
-    border-radius: 20px;
-    user-select: none;
+    box-shadow: 0px 0px 4px 1px rgba(133, 133, 133, 0.534);
+    text-align: center;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.726);
+    text-transform: uppercase;
     outline: none;
-    color: white;
-    font-size: 1.3rem;
-    letter-spacing: 1px;
 }
 
 .email-details-back:hover {
@@ -274,16 +276,15 @@
     min-height: 60%;
     border-radius: 15px;
     text-align: start;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 1.6rem;
+    padding: 0px 20px;
+    font-size: 1rem;
     color: rgba(0, 0, 0, 0.596);
     border: 1px solid rgba(155, 155, 155, 0.329);
     /* box-shadow: 0px 0px 26px 5px rgba(243, 240, 240, 0.137); */
     word-break: break-all;
     /* letter-spacing: 1px; */
-    word-spacing: 2px;
-    line-height: 40px;
+    word-spacing: 1px;
+    line-height: 30px;
     box-shadow: 0 0 1pt 1pt #00aaff28;
 }
 

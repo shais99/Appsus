@@ -17,7 +17,7 @@ export default class EmailDetails extends React.Component {
     }
     isStarred(email) {
         if (email.isStarred) return 'star'
-        return 'starempty'
+        return 'starempty-white'
     }
 
     toggleStarEmail(ev, email) {
@@ -41,9 +41,9 @@ export default class EmailDetails extends React.Component {
                     <p className="email-details-date" >{email.date}</p>
                     <div className="email-details-right-btns">
                         <img onClick={(event) => this.toggleStarEmail(event, email)} className="email-card-star biggerAnim" title="Save As Starred" src={`assets/img/${this.isStarred(email)}.png`} alt="" srcSet="" />
-                        <img onClick={(event) => this.props.onReplay(event, email)} className="email-card-star biggerAnim" title="Replay Email" src={`assets/img/replay.png`} alt="" srcSet="" />
-                        <img onClick={(event) => this.props.onRemoveEmail(event, email.id)} className="email-card-star smallerAnim" title="Delete" src={`assets/img/delete.png`} alt="" srcSet="" />
-                        <img onClick={(event) => this.props.toggleIsRead(event, email)} className="email-card-star smallerAnim" title="Toggle Read/Unread" src={`assets/img/${email.isRead ? 'read' : 'unread'}.png`} alt="" srcSet="" />
+                        <img onClick={(event) => this.props.onReplay(event, email)} className="email-card-star biggerAnim" title="Replay Email" src={`assets/img/replay-white.png`} alt="" srcSet="" />
+                        <img onClick={(event) => this.props.onRemoveEmail(event, email.id)} className="email-card-star smallerAnim" title="Delete" src={`assets/img/delete-white.png`} alt="" srcSet="" />
+                        <img onClick={(event) => this.props.toggleIsRead(event, email)} className="email-card-star smallerAnim" title="Toggle Read/Unread" src={`assets/img/${email.isRead ? 'read-white' : 'unread-white'}.png`} alt="" srcSet="" />
                     </div>
                 </div>
                 <div className="email-details-body">
