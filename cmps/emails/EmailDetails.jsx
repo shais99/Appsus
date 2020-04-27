@@ -47,7 +47,7 @@ export default class EmailDetails extends React.Component {
                     </div>
                 </div>
                 <div className="email-details-body border">
-                    <p className="email-details-subject" >{email.subject} <p className="email-details-date" >{email.date}</p></p>
+                    <p className="email-details-subject" >{email.subject} <span className="email-details-date" >{email.date}</span></p>
                     <p className="email-details-msg" > {email.body}</p>
 
                 </div>
