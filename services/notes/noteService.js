@@ -73,7 +73,7 @@ var gDefaultNotes = [
         isPinned: true,
         info: {
             label: 'THE LABEL MP3',
-            value: "../../assets/sound/horse.mp3"
+            value: "horse.mp3"
         },
         style: {
             backgroundColor: "#ffe06e",
