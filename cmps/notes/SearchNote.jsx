@@ -15,7 +15,7 @@ export default class SearchNote extends React.Component {
     render() {
         const { searchBy } = this.state
         return (
-            <input type="text" name="searchBy" className="search-input" placeholder="Search Note..." value={searchBy} onChange={this.handleChange} />
+            <input type="text" name="searchBy" className="search-input" placeholder="Search By Label..." value={searchBy} onChange={this.handleChange} />
         )
     }
 }

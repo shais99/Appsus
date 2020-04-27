@@ -9,11 +9,12 @@ var gDefaultNotes = [
         type: "NoteText",
         isPinned: true,
         info: {
+            label: 'THE LABEL',
             value: "Fullstack Me Baby!"
         },
         style: {
             backgroundColor: "#ffe06e",
-            color: 'white'
+            color: 'black'
         }
     },
     {
@@ -21,12 +22,12 @@ var gDefaultNotes = [
         type: "NoteImg",
         isPinned: false,
         info: {
-            title: 'A little puppy :)',
+            label: 'A little puppy :)',
             value: "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg",
         },
         style: {
             backgroundColor: "#20bf6b",
-            color: 'white'
+            color: 'black'
         }
     },
     {
@@ -46,7 +47,7 @@ var gDefaultNotes = [
         },
         style: {
             backgroundColor: "#ffe06e",
-            color: 'white'
+            color: 'black'
         }
     },
     {
@@ -54,11 +55,12 @@ var gDefaultNotes = [
         type: "NoteYoutube",
         isPinned: false,
         info: {
+            label: 'THE LABEL VIDEO',
             value: "https://www.youtube.com/embed/tgbNymZ7vqY"
         },
         style: {
             backgroundColor: "#20bf6b",
-            color: 'white'
+            color: 'black'
         }
     },
     {
@@ -66,11 +68,12 @@ var gDefaultNotes = [
         type: "NoteAudio",
         isPinned: true,
         info: {
+            label: 'THE LABEL MP3',
             value: "../../assets/sound/horse.mp3"
         },
         style: {
             backgroundColor: "#ffe06e",
-            color: 'white'
+            color: 'black'
         }
     },
 
@@ -87,14 +90,30 @@ export default {
     updateNote,
     updateTodo,
     todoChecked,
+    addTodo,
     pinNote,
-    isPinned
+    isPinned,
+    updateLabel,
+}
+
+function addTodo(txt, note) {
+    const todo = _createTodo(txt)
+    note.info.todos.push(todo)
+    storageService.saveToStorage(STORAGE_KEY, gNotes)
+}
+
+function updateLabel(note, value) {
+    const noteIdx = _getIdxById(note.id)
+    gNotes[noteIdx].info.label = value
+
+    storageService.saveToStorage(STORAGE_KEY, gNotes)
+    return Promise.resolve()
 }
 
 function isPinned(noteId) {
     const noteIdx = _getIdxById(noteId)
-    if (gNotes[noteIdx].isPinned) return 'PINNED'
-    else return ''
+    if (gNotes[noteIdx].isPinned) return true
+    else return false
 }
 
 function pinNote(noteId) {
@@ -170,10 +189,8 @@ function addNote(note, type) {
         const newTodo = _createTodoNote(todos)
         gNotes.unshift(newTodo)
         storageService.saveToStorage(STORAGE_KEY, gNotes)
-
         return
     }
-
     const newNote = _createNote(note, type)
 
     gNotes.unshift(newNote)
@@ -196,7 +213,7 @@ function _createTodoNote(todos) {
         type: "NoteTodos",
         isPinned: false,
         info: {
-            label: "New Todo",
+            label: "New Todo Title",
             todos,
             value: todos
         }
@@ -209,6 +226,7 @@ function _createNote(note, type) {
         type,
         isPinned: false,
         info: {
+            label: 'New Note Title',
             value: note.value
         }
     }
@@ -218,8 +236,9 @@ function query(searchBy) {
     _sortByPinned()
     var notes = gNotes;
     if (searchBy) {
+
         notes = gNotes.filter(note => {
-            return note.info.value.includes(searchBy.searchBy.toLowerCase())
+            return note.info.label.toLowerCase().includes(searchBy.searchBy.toLowerCase())
         })
     }
     return Promise.resolve(notes);

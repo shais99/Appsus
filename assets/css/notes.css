@@ -1,8 +1,14 @@
+/* @font-face {
+    font-family: indieFlower;
+    src: url(fonts/Merienda-Regular.ttf)
+} */
+
 /* *** NOTES PAGE *** */
 
 .notes-main-add {
     background-color: #dbe1e7;
     padding: 10px;
+    margin-bottom: 20px;
 }
 
 .add-note-input {
@@ -50,15 +56,54 @@
     width: 300px;
     min-height: 150px;
     box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.6);
-    margin: 10px;
     padding: 15px;
+    margin-bottom: 20px;
     border-radius: 3px;
+    /* font-family: indieFlower;
+    font-size: 1.2rem; */
+}
+
+.note-title {
+    /* background-color: white; */
+    color: black;
+    padding: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.363);
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.pinned {
+    margin: 0;
+    align-self: flex-end;
+    position: absolute;
+    margin-top: -25px;
+    margin-left: 15px;
+}
+
+.pinned-img {
+    width: 30px;
 }
 
 .note-img {
     margin-top: 10px;
     max-width: 100%;
     width: 270px;
+}
+
+.add-todo-input {
+    background-color: transparent;
+    padding: 8px;
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid white;
+    font-family: openSans;
+    width: 100%;
+}
+
+.add-todo-input::placeholder {
+    color: black;
 }
 
 .note-options {
