@@ -27,13 +27,13 @@ export default class NotePreview extends React.Component {
             case 'NoteAudio':
                 return <NoteAudio note={note} />
             case 'NoteTodos':
-                return <NoteTodos todo={note} />
+                return <NoteTodos todo={note} loadNotes={this.props.loadNotes} />
         }
     }
     render() {
         const { note, onDeleteNote, onChangeBgColor, onChangeTxtColor } = this.props
         return (
-            <article className="single-note flex column fade-in" style={note.style}>
+            <article className="single-note flex column" style={note.style}>
                 <div className="note-content">
                     {this.noteToRender}
                 </div>
@@ -45,7 +45,7 @@ export default class NotePreview extends React.Component {
                     <img onClick={() => { this.setState(prevState => { return { isBgColorPicker: !prevState.isBgColorPicker } }) }} src="../../assets/img/paint.png" alt="" />
                     <img onClick={() => { this.setState(prevState => { return { isTxtColorPicker: !prevState.isTxtColorPicker } }) }} src="../../assets/img/font.png" alt="" />
 
-                    <div className={`color-picker ${this.state.isBgColorPicker ? 'shown' : ''}`}>
+                    <div className={`color-picker cp-left ${this.state.isBgColorPicker ? 'shown' : ''}`}>
                         <label className="cp-red" onClick={() => onChangeBgColor(note.id, '#fc5c65')}></label>
                         <label className="cp-blue" onClick={() => onChangeBgColor(note.id, '#4b7bec')}></label>
                         <label className="cp-turq" onClick={() => onChangeBgColor(note.id, '#2bcbba')}></label>
@@ -57,7 +57,7 @@ export default class NotePreview extends React.Component {
                         <label className="cp-black" onClick={() => onChangeBgColor(note.id, '#000000')}></label>
                     </div>
 
-                    <div className={`color-picker ${this.state.isTxtColorPicker ? 'shown' : ''}`}>
+                    <div className={`color-picker cp-right ${this.state.isTxtColorPicker ? 'shown' : ''}`}>
                         <label className="cp-red" onClick={() => onChangeTxtColor(note.id, '#fc5c65')}></label>
                         <label className="cp-blue" onClick={() => onChangeTxtColor(note.id, '#4b7bec')}></label>
                         <label className="cp-turq" onClick={() => onChangeTxtColor(note.id, '#2bcbba')}></label>

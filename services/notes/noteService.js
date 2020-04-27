@@ -34,8 +34,8 @@ var gDefaultNotes = [
         info: {
             label: "How was it:",
             todos: [
-                { id: utilService.makeId(), txt: "Do that", doneAt: null },
-                { id: utilService.makeId(), txt: "Do this", doneAt: 187111111 }
+                { id: utilService.makeId(), txt: "Do that", doneAt: null, isChecked: true },
+                { id: utilService.makeId(), txt: "Do this", doneAt: 187111111, isChecked: false }
             ]
         },
         style: {
@@ -76,13 +76,27 @@ export default {
     remove,
     onChangeBgColor,
     onChangeTxtColor,
-    updateNote
+    updateNote,
+    todoChecked
+}
+
+function todoChecked(todo) {
+    if (todo.isChecked) {
+        todo.doneAt = null
+        todo.isChecked = false
+    }
+    else {
+        todo.doneAt = Date.now()
+        todo.isChecked = true
+    }
+
+    storageService.saveToStorage(STORAGE_KEY, gNotes)
 }
 
 function updateNote(note, txt) {
     const noteIdx = _getIdxById(note.id)
     gNotes[noteIdx].info.value = txt
-    
+
     storageService.saveToStorage(STORAGE_KEY, gNotes)
     return Promise.resolve()
 }
@@ -98,7 +112,7 @@ function remove(noteId) {
 function onChangeBgColor(noteId, backgroundColor) {
     const noteIdx = _getIdxById(noteId)
 
-    gNotes[noteIdx].style = { ...gNotes[noteIdx].styles, backgroundColor }
+    gNotes[noteIdx].style = { ...gNotes[noteIdx].style, backgroundColor }
 
     storageService.saveToStorage(STORAGE_KEY, gNotes)
     return Promise.resolve();
@@ -107,7 +121,7 @@ function onChangeBgColor(noteId, backgroundColor) {
 function onChangeTxtColor(noteId, color) {
     const noteIdx = _getIdxById(noteId)
 
-    gNotes[noteIdx].style = { ...gNotes[noteIdx].styles, color }
+    gNotes[noteIdx].style = { ...gNotes[noteIdx].style, color }
 
     storageService.saveToStorage(STORAGE_KEY, gNotes)
     return Promise.resolve();
@@ -137,7 +151,8 @@ function _createTodo(txt) {
     return {
         id: utilService.makeId(),
         txt,
-        doneAt: null
+        doneAt: null,
+        isChecked: false
     }
 }
 

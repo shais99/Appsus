@@ -31,10 +31,11 @@ export default class Notes extends React.Component {
     }
     render() {
         const { notes } = this.state
+        const { onDeleteNote, loadNotes, onChangeBgColor, onChangeTxtColor } = this
         return (
-            <main className="main-notes container fade-in"> 
-                <AddNote loadNotes={this.loadNotes} />
-                {notes && <NoteList onDeleteNote={this.onDeleteNote} loadNotes={this.loadNotes} onChangeBgColor={this.onChangeBgColor} onChangeTxtColor={this.onChangeTxtColor} notes={notes}/>}
+            <main className="main-notes container fade-in">
+                <AddNote loadNotes={loadNotes} />
+                {notes && <NoteList onDeleteNote={onDeleteNote} loadNotes={loadNotes} onChangeBgColor={onChangeBgColor} onChangeTxtColor={onChangeTxtColor} notes={notes} />}
             </main>
         )
     }

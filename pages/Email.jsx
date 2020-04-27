@@ -2,7 +2,6 @@ import emailService from "../services/emailService.js"
 import ListEmail from '../cmps/emails/ListEmail.jsx'
 import EmailDetails from '../cmps/emails/EmailDetails.jsx'
 import SendEmail from "../cmps/emails/SendEmail.jsx"
-import { ECANCELED } from "constants"
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 
