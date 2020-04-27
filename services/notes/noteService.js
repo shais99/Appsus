@@ -37,10 +37,10 @@ var gDefaultNotes = [
         type: "NoteTodos",
         isPinned: false,
         info: {
-            label: "How was it:",
+            label: "Things To Do:",
             todos: [
-                { id: utilService.makeId(), txt: "Do that", doneAt: null, isChecked: true },
-                { id: utilService.makeId(), txt: "Do this", doneAt: 187111111, isChecked: false }
+                { id: utilService.makeId(), txt: "Talk With Nevo", doneAt: null, isChecked: true },
+                { id: utilService.makeId(), txt: "Learn Code From Yaron", doneAt: 187111111, isChecked: false }
             ]
         },
         style: {
@@ -54,7 +54,7 @@ var gDefaultNotes = [
         type: "NoteYoutube",
         isPinned: false,
         info: {
-            label: 'THE LABEL VIDEO',
+            label: 'A Song That I Loved',
             value: "https://www.youtube.com/embed/tgbNymZ7vqY"
         },
         style: {
@@ -68,8 +68,8 @@ var gDefaultNotes = [
         type: "NoteAudio",
         isPinned: true,
         info: {
-            label: 'THE LABEL MP3',
-            value: "horse.mp3"
+            label: 'The Appsus (SUS) Sound Is Here',
+            value: "assets/sound/horse.mp3"
         },
         style: {
             backgroundColor: "#ffe06e",
