@@ -65,7 +65,11 @@ function query(filterBy) {
 
     if (filterBy) {
         const emails = gEmails.filter(email => {
-            return (email.name.includes(filterBy) && email.box === currFilter || email.body.includes(filterBy) && email.box === currFilter || email.subject.includes(filterBy) && email.box === currFilter)
+            let name = email.name.toUpperCase()
+            let body = email.body.toUpperCase()
+            let subject = email.subject.toUpperCase()
+            filterBy = filterBy.toUpperCase()
+            return (name.includes(filterBy) && email.box === currFilter || body.includes(filterBy) && email.box === currFilter || subject.includes(filterBy) && email.box === currFilter)
         })
         return emails
     }

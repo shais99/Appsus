@@ -2,6 +2,7 @@ import emailService from "../services/emailService.js"
 import ListEmail from '../cmps/emails/ListEmail.jsx'
 import EmailDetails from '../cmps/emails/EmailDetails.jsx'
 import SendEmail from "../cmps/emails/SendEmail.jsx"
+import UnFinishedEmails from "../cmps/emails/UnFinishedEmails.jsx"
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 
@@ -15,7 +16,10 @@ export default class Email extends React.Component {
         currCmp: 'list',
         isSendEmail: false,
         currTab: 'inbox',
-        unReadAmount: null
+        unReadAmount: null,
+        emailReplay: null,
+        unFinished: 1,
+        // lastEmail: null
     }
     componentDidMount() {
     }
@@ -70,6 +74,7 @@ export default class Email extends React.Component {
         this.setState({ isSendEmail: false })
     }
     sendEmail = (ev, newEmail) => {
+        this.onToggleMailDraft(-1)
         this.isFocusOff()
         ev.preventDefault()
         console.log('creating new email', newEmail)
@@ -97,6 +102,14 @@ export default class Email extends React.Component {
         emailService.toggleIsRead(email)
         this.setState({ isSendEmail: false })
 
+    }
+    onToggleMailDraft = (num) => {
+        this.setState({ unFinished: this.state.unFinished+= num })
+    }
+    onReplay = (ev, emailReplay) => {
+        ev.stopPropagation()
+        this.setState({ emailReplay: emailReplay })
+        this.onToggleCompose()
     }
     render() {
         const { currTab, unReadAmount } = this.state
@@ -130,9 +143,10 @@ export default class Email extends React.Component {
                         </div>
                     </div>
                     <div className="main-email-content">
-                        {this.state.isSendEmail && <SendEmail sendEmail={this.sendEmail}></SendEmail>}
+                    {/* {this.state.unFinished > 0 && <UnFinishedEmails email={this.state.email}></UnFinishedEmails>} */}
+                        {this.state.isSendEmail && <SendEmail replayEmail={this.state.emailReplay} sendEmail={this.sendEmail}></SendEmail>}
                         {this.state.isFocus && !this.state.isSendEmail && <EmailDetails email={this.state.email} isFocusOff={this.isFocusOff}></EmailDetails>}
-                        {!this.state.isFocus && !this.state.isSendEmail && <ListEmail toggleIsRead={this.toggleIsRead} onRemoveEmail={this.onRemoveEmail} toggleStarEmail={this.toggleStarEmail} getEmails={this.getEmails} onSetFilter={this.onSetFilter} isFocus={this.isFocus}></ListEmail>}
+                        {!this.state.isFocus && !this.state.isSendEmail && <ListEmail onReplay={this.onReplay} toggleIsRead={this.toggleIsRead} onRemoveEmail={this.onRemoveEmail} toggleStarEmail={this.toggleStarEmail} getEmails={this.getEmails} onSetFilter={this.onSetFilter} isFocus={this.isFocus}></ListEmail>}
                     </div>
                 </div>
             </section>

@@ -48,11 +48,12 @@ export default class ListEmail extends React.Component {
                     <img className="email-search-img smallerAnim" src="assets/img/search.png" alt=""/>
                     <input className="email-search" type="text" name='search' placeholder="Search" value={search} onChange={this.handleChange} />
                 </form>
-                <div className="emails-list flex wrap fade-in">
+                <div className="emails-list flex column fade-in">
                     {emails.map((email, idx) => {
                         return (
                             <div onClick={() => this.props.isFocus(email)} className={` flex space-between align-center fade-in ${email.isRead ? 'email-isRead' : 'email-card'}`} key={idx}>
-                                <img onClick={(event) => this.toggleStarEmail(event, email)} className="email-card-star biggerAnim" title="Save As Starred" src={`assets/img/${this.isStarred(email)}.png`} alt="" srcSet="" />
+                                 <img onClick={(event) => this.toggleStarEmail(event, email)} className="email-card-star biggerAnim" title="Save As Starred" src={`assets/img/${this.isStarred(email)}.png`} alt="" srcSet="" />
+                                <img onClick={(event) => this.props.onReplay(event, email)} className="email-card-star biggerAnim" title="Replay Email" src={`assets/img/replay.png`} alt="" srcSet="" />
                                 <h2 title="Name" className={`email-card-name ${email.isRead ? 'read-email-lowopcatiy' : ''}`}>{email.name}</h2>
                                 {/* <p className={`email-card-to ${email.isRead ? 'read-email-lowopcatiy' : ''}`}>{email.toEmail}</p> */}
                                 <p title="Subject" className={`email-card-to ${email.isRead ? 'read-email-lowopcatiy' : ''}`} > {email.subject}</p>
