@@ -48,7 +48,7 @@ export default class ListEmail extends React.Component {
                     <img className="email-search-img smallerAnim" src="assets/img/search.png" alt=""/>
                     <input className="email-search" type="text" name='search' placeholder="Search" value={search} onChange={this.handleChange} />
                 </form>
-                <div className="emails-list flex wrap column fade-in">
+                <div className="emails-list flex wrap fade-in">
                     {emails.map((email, idx) => {
                         return (
                             <div onClick={() => this.props.isFocus(email)} className={` flex space-between align-center fade-in ${email.isRead ? 'email-isRead' : 'email-card'}`} key={idx}>

@@ -1,0 +1,158 @@
+/* *** NOTES PAGE *** */
+
+.notes-main-add {
+    background-color: #dbe1e7;
+    padding: 10px;
+}
+
+.add-note-input {
+    width: 23vw;
+    padding: 15px;
+    outline: none;
+    font-family: openSans;
+    border-radius: 5px;
+    border: none;
+    margin-right: 15px;
+}
+
+.add-note-options img {
+    width: 20px;
+    margin-right: 12px;
+    cursor: pointer;
+    opacity: .5;
+    transition: .3s;
+}
+
+.add-note-options img:hover {
+    opacity: 1;
+}
+
+.search-input {
+    width: 17vw;
+    outline: none;
+    font-family: openSans;
+    border-radius: 5px;
+    border: none;
+    padding: 15px;
+}
+
+.note-list {
+    /* column-count: 4; */
+    padding: 10px 0;
+}
+
+.add-note-options .opacity {
+    opacity: 1;
+}
+
+.single-note {
+    background-color: #ffe06e;
+    width: 300px;
+    min-height: 150px;
+    box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.6);
+    margin: 10px;
+    padding: 15px;
+    border-radius: 3px;
+}
+
+.note-img {
+    margin-top: 10px;
+    max-width: 100%;
+    width: 270px;
+}
+
+.note-options {
+    margin-top: 15px;
+}
+
+.note-content {
+    flex-grow: 1;
+}
+
+.note-options img {
+    opacity: .6;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.note-options img:hover {
+    opacity: 1;
+}
+
+.note-options img {
+    width: 18px;
+    margin-right: 15px;
+}
+
+.color-picker {
+    background-color: white;
+    width: 120px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 9999;
+    box-shadow: 0 0 7px 0px rgba(0, 0, 0, 0.75);
+    margin-top: 5px;
+    visibility: hidden;
+    opacity: 0;
+    transition: .4s;
+}
+
+.color-picker label {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-top: 3px;
+    cursor: pointer;
+}
+
+.cp-red {
+    background-color: #fc5c65;
+}
+
+.cp-blue {
+    background-color: #4b7bec;
+}
+
+.cp-turq {
+    background-color: #2bcbba;
+}
+
+.cp-orange {
+    background-color: #fd9644;
+}
+
+.cp-yellow {
+    background-color: #fed330;
+}
+
+.cp-grey {
+    background-color: #778ca3;
+}
+
+.cp-green {
+    background-color: #26de81;
+}
+
+.cp-basic {
+    background-color: #ffe06e;
+}
+
+.cp-black {
+    background-color: #000000;
+}
+
+.cp-right {
+    margin-left: 80px;
+}
+
+.cp-left {
+    margin-left: -50px
+}
+
+.shown {
+    opacity: 1;
+    visibility: visible;
+}
