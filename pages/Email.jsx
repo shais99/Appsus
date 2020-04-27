@@ -145,7 +145,7 @@ export default class Email extends React.Component {
                     <div className="main-email-content">
                     {/* {this.state.unFinished > 0 && <UnFinishedEmails email={this.state.email}></UnFinishedEmails>} */}
                         {this.state.isSendEmail && <SendEmail replayEmail={this.state.emailReplay} sendEmail={this.sendEmail}></SendEmail>}
-                        {this.state.isFocus && !this.state.isSendEmail && <EmailDetails email={this.state.email} isFocusOff={this.isFocusOff}></EmailDetails>}
+                        {this.state.isFocus && !this.state.isSendEmail && <EmailDetails onReplay={this.onReplay} email={this.state.email} onRemoveEmail={this.onRemoveEmail} toggleIsRead={this.toggleIsRead} toggleStarEmail={this.toggleStarEmail} isFocusOff={this.isFocusOff}></EmailDetails>}
                         {!this.state.isFocus && !this.state.isSendEmail && <ListEmail onReplay={this.onReplay} toggleIsRead={this.toggleIsRead} onRemoveEmail={this.onRemoveEmail} toggleStarEmail={this.toggleStarEmail} getEmails={this.getEmails} onSetFilter={this.onSetFilter} isFocus={this.isFocus}></ListEmail>}
                     </div>
                 </div>
