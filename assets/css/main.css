@@ -375,6 +375,7 @@ audio {
     font-size: 0.9rem;
     margin-left: -5vw;
     width: 7vw;
+    text-align: start;
 }
 
 .email-card-msg {
@@ -400,6 +401,7 @@ audio {
     font-size: 0.6rem;
     margin-left: -7vw;
     width: 7vw;
+    text-align: start;
 }
 
 .email-card-date {
