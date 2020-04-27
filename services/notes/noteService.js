@@ -9,12 +9,12 @@ var gDefaultNotes = [
         type: "NoteText",
         isPinned: true,
         info: {
-            label: 'THE LABEL',
-            value: "Fullstack Me Baby!"
+            label: 'Need to remember!',
+            value: "My Girl Friend Birthday - 05/05"
         },
         style: {
             backgroundColor: "#ffe06e",
-            color: 'black'
+            color: 'red'
         },
         createdAt: utilService.getTime()
     },
@@ -23,7 +23,7 @@ var gDefaultNotes = [
         type: "NoteImg",
         isPinned: false,
         info: {
-            label: 'A little puppy :)',
+            label: 'My little puppy :)',
             value: "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg",
         },
         style: {
@@ -39,10 +39,6 @@ var gDefaultNotes = [
         info: {
             label: "How was it:",
             todos: [
-                { id: utilService.makeId(), txt: "Do that", doneAt: null, isChecked: true },
-                { id: utilService.makeId(), txt: "Do this", doneAt: 187111111, isChecked: false }
-            ],
-            value: [
                 { id: utilService.makeId(), txt: "Do that", doneAt: null, isChecked: true },
                 { id: utilService.makeId(), txt: "Do this", doneAt: 187111111, isChecked: false }
             ]
