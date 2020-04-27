@@ -121,16 +121,16 @@ export default class Email extends React.Component {
                             <h2 className="hello-user-header">Hello {emailService.getCurrUser()}</h2>
                         </div>
                         <div onClick={() => this.onToggleCompose('important')} className={` email-send-btn flex even align-center ${currTab === 'compose' ? 'active-tab' : ''}`}>
-                            <img src="../assets/img/googlePlus.png" alt="" />
+                            <img src="assets/img/googlePlus.png" alt="" />
 
                             <p>Compose</p>
                         </div>
                         <div className={`email-send-btn flex even align-center ${currTab === 'star' ? 'active-tab' : ''}`} onClick={() => this.filterByStar()}>
-                            <img src="../assets/img/star.png" alt="" />
+                            <img src="assets/img/star.png" alt="" />
                             <p>Starred</p>
                         </div>
                         <div className={`container-number-pop email-send-btn flex even align-center ${currTab === 'inbox' ? 'active-tab' : ''}`} onClick={() => this.filterByBox('inbox')}>
-                            <img src="../assets/img/inbox.png" alt="" />
+                            <img src="assets/img/inbox.png" alt="" />
                             <h4 className="number-pop flex align-center justify-center" hidden={this.getUnreadAmount() < 1}>{this.getUnreadAmount()}</h4>
                             <p>Inbox</p>
                         </div>
@@ -138,7 +138,7 @@ export default class Email extends React.Component {
 
 
                         <div id="sent" className={`email-send-btn flex even align-center ${currTab === 'sent' ? 'active-tab' : ''}`} onClick={() => this.filterByBox('sent')}>
-                            <img src="../assets/img/sent.png" alt="" />
+                            <img src="assets/img/sent.png" alt="" />
                             <p>Sent</p>
                         </div>
                     </div>
