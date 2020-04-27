@@ -302,12 +302,15 @@
     background-color: #353b48;
     color: white;
     font-size: 1.4rem;
+    height: 55px;
 }
 
 .email-details-date {
     /* margin-left: 0%; */
-    color: rgba(253, 253, 253, 0.856);
+    /* color: rgba(253, 253, 253, 0.856); */
     font-size: 0.9rem;
+    float: right;
+    margin-top: 0px;
 }
 
 .email-details-topinfo img {
@@ -315,12 +318,23 @@
 }
 
 .details-name-toEmail {
-    width: 200px;
+    width: 300px;
 }
 
 .details-name-toEmail>* {
     display: inline-block;
     text-align: start;
+    margin: 2px;
+}
+
+.email-details-subject {
+    border-bottom: 1px solid rgba(199, 197, 197, 0.397);
+}
+
+.email-details-subject:hover {
+    /* box-shadow: 0px 0px 10px 0px rgb(226, 217, 217); */
+    /* background-color: #e7e5e5a2; */
+    border-bottom: 1px solid #45aaf294;
 }
 
 
@@ -382,6 +396,14 @@
 
 
 /* Animtaion Helpers */
+
+.border {
+    border-bottom: 2px solid rgba(199, 197, 197, 0.397);
+}
+
+.border:hover {
+    border-bottom: 2px solid #45aaf294;
+}
 
 .smallerAnim:hover {
     transform: scale(0.91);

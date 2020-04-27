@@ -20,7 +20,9 @@ export default class SendEmail extends React.Component {
 
     componentDidMount() {
         if (this.props.replayEmail) {
-            this.setState({ newEmail: this.props.replayEmail })
+            let email = this.props.replayEmail
+            email.subject = 'Re: ' + this.props.replayEmail.subject
+            this.setState({ newEmail: email})
         }
     }
 
@@ -29,7 +31,7 @@ export default class SendEmail extends React.Component {
         const value = (target.type === 'number') ? parseInt(target.value) : target.value
         this.setState(prevState => ({ newEmail: { ...prevState.newEmail, [field]: value } }))
     }
-    
+
 
     render() {
         var email = this.state.newEmail
