@@ -164,7 +164,7 @@ audio {
     padding: 4px 10px;
     border-radius: 5px;
     position: absolute;
-    z-index: 99;
+    z-index: 9999;
     box-shadow: 0 0 7px 0px rgba(0, 0, 0, 0.75);
     margin-top: 5px;
     visibility: hidden;
@@ -216,6 +216,14 @@ audio {
 
 .cp-black {
     background-color: #000000;
+}
+
+.cp-right {
+    margin-left: 80px;
+}
+
+.cp-left {
+    margin-left: -50px
 }
 
 .shown {

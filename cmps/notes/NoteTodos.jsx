@@ -3,12 +3,11 @@ import TodoList from './TodoList.jsx'
 export default class NoteTodos extends React.Component {
 
     render() {
-        
-        const { todo } = this.props
-        
+        const { todo, loadNotes } = this.props
+
         return (
             <React.Fragment>
-                <TodoList todo={todo} />
+                <TodoList todo={todo} loadNotes={loadNotes}  />
             </React.Fragment>
         )
     }
