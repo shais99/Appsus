@@ -14,6 +14,9 @@ export default class NotePreview extends React.Component {
     onUpdateNote = (note, txt) => {
         noteService.updateNote(note, txt)
     }
+    onUpdateTodo = (note, todoId, txt) => {
+        noteService.updateTodo(note, todoId, txt)
+    }
     get noteToRender() {
         const { note, type } = this.props
 
@@ -27,13 +30,21 @@ export default class NotePreview extends React.Component {
             case 'NoteAudio':
                 return <NoteAudio note={note} />
             case 'NoteTodos':
-                return <NoteTodos todo={note} loadNotes={this.props.loadNotes} />
+                return <NoteTodos todo={note} updateTodo={this.onUpdateTodo} loadNotes={this.props.loadNotes} />
         }
+    }
+    onPinNote = (noteId) => {
+        noteService.pinNote(noteId)
+        this.props.loadNotes()
+    }
+    isPinned = (noteId) => {
+        return noteService.isPinned(noteId)
     }
     render() {
         const { note, onDeleteNote, onChangeBgColor, onChangeTxtColor } = this.props
         return (
             <article className="single-note flex column" style={note.style}>
+                <p>{this.isPinned(note.id)}</p>
                 <div className="note-content">
                     {this.noteToRender}
                 </div>
@@ -44,6 +55,7 @@ export default class NotePreview extends React.Component {
 
                     <img onClick={() => { this.setState(prevState => { return { isBgColorPicker: !prevState.isBgColorPicker } }) }} src="../assets/img/paint.png" alt="" />
                     <img onClick={() => { this.setState(prevState => { return { isTxtColorPicker: !prevState.isTxtColorPicker } }) }} src="../assets/img/font.png" alt="" />
+                    <img src="../../assets/img/pin.png" onClick={() => this.onPinNote(note.id)} alt="" />
 
                     <div className={`color-picker cp-left ${this.state.isBgColorPicker ? 'shown' : ''}`}>
                         <label className="cp-red" onClick={() => onChangeBgColor(note.id, '#fc5c65')}></label>
