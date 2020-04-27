@@ -57,11 +57,11 @@ export default class NotePreview extends React.Component {
 
                 <span className="note-created">{note.createdAt}</span>
                 <div className="note-options">
-                    <img src="assets/img/delete.png" onClick={() => onDeleteNote(note.id)} alt="" />
+                    <img src="assets/img/delete.png" title="Delete Note" onClick={() => onDeleteNote(note.id)} alt="" />
 
-                    <img onClick={() => { this.setState(prevState => { return { isBgColorPicker: !prevState.isBgColorPicker } }) }} src="assets/img/paint.png" alt="" />
-                    <img onClick={() => { this.setState(prevState => { return { isTxtColorPicker: !prevState.isTxtColorPicker } }) }} src="assets/img/font.png" alt="" />
-                    <img src="assets/img/pin.png" onClick={() => this.onPinNote(note.id)} alt="" />
+                    <img onClick={() => { this.setState(prevState => { return { isBgColorPicker: !prevState.isBgColorPicker } }) }} src="assets/img/paint.png" title="Change Note Color" alt="" />
+                    <img onClick={() => { this.setState(prevState => { return { isTxtColorPicker: !prevState.isTxtColorPicker } }) }} title="Change Note Text Color" src="assets/img/font.png" alt="" />
+                    <img src="assets/img/pin.png" title="Pin Note" onClick={() => this.onPinNote(note.id)} alt="" />
 
                     <ColorPicker mainClass='cp-left' isShown={this.state.isBgColorPicker} onChange={onChangeBgColor} noteId={note.id} />
                     <ColorPicker mainClass='cp-right' isShown={this.state.isTxtColorPicker} onChange={onChangeTxtColor} noteId={note.id} />
