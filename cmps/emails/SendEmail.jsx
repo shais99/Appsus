@@ -6,6 +6,7 @@ export default class SendEmail extends React.Component {
             name: null,
             body: null,
             toEmail: null,
+            subject: null,
 
 
         },
@@ -24,14 +25,15 @@ export default class SendEmail extends React.Component {
         // const { filterBy, search } = this.state
         var email = this.state.newEmail
         return (<section className="email-form-content fade-in">
-            <p>IM HERE</p>
 
+            <h3>New Message</h3>
             <form onSubmit={(event) => this.props.sendEmail(event, email)} className="email-form-container flex column">
-                <input className="sendmail-input-form" type="text" name='name' placeholder="Enter Your Name!" onChange={this.handleChange} />
+                <input className="sendmail-input-form" type="text" name='name' placeholder="Name" onChange={this.handleChange} />
                 <input className="sendmail-input-form" type="text" name='toEmail' placeholder="Recipients Address" onChange={this.handleChange} />
+                <input className="sendmail-input-form" type="text" name='subject' placeholder="Subject" onChange={this.handleChange} />
                 <textarea id="" rows="4" cols="30" maxLength="100" name="body" placeholder="Share Your Thoughts" onChange={this.handleChange}>
                 </textarea>
-                <input className="btn-form" type="submit" />
+                <button className="btn-form" type="submit">Submit</button>
             </form>
             {/* 
             <div className="email-card-details column flex space-between align-center" key={'fuck this'}>

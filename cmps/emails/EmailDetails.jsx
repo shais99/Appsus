@@ -23,17 +23,17 @@ componentWillMount(){
 
             <div className="email-card-details column flex space-between align-center fade-in" key={'fuck this'}>
 
-                <div className="email-preview-topinfo flex ">
+                <div className="email-details-topinfo flex ">
 
-                <p className="email-preview-name">{email.name}</p>
-                <p className="email-preview-to" >{email.toEmail}</p>
-                <p className="email-preview-date" >{email.date}</p>
+                <p className="email-details-name">{email.name}</p>
+                <p className="email-details-to" >{email.toEmail}</p>
+                <p className="email-details-date" >{email.date}</p>
                 </div>
-                <div className="email-preview-body">
-                <p className="email-preview-msg" > {email.body}</p>
+                <div className="email-details-body">
+                <p className="email-details-msg" > {email.body}</p>
 
                 </div>
-                <button onClick={this.props.isFocusOff}>Back</button>
+                <button className="email-details-back" onClick={this.props.isFocusOff}>Back</button>
             </div>
 
 

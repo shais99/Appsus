@@ -15,25 +15,38 @@ import utilService from './utilService.js'
 
 var gCurrUser = 'Abir Nadav'
 const gEmails = []
-createEmail('Abir', 'sha423i22w', 'abi23434rw', false, 'sent')
-createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox')
-createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox')
-createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox')
-createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox')
-createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox')
-createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox')
-createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox')
-createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox')
-createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox')
-createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox')
-createEmail('abi34rw', 'gogo', 'gogogo', true, 'sent')
+createEmail('Abir', 'sha423i22w', 'abi23434rw', false, 'sent', 'icecream')
+createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox', 'pepers')
+createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox', 'IM AWEOSOME')
+createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox', 'IM AWEOSOME')
+createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox', 'IM SOME')
+createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox', 'IM AWEOSOME')
+createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox', 'IM AWEOSOME')
+createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox', 'IM AWE')
+createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox', 'IM AWEOSOME')
+createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox', 'IM AWEOSOME')
+createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox', 'IM AWEOSOME')
+createEmail('abi34rw', 'gogo', 'gogogo', true, 'sent', 'IM AWEOSOME')
+createEmail('Abir', 'sha423i22w', 'abi23434rw', false, 'sent', 'icecream')
+createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox', 'pepers')
+createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox', 'IM AWEOSOME')
+createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox', 'IM AWEOSOME')
+createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox', 'IM SOME')
+createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox', 'IM AWEOSOME')
+createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox', 'IM AWEOSOME')
+createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox', 'IM AWE')
+createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox', 'IM AWEOSOME')
+createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox', 'IM AWEOSOME')
+createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox', 'IM AWEOSOME')
+createEmail('abi34rw', 'gogo', 'gogogo', true, 'sent', 'IM AWEOSOME')
 
-function createEmail(name, to, body, isFocus, box) {
+function createEmail(name, to, body, isFocus, box, subject) {
     var email = {
         id: utilService.makeId(),
         name,
         toEmail: to,
         body,
+        subject,
         date: utilService.getTime(),
         isSent: null,
         isRead: false,
@@ -52,7 +65,7 @@ function query(filterBy) {
 
     if (filterBy) {
         const emails = gEmails.filter(email => {
-            return (email.name.includes(filterBy) && email.box === currFilter || email.body.includes(filterBy) && email.box === currFilter)
+            return (email.name.includes(filterBy) && email.box === currFilter || email.body.includes(filterBy) && email.box === currFilter || email.subject.includes(filterBy) && email.box === currFilter)
         })
         return emails
     }

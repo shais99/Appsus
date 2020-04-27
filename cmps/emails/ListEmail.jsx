@@ -55,6 +55,7 @@ export default class ListEmail extends React.Component {
                                 <img onClick={(event) => this.toggleStarEmail(event, email)} className="email-card-star biggerAnim" src={`assets/img/${this.isStarred(email)}.png`} alt="" srcSet="" />
                                 <h2 className={`email-card-name ${email.isRead ? 'read-email-lowopcatiy' : ''}`}>{email.name}</h2>
                                 <p className={`email-card-to ${email.isRead ? 'read-email-lowopcatiy' : ''}`}>{email.toEmail}</p>
+                                <p className={`email-card-to ${email.isRead ? 'read-email-lowopcatiy' : ''}`} > {email.subject}</p>
                                 <p className={`email-card-msg ${email.isRead ? 'read-email-lowopcatiy' : ''}`} >{email.body}</p>
                                 <p className={`email-card-date ${email.isRead ? 'read-email-lowopcatiy' : ''}`} > {email.date}</p>
                                 <div className="email-list-btns">
