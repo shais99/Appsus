@@ -5,14 +5,25 @@ export default {
     filterByBox,
     toggleStarEmail,
     filterByStar,
-    createEmail
+    createEmail,
+    getUnreadAmount,
+    getCurrUser,
+    toggleIsRead
 }
 
 import utilService from './utilService.js'
 
-
+var gCurrUser = 'Abir Nadav'
 const gEmails = []
 createEmail('Abir', 'sha423i22w', 'abi23434rw', false, 'sent')
+createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox')
+createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox')
+createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox')
+createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox')
+createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox')
+createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox')
+createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox')
+createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox')
 createEmail('Shai', 'sha423i22w', 'abi23434rw', false, 'inbox')
 createEmail('abi34rw', 'sha423i22w', 'abi23434rw', false, 'inbox')
 createEmail('abi34rw', 'gogo', 'gogogo', true, 'sent')
@@ -37,7 +48,7 @@ var currFilter = 'inbox'
 
 function query(filterBy) {
     console.log("currFilter", currFilter)
-
+    sortEmails()
 
     if (filterBy) {
         const emails = gEmails.filter(email => {
@@ -54,7 +65,18 @@ function toggleStarEmail(email) {
     email.isStarred = true
 }
 
+function sortEmails() {
+    gEmails.sort(function(a, b) { return a.isRead - b.isRead });
+}
+
+
+function toggleIsRead(email) {
+    if (email.isRead) return email.isRead = false
+    return email.isRead = true
+}
+
 function filterByBox(filterBy) {
+    sortEmails()
     currFilter = filterBy
     if (filterBy) {
         const emails = gEmails.filter(email => {
@@ -68,7 +90,18 @@ function filterByBox(filterBy) {
 
 }
 
+function getUnreadAmount() {
+    var unReadNum = 0
+    gEmails.forEach(mail => {
+
+        if (!mail.isRead && mail.box === 'inbox') unReadNum++
+    })
+    console.log('unread Number ', unReadNum)
+    return unReadNum
+}
+
 function filterByStar() {
+
     const emails = gEmails.filter(email => {
         console.log('email body', email.body)
         if (email.isStarred) return true
@@ -95,4 +128,8 @@ function getById(emailId) {
 
 function _getIdxById(emailId) {
     return gEmails.findIndex(email => email.id === emailId)
+}
+
+function getCurrUser() {
+    return gCurrUser
 }

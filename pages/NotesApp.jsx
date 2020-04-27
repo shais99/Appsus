@@ -32,7 +32,7 @@ export default class Notes extends React.Component {
     render() {
         const { notes } = this.state
         return (
-            <main className="main-notes container">
+            <main className="main-notes container fade-in"> 
                 <AddNote loadNotes={this.loadNotes} />
                 {notes && <NoteList onDeleteNote={this.onDeleteNote} loadNotes={this.loadNotes} onChangeBgColor={this.onChangeBgColor} onChangeTxtColor={this.onChangeTxtColor} notes={notes}/>}
             </main>

@@ -8,8 +8,12 @@ export default class EmailDetails extends React.Component {
             search: ''
         }
     }
+componentWillMount(){
+    // this.props.email.isRead = true
 
+}
     componentDidMount() {
+        // this.props.email.isRead = true
     }
 
     render() {
@@ -17,12 +21,12 @@ export default class EmailDetails extends React.Component {
         var email = this.props.email
         return (
 
-            <div className="email-card-details column flex space-between align-center" key={'fuck this'}>
+            <div className="email-card-details column flex space-between align-center fade-in" key={'fuck this'}>
 
                 <div className="email-preview-topinfo flex ">
 
                 <p className="email-preview-name">{email.name}</p>
-                <p className="email-preview-to" >{email.to}</p>
+                <p className="email-preview-to" >{email.toEmail}</p>
                 <p className="email-preview-date" >{email.date}</p>
                 </div>
                 <div className="email-preview-body">

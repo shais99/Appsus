@@ -23,7 +23,7 @@ export class App extends React.Component {
                         </div>
                         <NavBar />
                     </header>
-                    <main>
+                    <main className="fade-in">
                         <Switch>
                             <Route component={Books} path="/books" />
                             <Route component={Notes} path="/notes" />

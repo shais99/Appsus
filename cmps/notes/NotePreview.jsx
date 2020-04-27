@@ -33,7 +33,7 @@ export default class NotePreview extends React.Component {
     render() {
         const { note, onDeleteNote, onChangeBgColor, onChangeTxtColor } = this.props
         return (
-            <article className="single-note flex column" style={note.style}>
+            <article className="single-note flex column fade-in" style={note.style}>
                 <div className="note-content">
                     {this.noteToRender}
                 </div>

@@ -61,7 +61,7 @@ export default class AddNote extends React.Component {
                     <input type="text" name="noteValue" onChange={this.handleInput} className="add-note-input" placeholder={placeHolderValue} />
                 </form>
 
-                <div className="add-note-options flex align-center">
+                <div className="add-note-options flex align-center ">
                     <img src="../assets/img/font.png" className={`note-text ${currType === typesMap.txt ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.txt) }} alt="" />
                     <img src="../assets/img/img.png" className={`note-img ${currType === typesMap.img ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.img) }} alt="" />
                     <img src="../assets/img/youtube.png" className={`note-youtube ${currType === typesMap.youtube ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.youtube) }} alt="" />

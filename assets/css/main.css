@@ -277,11 +277,19 @@ audio {
 
 /* // Email Styles */
 
+.email-search-img {
+    width: 40px;
+}
+
 .email-main-content {
     width: 100vw;
     min-height: 70vh;
-    background-color: grey;
+    background-color: #d1d8e0;
     margin: 0 auto;
+}
+
+.main-email-content {
+    background-color: #ffffff;
 }
 
 .emails-list {
@@ -299,19 +307,19 @@ audio {
 
 .email-card {
     width: 100%;
-    background-color: rgba(197, 197, 197, 0.726);
+    background-color: #ffffffa2;
     margin-bottom: 0.7rem;
     border-radius: 20px;
     height: 5vh;
     padding-left: 10px;
     padding-right: 10px;
     border: 1px solid rgba(255, 255, 255, 0.253);
-    box-shadow: 0px 0px 26px 5px rgba(221, 218, 218, 0.425);
+    box-shadow: 0px 0px 10px 0px rgb(228, 224, 224);
 }
 
 .email-search {
     height: 5vh;
-    background-color: rgba(128, 128, 128, 0.24);
+    background-color: rgba(128, 128, 128, 0.068);
     border-radius: 20px;
     text-align: center;
     color: black;
@@ -321,19 +329,35 @@ audio {
     user-select: none;
     outline: none;
     border: none;
+    border: 1px solid rgba(255, 255, 255, 0.623);
+    /* box-shadow: 0px 0px 26px 5px rgba(165, 166, 167, 0.158); */
+}
+
+.email-search:focus {
+    background-color: rgba(163, 215, 245, 0.205);
 }
 
 .email-card>* {
     display: inline-block;
 }
 
+.email-card-name {
+    color: rgba(35, 8, 185, 0.473);
+    font-size: 0.7rem;
+}
+
+.email-card-to {
+    color: rgba(35, 8, 185, 0.473);
+    font-size: 0.7rem;
+}
+
 .email-card-date {
-    color: rgba(231, 225, 225, 0.473);
+    color: rgba(160, 154, 154, 0.712);
     font-size: 0.7rem;
 }
 
 .email-content {
-    background-color: #d1d8e0;
+    background-color: #ffffff;
     text-align: center;
     min-height: 85vh;
 }
@@ -383,6 +407,10 @@ audio {
 
 /* // EMail Details */
 
+.email-list-btns>* {
+    margin-left: 0.7rem;
+}
+
 .email-card-details {
     background-color: #d1d8e0;
     width: 90vw;
@@ -429,15 +457,22 @@ audio {
 
 /* // email box side nav  */
 
+.hello-user-header {
+    font-size: 1.1rem;
+    padding-top: 26px;
+    padding-bottom: 26px;
+}
+
 .email-send-btn {
     border-radius: 0px 0px 10px 10px;
     font-size: 1rem;
-    box-shadow: 0px 6px 26px 5px rgba(22, 22, 22, 0.082);
 }
 
+.email-send-btn:hover {}
+
 .email-send-btn img {
-    width: 3vw;
-    height: 3vw;
+    width: 2.5vw;
+    height: 2.5vw;
 }
 
 .email-send-btn img:hover {
@@ -445,20 +480,30 @@ audio {
 }
 
 .box-side-nav {
-    width: 15vw;
+    display: inline-block;
     height: 90vh;
+    width: 15vw;
+    min-width: 160px;
     font-size: 1.6rem;
     color: rgba(0, 0, 0, 0.637);
     border-right: 1px solid rgba(0, 0, 0, 0.233);
+    border-top: 1px solid rgba(0, 0, 0, 0.233);
+    background-color: #ffffff;
 }
 
 .box-side-nav>* {
     border-bottom: 1px solid rgba(0, 0, 0, 0.233);
     cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.box-side-nav p {
+    width: 5vw;
 }
 
 .active-tab {
-    background-color: white;
+    background-color: rgba(0, 17, 255, 0.644);
 }
 
 
@@ -470,4 +515,39 @@ audio {
 
 .biggerAnim:hover {
     transform: scale(1.1);
+}
+
+.container-number-pop {
+    position: relative;
+}
+
+.number-pop {
+    float: left;
+    position: absolute;
+    left: 2vw;
+    top: 0px;
+    color: white;
+    background-color: #eb2f06;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.fade-in {
+    animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.read-email-lowopcatiy {
+    color: rgba(128, 128, 128, 0.781);
+    font-weight: lighter;
+    opacity: 0.5;
 }
