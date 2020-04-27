@@ -61,21 +61,22 @@
 
 .email-card {
     color: black;
-    width: 100%;
     background-color: #ffffffa2;
     margin-bottom: 0.7rem;
     border-radius: 15px;
     height: 5vh;
     padding-left: 10px;
     padding-right: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.253);
-    box-shadow: 0px 0px 10px 0px rgb(228, 224, 224);
+    /* border: 1px solid rgba(255, 255, 255, 0.253); */
+    /* box-shadow: 0px 0px 5px 0px rgba(209, 207, 207, 0.623); */
+    border-bottom: 2px solid rgba(199, 197, 197, 0.397);
     cursor: pointer;
 }
 
 .email-card:hover {
-    box-shadow: 0px 0px 10px 0px rgb(226, 217, 217);
-    background-color: #e7e5e5a2;
+    /* box-shadow: 0px 0px 10px 0px rgb(226, 217, 217); */
+    /* background-color: #e7e5e5a2; */
+    border-bottom: 2px solid #45aaf294;
 }
 
 .email-isRead {
@@ -189,15 +190,16 @@
 .btn-form {
     background-color: #00a8ff;
     padding: 0px;
-    padding: 0.5rem;
-    width: 15vw;
+    padding: 15px 30px;
     margin: 0 auto;
-    border-radius: 20px;
+    border-radius: 10px;
     border: none;
     box-shadow: 0px 0px 4px 1px rgba(133, 133, 133, 0.534);
     text-align: center;
-    font-size: 2rem;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.726);
+    text-transform: uppercase;
+    outline: none;
 }
 
 .email-form-container textarea {
@@ -208,6 +210,7 @@
     border: 1px solid rgba(0, 0, 0, 0.233);
     border-radius: 10px;
     outline: none;
+    padding: 10px;
 }
 
 .email-form-container textarea:focus {
@@ -226,6 +229,10 @@
 
 
 /* // EMail Details */
+
+.email-details-right-btns>* {
+    margin-right: 20px;
+}
 
 .email-details-back {
     background-color: #00aaff9d;
@@ -250,14 +257,15 @@
 
 .email-card-details {
     background-color: #ffffff;
-    width: 90vw;
+    width: 80vw;
     height: 70vh;
+    margin: 0 auto;
 }
 
 .email-details-name {
     font-size: 1.3rem;
-    color: grey;
-    margin-left: 10px;
+    color: rgb(255, 254, 254);
+    margin-left: 20px;
 }
 
 .email-details-body {
@@ -279,7 +287,12 @@
     box-shadow: 0 0 1pt 1pt #00aaff28;
 }
 
-.email-details-body {}
+.email-details-to {
+    font-size: 1rem;
+    color: grey;
+    margin-left: 20px;
+    padding: 5px;
+}
 
 .email-details-topinfo {
     width: 90%;
@@ -291,9 +304,22 @@
 }
 
 .email-details-date {
-    margin-left: 60%;
-    color: rgba(231, 225, 225, 0.473);
-    font-size: 1rem;
+    /* margin-left: 0%; */
+    color: rgba(253, 253, 253, 0.856);
+    font-size: 0.9rem;
+}
+
+.email-details-topinfo img {
+    width: 30px;
+}
+
+.details-name-toEmail {
+    width: 200px;
+}
+
+.details-name-toEmail>* {
+    display: inline-block;
+    text-align: start;
 }
 
 
