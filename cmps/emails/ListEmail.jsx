@@ -51,7 +51,7 @@ export default class ListEmail extends React.Component {
                 <div className="emails-list flex wrap column fade-in">
                     {emails.map((email, idx) => {
                         return (
-                            <div onClick={() => this.props.isFocus(email)} className="email-card flex space-between align-center fade-in" key={idx}>
+                            <div onClick={() => this.props.isFocus(email)} className={` flex space-between align-center fade-in ${email.isRead ? 'email-isRead' : 'email-card'}`} key={idx}>
                                 <img onClick={(event) => this.toggleStarEmail(event, email)} className="email-card-star biggerAnim" src={`assets/img/${this.isStarred(email)}.png`} alt="" srcSet="" />
                                 <h2 className={`email-card-name ${email.isRead ? 'read-email-lowopcatiy' : ''}`}>{email.name}</h2>
                                 <p className={`email-card-to ${email.isRead ? 'read-email-lowopcatiy' : ''}`}>{email.toEmail}</p>

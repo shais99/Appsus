@@ -95,7 +95,6 @@ function filterByBox(filterBy) {
         const emails = gEmails.filter(email => {
             // if (email.box === filterBy) return true
             return email.box === filterBy
-
         })
         console.log("filterByBox -> emails", emails)
         return emails
