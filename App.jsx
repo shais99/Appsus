@@ -6,6 +6,7 @@ import Home from './pages/Home.jsx'
 import Books from './pages/Books.jsx'
 import Notes from './pages/NotesApp.jsx'
 import Email from './pages/Email.jsx'
+import UserMsg from './cmps/UserMsg.jsx'
 import { NavBar } from './cmps/NavBar.jsx'
 
 export class App extends React.Component {
@@ -31,8 +32,8 @@ export class App extends React.Component {
                             <Route component={Home} path="/" />
                         </Switch>
                     </main>
-
                 </div>
+                <UserMsg />
             </Router>
         )
     }

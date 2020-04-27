@@ -15,7 +15,8 @@ var gDefaultNotes = [
         style: {
             backgroundColor: "#ffe06e",
             color: 'black'
-        }
+        },
+        createdAt: utilService.getTime()
     },
     {
         id: utilService.makeId(),
@@ -28,7 +29,8 @@ var gDefaultNotes = [
         style: {
             backgroundColor: "#20bf6b",
             color: 'black'
-        }
+        },
+        createdAt: utilService.getTime()
     },
     {
         id: utilService.makeId(),
@@ -48,7 +50,8 @@ var gDefaultNotes = [
         style: {
             backgroundColor: "#ffe06e",
             color: 'black'
-        }
+        },
+        createdAt: utilService.getTime()
     },
     {
         id: utilService.makeId(),
@@ -61,7 +64,8 @@ var gDefaultNotes = [
         style: {
             backgroundColor: "#20bf6b",
             color: 'black'
-        }
+        },
+        createdAt: utilService.getTime()
     },
     {
         id: utilService.makeId(),
@@ -74,7 +78,8 @@ var gDefaultNotes = [
         style: {
             backgroundColor: "#ffe06e",
             color: 'black'
-        }
+        },
+        createdAt: utilService.getTime()
     },
 
 ]
@@ -228,7 +233,8 @@ function _createNote(note, type) {
         info: {
             label: 'New Note Title',
             value: note.value
-        }
+        },
+        createdAt: utilService.getTime()
     }
 }
 

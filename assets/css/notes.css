@@ -129,6 +129,11 @@
     margin-right: 15px;
 }
 
+.note-created {
+    font-size: .7rem;
+    color: rgba(0, 0, 0, 0.555);
+}
+
 .color-picker {
     background-color: white;
     width: 120px;

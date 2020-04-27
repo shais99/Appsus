@@ -1,4 +1,5 @@
 import noteService from "../../services/notes/noteService.js"
+import { eventBus } from '../../services/eventBusService.js'
 
 export default class AddNote extends React.Component {
     typesMap = {
@@ -13,14 +14,12 @@ export default class AddNote extends React.Component {
         note: {
             value: null,
         },
-        placeHolderValue: 'Type Some Text...'
     }
     onChangeType = (type) => {
         this.setState({ currType: type })
-        this.setState({ placeHolderValue: this.getPlaceHolderValue(type) })
     }
-    getPlaceHolderValue(type) {
-        switch (type) {
+    get placeHolderValue() {
+        switch (this.state.currType) {
             case 'NoteText':
                 return 'Type Some text...'
             case 'NoteImg':
@@ -48,25 +47,26 @@ export default class AddNote extends React.Component {
     onAddNote = (ev) => {
         ev.preventDefault()
         const { note, currType } = this.state
-
         noteService.addNote(note, currType)
         this.props.loadNotes()
+
+        eventBus.emit('show-msg', { txt: 'Note Added Successfully!' })
     }
     render() {
-        const { currType, placeHolderValue } = this.state
+        const { currType } = this.state
         const { typesMap } = this
         return (
             <div className="flex">
                 <form onSubmit={this.onAddNote}>
-                    <input type="text" name="noteValue" onChange={this.handleInput} className="add-note-input" placeholder={placeHolderValue} />
+                    <input type="text" autoComplete="off" name="noteValue" onChange={this.handleInput} className="add-note-input" placeholder={this.placeHolderValue} />
                 </form>
 
                 <div className="add-note-options flex align-center">
-                    <img src="../../assets/img/font.png" className={`note-text ${currType === typesMap.txt ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.txt) }} alt="" />
-                    <img src="../../assets/img/img.png" className={`note-img ${currType === typesMap.img ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.img) }} alt="" />
-                    <img src="../../assets/img/youtube.png" className={`note-youtube ${currType === typesMap.youtube ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.youtube) }} alt="" />
-                    <img src="../../assets/img/speaker.png" className={`note-audio ${currType === typesMap.audio ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.audio) }} alt="" />
-                    <img src="../../assets/img/list.png" className={`note-todos ${currType === typesMap.todos ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.todos) }} alt="" />
+                    <img src="assets/img/font.png" className={`note-text ${currType === typesMap.txt ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.txt) }} alt="" />
+                    <img src="assets/img/img.png" className={`note-img ${currType === typesMap.img ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.img) }} alt="" />
+                    <img src="assets/img/youtube.png" className={`note-youtube ${currType === typesMap.youtube ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.youtube) }} alt="" />
+                    <img src="assets/img/speaker.png" className={`note-audio ${currType === typesMap.audio ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.audio) }} alt="" />
+                    <img src="assets/img/list.png" className={`note-todos ${currType === typesMap.todos ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.todos) }} alt="" />
                 </div>
             </div>
         )
