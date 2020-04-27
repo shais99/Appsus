@@ -17,7 +17,7 @@ export default class AddNote extends React.Component {
     }
     onChangeType = (type) => {
         this.setState({ currType: type })
-        this.setState({ placeHolderValue: this.getPlaceHolderValue(type)})
+        this.setState({ placeHolderValue: this.getPlaceHolderValue(type) })
     }
     getPlaceHolderValue(type) {
         switch (type) {
@@ -56,7 +56,7 @@ export default class AddNote extends React.Component {
         const { currType, placeHolderValue } = this.state
         const { typesMap } = this
         return (
-            <div className="notes-main-add flex justify-center">
+            <div className="flex">
                 <form onSubmit={this.onAddNote}>
                     <input type="text" name="noteValue" onChange={this.handleInput} className="add-note-input" placeholder={placeHolderValue} />
                 </form>

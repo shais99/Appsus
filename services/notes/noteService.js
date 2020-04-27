@@ -38,6 +38,10 @@ var gDefaultNotes = [
             todos: [
                 { id: utilService.makeId(), txt: "Do that", doneAt: null, isChecked: true },
                 { id: utilService.makeId(), txt: "Do this", doneAt: 187111111, isChecked: false }
+            ],
+            value: [
+                { id: utilService.makeId(), txt: "Do that", doneAt: null, isChecked: true },
+                { id: utilService.makeId(), txt: "Do this", doneAt: 187111111, isChecked: false }
             ]
         },
         style: {
@@ -112,9 +116,6 @@ function todoChecked(todo) {
 }
 
 function updateTodo(note, todoId, txt) {
-    console.log('note', note);
-    console.log('todoId', todoId);
-    console.log('txt', txt);
     const todoIdx = getTodoIdxById(todoId, note.info.todos)
     note.info.todos[todoIdx].txt = txt
     storageService.saveToStorage(STORAGE_KEY, gNotes)
@@ -196,7 +197,8 @@ function _createTodoNote(todos) {
         isPinned: false,
         info: {
             label: "New Todo",
-            todos
+            todos,
+            value: todos
         }
     }
 }
@@ -212,9 +214,14 @@ function _createNote(note, type) {
     }
 }
 
-function query() {
+function query(searchBy) {
     _sortByPinned()
     var notes = gNotes;
+    if (searchBy) {
+        notes = gNotes.filter(note => {
+            return note.info.value.includes(searchBy.searchBy.toLowerCase())
+        })
+    }
     return Promise.resolve(notes);
 }
 
@@ -232,6 +239,6 @@ function _sortByPinned() {
     gNotes.sort(function (firstNote, secondNote) { return secondNote.isPinned - firstNote.isPinned });
 }
 
-function _getTodos() {
-    return gNotes.find(note => note.type === 'NoteTodo')
-}
+// function _getTodos() {
+//     return gNotes.find(note => note.type === 'NoteTodo')
+// }
