@@ -321,6 +321,7 @@ audio {
 }
 
 .email-card {
+    color: black;
     width: 100%;
     background-color: #ffffffa2;
     margin-bottom: 0.7rem;
@@ -371,28 +372,34 @@ audio {
 }
 
 .email-card-name {
-    color: rgba(35, 8, 185, 0.473);
-    font-size: 0.7rem;
-    margin-left: -3vw;
+    font-size: 0.9rem;
+    margin-left: -5vw;
+    width: 7vw;
 }
 
 .email-card-msg {
     font-style: italic;
-    color: rgba(160, 154, 154, 0.712);
-    font-size: 0.7rem;
-    max-width: 10vw;
-    display: block;
-    /* or inline-block */
-    text-overflow: ellipsis;
-    word-wrap: break-word;
+    color: rgba(3, 3, 3, 0.87);
+    font-weight: bold;
+    font-size: 0.8rem;
+    max-width: 30vw;
+    min-width: 30vw;
+    display: inline-block;
     overflow: hidden;
     max-height: 3.6em;
     line-height: 1.8em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 30vw;
+    text-align: start;
 }
 
 .email-card-to {
-    color: rgba(35, 8, 185, 0.473);
-    font-size: 0.7rem;
+    color: rgba(121, 121, 124, 0.473);
+    font-size: 0.6rem;
+    margin-left: -7vw;
+    width: 7vw;
 }
 
 .email-card-date {
@@ -564,6 +571,7 @@ audio {
     font-size: 1.1rem;
     padding-top: 26px;
     padding-bottom: 26px;
+    cursor: auto;
 }
 
 .email-send-btn {

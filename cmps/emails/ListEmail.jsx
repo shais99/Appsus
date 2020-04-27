@@ -52,15 +52,15 @@ export default class ListEmail extends React.Component {
                     {emails.map((email, idx) => {
                         return (
                             <div onClick={() => this.props.isFocus(email)} className={` flex space-between align-center fade-in ${email.isRead ? 'email-isRead' : 'email-card'}`} key={idx}>
-                                <img onClick={(event) => this.toggleStarEmail(event, email)} className="email-card-star biggerAnim" src={`assets/img/${this.isStarred(email)}.png`} alt="" srcSet="" />
-                                <h2 className={`email-card-name ${email.isRead ? 'read-email-lowopcatiy' : ''}`}>{email.name}</h2>
-                                <p className={`email-card-to ${email.isRead ? 'read-email-lowopcatiy' : ''}`}>{email.toEmail}</p>
-                                <p className={`email-card-to ${email.isRead ? 'read-email-lowopcatiy' : ''}`} > {email.subject}</p>
-                                <p className={`email-card-msg ${email.isRead ? 'read-email-lowopcatiy' : ''}`} >{email.body}</p>
-                                <p className={`email-card-date ${email.isRead ? 'read-email-lowopcatiy' : ''}`} > {email.date}</p>
+                                <img onClick={(event) => this.toggleStarEmail(event, email)} className="email-card-star biggerAnim" title="Save As Starred" src={`assets/img/${this.isStarred(email)}.png`} alt="" srcSet="" />
+                                <h2 title="Name" className={`email-card-name ${email.isRead ? 'read-email-lowopcatiy' : ''}`}>{email.name}</h2>
+                                {/* <p className={`email-card-to ${email.isRead ? 'read-email-lowopcatiy' : ''}`}>{email.toEmail}</p> */}
+                                <p title="Subject" className={`email-card-to ${email.isRead ? 'read-email-lowopcatiy' : ''}`} > {email.subject}</p>
+                                <p title="Message" className={`email-card-msg ${email.isRead ? 'read-email-lowopcatiy' : ''}`} >{email.body}</p>
+                                <p title="Current Date" className={`email-card-date ${email.isRead ? 'read-email-lowopcatiy' : ''}`} > {email.date}</p>
                                 <div className="email-list-btns">
-                                <img onClick={(event) => this.props.onRemoveEmail(event, email.id)} className="email-card-star smallerAnim" src={`assets/img/delete.png`} alt="" srcSet="" />
-                                <img onClick={(event) => this.props.toggleIsRead(event, email)} className="email-card-star smallerAnim" src={`assets/img/${email.isRead ? 'read' : 'unread'}.png`} alt="" srcSet="" />
+                                <img onClick={(event) => this.props.onRemoveEmail(event, email.id)} className="email-card-star smallerAnim" title="Delete" src={`assets/img/delete.png`} alt="" srcSet="" />
+                                <img onClick={(event) => this.props.toggleIsRead(event, email)} className="email-card-star smallerAnim" title="Toggle Read/Unread" src={`assets/img/${email.isRead ? 'read' : 'unread'}.png`} alt="" srcSet="" />
                                 </div>
                             </div>
                         )
