@@ -40,10 +40,10 @@ export default class NotePreview extends React.Component {
 
 
                 <div className="note-options">
-                    <img src="../assets/img/delete.png" onClick={() => onDeleteNote(note.id)} alt="" />
+                    <img src="../../assets/img/delete.png" onClick={() => onDeleteNote(note.id)} alt="" />
 
-                    <img onClick={() => { this.setState(prevState => { return { isBgColorPicker: !prevState.isBgColorPicker } }) }} src="../assets/img/paint.png" alt="" />
-                    <img onClick={() => { this.setState(prevState => { return { isTxtColorPicker: !prevState.isTxtColorPicker } }) }} src="../assets/img/font.png" alt="" />
+                    <img onClick={() => { this.setState(prevState => { return { isBgColorPicker: !prevState.isBgColorPicker } }) }} src="../../assets/img/paint.png" alt="" />
+                    <img onClick={() => { this.setState(prevState => { return { isTxtColorPicker: !prevState.isTxtColorPicker } }) }} src="../../assets/img/font.png" alt="" />
 
                     <div className={`color-picker ${this.state.isBgColorPicker ? 'shown' : ''}`}>
                         <label className="cp-red" onClick={() => onChangeBgColor(note.id, '#fc5c65')}></label>

@@ -62,11 +62,11 @@ export default class AddNote extends React.Component {
                 </form>
 
                 <div className="add-note-options flex align-center ">
-                    <img src="../assets/img/font.png" className={`note-text ${currType === typesMap.txt ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.txt) }} alt="" />
-                    <img src="../assets/img/img.png" className={`note-img ${currType === typesMap.img ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.img) }} alt="" />
-                    <img src="../assets/img/youtube.png" className={`note-youtube ${currType === typesMap.youtube ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.youtube) }} alt="" />
-                    <img src="../assets/img/speaker.png" className={`note-audio ${currType === typesMap.audio ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.audio) }} alt="" />
-                    <img src="../assets/img/list.png" className={`note-todos ${currType === typesMap.todos ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.todos) }} alt="" />
+                    <img src="../../assets/img/font.png" className={`note-text ${currType === typesMap.txt ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.txt) }} alt="" />
+                    <img src="../../assets/img/img.png" className={`note-img ${currType === typesMap.img ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.img) }} alt="" />
+                    <img src="../../assets/img/youtube.png" className={`note-youtube ${currType === typesMap.youtube ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.youtube) }} alt="" />
+                    <img src="../../assets/img/speaker.png" className={`note-audio ${currType === typesMap.audio ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.audio) }} alt="" />
+                    <img src="../../assets/img/list.png" className={`note-todos ${currType === typesMap.todos ? 'opacity' : ''}`} onClick={() => { this.onChangeType(typesMap.todos) }} alt="" />
                 </div>
             </div>
         )
