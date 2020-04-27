@@ -40,11 +40,17 @@ export default class NotePreview extends React.Component {
     isPinned = (noteId) => {
         return noteService.isPinned(noteId)
     }
+    onChangeLabel(note, ev) {
+        let value = ev.target.innerText
+        noteService.updateLabel(note, value)
+    }
     render() {
         const { note, onDeleteNote, onChangeBgColor, onChangeTxtColor } = this.props
         return (
             <article className="single-note flex column" style={note.style}>
-                <p>{this.isPinned(note.id)}</p>
+                {/* <p class="pinned">{this.isPinned(note.id)}</p> */}
+                <p class="pinned">{this.isPinned(note.id) ? <img src="../../assets/img/pinned.png" className="pinned-img" alt="" /> : ''}</p>
+                <p contentEditable="true" suppressContentEditableWarning={true} onInput={(event => this.onChangeLabel(note, event))} className="note-title">{note.info.label}</p>
                 <div className="note-content">
                     {this.noteToRender}
                 </div>
