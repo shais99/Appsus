@@ -65,6 +65,7 @@ export default class NotePreview extends React.Component {
 
                     <ColorPicker mainClass='cp-left' isShown={this.state.isBgColorPicker} onChange={onChangeBgColor} noteId={note.id} />
                     <ColorPicker mainClass='cp-right' isShown={this.state.isTxtColorPicker} onChange={onChangeTxtColor} noteId={note.id} />
+                    
                 </div>
             </article>
         )

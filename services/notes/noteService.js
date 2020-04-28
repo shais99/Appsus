@@ -28,7 +28,26 @@ var gDefaultNotes = [
         },
         style: {
             backgroundColor: "#ffe06e",
-            color: 'red'
+            color: 'black'
+        },
+        createdAt: utilService.getTime()
+    },
+    {
+        id: utilService.makeId(),
+        type: "NoteTodos",
+        isPinned: false,
+        info: {
+            label: "Things To Do:",
+            todos: [
+                { id: utilService.makeId(), txt: "Think About What To Do", doneAt: null, isChecked: true },
+                { id: utilService.makeId(), txt: "Do What I Do", doneAt: 187111111, isChecked: false },
+                { id: utilService.makeId(), txt: "To Finish The To Do", doneAt: null, isChecked: false },
+                { id: utilService.makeId(), txt: "To Do BUM! Phhh", doneAt: null, isChecked: true }
+            ]
+        },
+        style: {
+            backgroundColor: "#ffe06e",
+            color: 'black'
         },
         createdAt: utilService.getTime()
     },
@@ -38,7 +57,7 @@ var gDefaultNotes = [
         isPinned: false,
         info: {
             label: 'My little puppy :)',
-            value: "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg",
+            value: "assets/img/puppy.webp",
         },
         style: {
             backgroundColor: "#20bf6b",

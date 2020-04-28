@@ -101,6 +101,7 @@
     border: 2px solid white;
     font-family: openSans;
     width: 100%;
+    margin-bottom: 7px;
 }
 
 .add-todo-input::placeholder {
