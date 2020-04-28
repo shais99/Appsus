@@ -14,6 +14,7 @@
     src: url(fonts/OpenSans-Bold.ttf)
 }
 
+
 /* BASICS */
 
 body {
@@ -21,7 +22,12 @@ body {
     font-family: openSans;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
 }
 
@@ -34,10 +40,12 @@ a {
     text-decoration: none;
 }
 
-iframe, audio {
+iframe,
+audio {
     width: 100%;
     outline: none;
 }
+
 
 /* CONTAINER */
 
@@ -46,13 +54,22 @@ iframe, audio {
     margin: 0 auto;
 }
 
+
 /* *** COMPONENTS *** */
+
 
 /* HEADER */
 
 .main-header {
-    margin-top: 10px;
     margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(231, 231, 231);
+    background-color: white;
+    width: 100%;
+    position: fixed;
+    z-index: 99999;
+    margin-bottom: 100px;
+    top: 0;
 }
 
 .logo {
@@ -71,6 +88,11 @@ iframe, audio {
 .main-nav li {
     margin-right: 10px;
 }
+
+.main-container {
+    margin-top: 90px;
+}
+
 
 /* User Msg */
 
@@ -102,6 +124,7 @@ iframe, audio {
     color: white;
 }
 
+
 /* *** HELPERS *** */
 
 .fade-in {
@@ -130,6 +153,7 @@ iframe, audio {
     }
 }
 
+
 /* List Helpers */
 
 .clean-list {
@@ -137,6 +161,7 @@ iframe, audio {
     margin: 0;
     padding: 0;
 }
+
 
 /* Flex Helpers */
 
