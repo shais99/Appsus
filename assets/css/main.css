@@ -177,15 +177,17 @@ audio {
         visibility: visible;
         opacity: 1;
     }
-    .mobile-burger {
+    #root .mobile-burger {
         bottom: 2vh;
         left: 2vh;
         z-index: 6;
+        visibility: visible;
     }
 }
 
 .mobile-burger {
     position: fixed;
+    visibility: hidden;
 }
 
 .active {
