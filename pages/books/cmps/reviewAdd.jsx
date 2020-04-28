@@ -73,7 +73,7 @@ export default class reviews extends React.Component {
 
         return ((!this.state.reviews) ? loading :
             <div className="add-review-container flex column">
-                <h2 class="add-review-title">Add Review:</h2>
+                <h2 className="add-review-title">Add Review:</h2>
                 <ReviewList reviews={this.state.reviews} onRemoveReview={this.onRemoveReview} />
 
                 <form className="add-review flex column align-center" onSubmit={this.onAddReview}>
