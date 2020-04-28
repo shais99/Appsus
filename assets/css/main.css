@@ -50,31 +50,13 @@ iframe, audio {
 
 /* Main Menu Mobile */
 
-.screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    cursor: pointer;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity .6s;
-    z-index: 99998;
-}
-
-.menu-open .screen {
-    visibility: visible;
-    opacity: 1;
-}
-
 .btn-menu {
     display: none;
 }
 
 .quit-menu button {
     display: none;
+    outline: none;
 }
 
 /* HEADER */
@@ -137,6 +119,7 @@ iframe, audio {
         transform: translateX(105%);
         transition: transform .6s;
         box-shadow: -4px 0px 5px 0px rgba(0, 0, 0, 0.5);
+        z-index: 9999
     }
     .main-nav li {
         margin-bottom: 10px;
@@ -166,6 +149,23 @@ iframe, audio {
         cursor: pointer;
         display: inline-block;
     }
+    .screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        cursor: pointer;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity .6s;
+        z-index: 998;
+    }
+    .menu-open .screen {
+        visibility: visible;
+        opacity: 1;
+    }
 }
 
 .active {
@@ -180,6 +180,32 @@ a.active:hover {
 
 .main-container {
     margin-top: 90px;
+}
+
+/* Home Page */
+
+.main-home-container {
+    background: url(../img/horse-bg.jpg);
+    width: 100%;
+    height: 600px;
+    background-attachment: fixed;
+    /* justify-content: flex-end; */
+}
+
+.home-content {
+    background: rgba(255, 255, 255, 0.365);
+    height: 115px;
+    padding: 0 20px;
+    border-radius: 5px;
+    margin: 0 40px;
+    text-align: center;
+}
+
+.home-content-title {
+    color: white;
+    font-size: 3rem;
+    font-family: openSansBold;
+    color: black;
 }
 
 /* User Msg */

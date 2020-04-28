@@ -13,14 +13,10 @@ import BookDetails from './pages/books/pages/BookDetails.jsx'
 import NavBar from './cmps/NavBar.jsx'
 
 export class App extends React.Component {
-    toggleMenu() {
-        document.body.classList.toggle('menu-open')
-    }
     render() {
         return (
             <Router>
                 <div>
-                    <section className="screen" onClick={() => this.toggleMenu()}></section>
                     <header className="main-header">
                         <div className="container flex align-center space-between">
                             <div className="logo-container flex align-center">

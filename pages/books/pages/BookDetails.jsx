@@ -74,7 +74,7 @@ export default class BookDetails extends React.Component {
         const loading = <p>Loading...</p>
 
         return ((!book) ? loading :
-            <div>
+            <div className="container">
                 <div className="book-title flex align-center space-between">
                     {book.title}
                     <button className="back-btn" onClick={() => {
@@ -82,34 +82,32 @@ export default class BookDetails extends React.Component {
                     }}>Back</button>
                 </div>
                 <h4 className="book-sub-title">{book.subtitle}</h4>
-                <div className="container">
-                    <div className="book-content flex">
-                        <div className="book-img">
-                            <img src={book.thumbnail} alt="" />
-                        </div>
-                        <div className="book-details">
-                            <p>Published Date: {book.publishedDate}</p>
-                            <p>Page Count: {book.pageCount} - <span className="bold">{this.getPageCountMsg(book.pageCount)}</span> Book</p>
-                            <p>Published: The Book is <span className="bold">{this.getPublishedMsg(book.publishedDate)}</span> Book</p>
-                            <p>Book Price:
-                        <span className={this.getPriceClass(book.listPrice.amount)}>
-                                    {book.listPrice.amount}{this.getCurrencySign(book.listPrice.currencyCode)}
-                                </span>
-                            </p>
-                            {this.getSaleMSg(book.listPrice.isOnSale)}
-                            <p className="book-content-desc">
-                                Description: <LongTxt text={book.description} />
-                            </p>
-                        </div>
+                <div className="book-content flex space-between">
+                    <div className="book-img">
+                        <img src={book.thumbnail} alt="" />
                     </div>
-                    <div className="prev-next">
-                        
-                        <Link className="nav-books" to={`/books/${this.prevNext.prevId}`}>Prev Book</Link>
-                        <Link className="nav-books" to={`/books/${this.prevNext.nextId}`}>Next Book</Link>
+                    <div className="book-details">
+                        <p>Published Date: {book.publishedDate}</p>
+                        <p>Page Count: {book.pageCount} - <span className="bold">{this.getPageCountMsg(book.pageCount)}</span> Book</p>
+                        <p>Published: The Book is <span className="bold">{this.getPublishedMsg(book.publishedDate)}</span> Book</p>
+                        <p>Book Price: <span className={this.getPriceClass(book.listPrice.amount)}>
+                            {book.listPrice.amount}{this.getCurrencySign(book.listPrice.currencyCode)}
+                        </span>
+                        </p>
+                        {this.getSaleMSg(book.listPrice.isOnSale)}
+                        <p className="book-content-desc">
+                            Description: <LongTxt text={book.description} />
+                        </p>
                     </div>
+                    <ReviewAdd bookId={book.id} />
                 </div>
-                <h2 className="reviews-title">Reviews:</h2>
-                <ReviewAdd bookId={book.id} />
+
+                <div className="prev-next flex justify-center">
+
+                    <Link className="nav-books" to={`/books/${this.prevNext.prevId}`}>Prev Book</Link>
+                    <Link className="nav-books" to={`/books/${this.prevNext.nextId}`}>Next Book</Link>
+                </div>
+                {/* <h2 className="reviews-title">Reviews:</h2> */}
             </div>
         )
     }

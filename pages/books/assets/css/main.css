@@ -55,38 +55,45 @@ img {
 }
 
 .book-title {
-    background-color: #40407a;
+    background-color: #fa8231;
     font-size: 2rem;
-    font-weight: bold;
-    text-transform: capitalize;
     color: white;
-    padding: 10px 25px;
+    font-family: openSansBold;
+    text-transform: capitalize;
+    padding: 5px 25px;
     margin-top: 20px;
+    border-top-left-radius: 15px;
 }
 
 .back-btn {
     background-color: white;
     border: none;
     border-radius: 5px;
-    padding: 10px;
+    padding: 7px 12px;
     transition: .3s;
+    font-family: openSans;
 }
 
 .back-btn:hover {
-    box-shadow: 0 0 7px 0;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
 }
 
 .book-sub-title {
-    background-color: #474787;
+    background-color: #dbe1e7;
     padding: 10px;
-    color: white;
     padding: 10px 25px;
+    font-weight: normal;
+    border-bottom-right-radius: 15px;
 }
 
 .book-img {
     min-width: 300px;
     max-width: 300px;
-    margin-right: 20px;
+}
+
+
+.book-content-desc {
+    width: 80%;
 }
 
 .book-details p {
@@ -97,12 +104,44 @@ img {
     padding: 10px;
 }
 
+@media (max-width: 760px) {
+    .book-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    img {
+        width: 100%;
+    }
+    .book-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .book-content-desc {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+    }
+    .container .prev-next {
+        width: unset;
+    }
+    .book-img {
+        min-width: unset;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        width: 100%;
+    }
+}
+
 .prev-next {
-    margin-left: 10px;
+    width: 265px;
 }
 
 .nav-books {
-    background-color: #ffb142;
+    background-color: #45aaf2;
     padding: 8px;
     margin-right: 10px;
     color: white;
@@ -113,22 +152,23 @@ img {
 }
 
 .nav-books:hover {
-    background-color: #cc8e35;
+    background-color: #2d98da;
 }
 
 .read-toggle {
-    background-color: #84817a;
+    background-color: #4b6584;
     border: none;
-    color: #d1ccc0;
+    color: white;
     transition: .3s;
     padding: 8px;
     border-radius: 3px;
     display: block;
     margin-top: 10px;
+    outline: none;
 }
 
 .read-toggle:hover {
-    color: white;
+    background-color: #778ca3;
 }
 
 .sale-msg {
@@ -137,13 +177,11 @@ img {
 }
 
 .reviews-title {
+    background-color: #dbe1e7;
     text-align: center;
-    margin-bottom: 10px;
-}
-
-.main-reviews {
-    min-height: 150px;
-    text-align: center;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .single-review {
@@ -165,9 +203,16 @@ img {
     margin-bottom: 20px;
 }
 
-.add-review {
-    width: 25%;
-    margin: auto;
+.add-review-container {
+    margin-right: 50px;
+    width: 400px;
+}
+
+.add-review-title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: normal;
+    font-family: openSansBold;
 }
 
 .add-review * {
@@ -188,16 +233,16 @@ img {
 
 .add-review-btn {
     width: 40%;
-    background-color: #84817a;
+    background-color: #26de81;
     border: none;
-    color: #d1ccc0;
+    color: white;
     transition: .3s;
     padding: 8px;
     border-radius: 3px;
 }
 
 .add-review-btn:hover {
-    color: white
+    background-color: #20bf6b
 }
 
 .delete-review {

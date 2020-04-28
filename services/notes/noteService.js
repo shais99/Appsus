@@ -57,7 +57,7 @@ var gDefaultNotes = [
         isPinned: false,
         info: {
             label: 'My little puppy :)',
-            value: "assets/img/puppy.webp",
+            value: "assets/img/little-puppy.jpg",
         },
         style: {
             backgroundColor: "#20bf6b",
