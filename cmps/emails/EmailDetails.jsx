@@ -62,6 +62,7 @@ export default class EmailDetails extends React.Component {
             <div className="email-details-body fade-in border">
                 <p className="email-details-subject" >{email.subject} <span className="email-details-date" >{email.date}</span></p>
                 <p className="email-details-msg" > {email.body}</p>
+                <p className="email-details-toEmail" > {email.toEmail}</p>
 
             </div>
             <button className="email-details-back" onClick={this.onClickBack}>Back</button>

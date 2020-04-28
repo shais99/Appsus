@@ -177,6 +177,15 @@ audio {
         visibility: visible;
         opacity: 1;
     }
+    .mobile-burger {
+        bottom: 2vh;
+        left: 2vh;
+        z-index: 6;
+    }
+}
+
+.mobile-burger {
+    position: fixed;
 }
 
 .active {
@@ -222,6 +231,16 @@ a.active:hover {
 
 
 /* User Msg */
+
+@media (max-width: 760px) {
+    #root .user-msg {
+        width: 90vw;
+        border-radius: 40px;
+    }
+    #root .user-msg button {
+        width: 30px;
+    }
+}
 
 .user-msg {
     background-color: #ffffff;

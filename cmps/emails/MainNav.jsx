@@ -6,7 +6,7 @@ export default class MainNav extends React.Component {
         return (
             <React.Fragment>
                 <div className="box-side-nav fade-in">
-                    <div>
+                    <div className="hello-user-container">
                         <h2 className="hello-user-header">Hello {emailService.getCurrUser()}</h2>
                     </div>
                     <NavLink activeClassName='active-tab' exact to="/email/compose">

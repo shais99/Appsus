@@ -36,8 +36,6 @@
 
 .main-email-content {
     background-color: #ffffff;
-    /* max-height: 90; PROBLEMA*/
-    /* width: 94vw; PROBLEMA*/
 }
 
 .emails-list {
@@ -50,13 +48,60 @@
     padding-top: 1rem;
 }
 
-.email-section {
-    /* width: 88.5vw;  PROBLEMA*/
-}
+.email-section {}
 
 .email-section form {
     border-bottom: 1px solid rgba(0, 0, 0, 0.233);
     margin-bottom: 1rem;
+}
+
+@media (max-width: 700px) {
+    .email-content .emails-list {
+        width: 100vw;
+        padding: 0px;
+    }
+    .emails-list .email-card img {
+        width: 20px;
+    }
+    .main-email-content .emails-list .email-card {
+        width: 95vw;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        max-height: 50px;
+        margin: 0 auto;
+        margin-bottom: 5px;
+        border-top: 1px solid rgba(128, 128, 128, 0.342);
+        border-bottom: 2px solid rgba(94, 150, 253, 0.425);
+        /* background-color: blue; */
+    }
+    .emails-list .email-card-date {
+        display: none;
+    }
+    .emails-list .email-card-to {
+        display: none;
+    }
+    .emails-list .email-card-name {
+        font-size: 12px;
+        margin-left: 5px;
+    }
+    .emails-list .email-card-subject {
+        font-size: 11px;
+        color: rgba(39, 38, 38, 0.692);
+    }
+    .emails-list .email-card-msg {
+        font-size: 10px;
+        width: 35vw;
+        max-width: none;
+    }
+    .emails-list .email-card-subject-body {
+        font-size: 10px;
+        width: 35vw;
+        max-width: none;
+        margin-left: 40px;
+    }
+    .emails-list .email-list-btns {
+        width: 50vw;
+    }
 }
 
 .email-card {
@@ -168,6 +213,38 @@
 
 
 /* Send EMail */
+
+@media (max-width: 700px) {
+    .main-email-content .email-form-content {
+        width: 95vw;
+        margin: 0 auto;
+    }
+    .main-email-content .email-form-content h3 {
+        width: 95vw;
+        margin-left: 2.5vw;
+    }
+    .main-email-content .email-form-container input {
+        height: 5vh;
+        border: 1px solid rgba(0, 0, 0, 0.233);
+        border-radius: 10px;
+        text-align: start;
+        padding: 1rem;
+        outline: none;
+    }
+    .email-form-content .btn-form {
+        width: 50vw;
+        margin-left: 22.5vw;
+    }
+    .main-email-content .email-form-container {
+        width: 95vw;
+        margin-left: 2.5vw;
+    }
+    .main-email-content .email-form-container textarea::placeholder {
+        text-align: center;
+        transform: translate3d(0, 12vh, 0);
+        font-size: 1.5rem;
+    }
+}
 
 .email-form-content {
     width: 80vw;
@@ -304,11 +381,50 @@
     box-shadow: 0 0 1pt 1pt #00aaff28;
 }
 
+@media (max-width: 700px) {
+    .main-email-content .email-details-body {
+        width: 90vw;
+        margin-left: 20vw;
+    }
+    .main-email-content .email-details-topinfo {
+        width: 95vw;
+        margin-left: 2.5vw;
+        margin-bottom: 20px;
+    }
+    .main-email-content .email-details-to {
+        display: none;
+    }
+    .main-email-content .email-details-back {
+        margin-left: 30vw;
+        width: 40vw;
+        margin-top: 20px;
+    }
+    .main-email-content .email-details-toEmail {
+        display: none;
+    }
+    .main-email-content .email-details-name {
+        width: 100px;
+        margin-left: 20px;
+    }
+    .main-email-content .email-details-right-btns {
+        width: 400px;
+    }
+}
+
 .email-details-to {
     font-size: 1rem;
     color: grey;
     margin-left: 20px;
     padding: 5px;
+}
+
+.email-details-toEmail {
+    position: relative;
+    margin-top: 200px;
+}
+
+@media (max-width: 700px) {
+    .email-details-toEmail {}
 }
 
 .email-details-topinfo {
@@ -371,6 +487,8 @@
 .email-send-btn img {
     width: 2.5vw;
     height: 2.5vw;
+    min-width: 30px;
+    min-height: 30px;
 }
 
 .email-send-btn img:hover {
@@ -389,13 +507,42 @@
     background-color: #ffffff;
 }
 
+@media (max-width: 700px) {
+    .email-content .box-side-nav {
+        /* display: none; */
+        position: fixed;
+        flex-direction: row;
+        width: 95vw;
+        height: 60vw;
+        z-index: 5;
+        bottom: 2%;
+        left: 2.5vw;
+        border: 1px solid black
+    }
+    .email-content .box-side-nav>* {
+        margin-left: 0px;
+        margin-right: 0px;
+        height: 10px;
+    }
+    .box-side-nav .hello-user-container {
+        display: none;
+    }
+    .email-content .box-side-nav img {
+        margin-left: -130px;
+        width: 35px;
+        height: 35px;
+    }
+    .box-side-nav .hello-user-header {
+        display: none;
+    }
+}
 
-/* .box-side-nav>* {
+.box-side-nav>* {
     border-bottom: 1px solid rgba(0, 0, 0, 0.233);
     cursor: pointer;
     margin-left: 5px;
     margin-right: 5px;
-} */
+}
 
 .email-send-btn {
     border-bottom: 1px solid rgba(0, 0, 0, 0.233);
