@@ -34,6 +34,9 @@
     .main-container .main-notes .note-list {
         justify-content: center;
     }
+    .single-note {
+        margin-right: 20px;
+    }
 }
 
 .add-note-input {
@@ -70,6 +73,12 @@
 .note-list {
     /* column-count: 4; */
     padding: 10px 0;
+}
+
+@media (max-width: 1060px) {
+    .main-container .main-notes .note-list {
+        justify-content: space-evenly;
+    }
 }
 
 .add-note-options .opacity {
