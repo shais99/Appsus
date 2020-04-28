@@ -14,6 +14,7 @@
     src: url(fonts/OpenSans-Bold.ttf)
 }
 
+
 /* BASICS */
 
 body {
@@ -21,7 +22,12 @@ body {
     font-family: openSans;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
 }
 
@@ -34,10 +40,12 @@ a {
     text-decoration: none;
 }
 
-iframe, audio {
+iframe,
+audio {
     width: 100%;
     outline: none;
 }
+
 
 /* CONTAINER */
 
@@ -46,7 +54,9 @@ iframe, audio {
     margin: 0 auto;
 }
 
+
 /* *** COMPONENTS *** */
+
 
 /* Main Menu Mobile */
 
@@ -58,6 +68,7 @@ iframe, audio {
     display: none;
     outline: none;
 }
+
 
 /* HEADER */
 
@@ -182,6 +193,7 @@ a.active:hover {
     margin-top: 90px;
 }
 
+
 /* Home Page */
 
 .main-home-container {
@@ -207,6 +219,7 @@ a.active:hover {
     font-family: openSansBold;
     color: black;
 }
+
 
 /* User Msg */
 
@@ -238,15 +251,16 @@ a.active:hover {
     color: white;
 }
 
+
 /* *** HELPERS *** */
 
 .fade-in {
-    animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 @keyframes fade-in {
     0% {
-        opacity: 0;
+        opacity: 0.3;
     }
     100% {
         opacity: 1;
@@ -266,6 +280,7 @@ a.active:hover {
     }
 }
 
+
 /* List Helpers */
 
 .clean-list {
@@ -273,6 +288,7 @@ a.active:hover {
     margin: 0;
     padding: 0;
 }
+
 
 /* Flex Helpers */
 

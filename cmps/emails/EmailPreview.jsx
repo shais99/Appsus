@@ -6,17 +6,20 @@ export default class EmailPreview extends React.Component {
 
     }
     isStarred(email) {
+
         if (email.isStarred) return 'star'
         return 'starempty'
     }
     onOpenMail(emailId) {
         this.props.history.push(`/email/details/${emailId}`)
     }
-    toggleStarEmail(ev, email) {
-        console.log("isStarred -> 1231231231ev", ev)
+    toggleStarEmail = (ev, email) => {
         ev.stopPropagation()
-        // ev.preventDefault()
         this.props.toggleStarEmail(email)
+    }
+    onRemoveEmail(ev, id) {
+        ev.stopPropagation()
+        this.props.onRemoveEmail(id)
     }
     render() {
         const { email } = this.props
@@ -33,14 +36,14 @@ export default class EmailPreview extends React.Component {
                     <p title="Message" className={`email-card-msg ${email.isRead ? 'emailCard-effect' : ''}`} >{email.body}</p>
                 </div>
                 <p title="Current Date" className={`email-card-date ${email.isRead ? 'emailCard-effect' : ''}`} > {email.date}</p>
-               
 
 
-                    {/* // Buttons! */}
-                    <div className="email-list-btns">
+
+                {/* // Buttons! */}
+                <div className="email-list-btns">
                     <img onClick={(event) => this.props.onReplay(event, email)} className="email-card-star biggerAnim"
                         title="Replay Email" src={`assets/img/replay.png`} alt="" srcSet="" />
-                    <img onClick={(event) => this.props.onRemoveEmail(event, email.id)} className="email-card-star smallerAnim"
+                    <img onClick={(event) => this.onRemoveEmail(event, email.id)} className="email-card-star smallerAnim"
                         title="Delete" src={`assets/img/delete.png`} alt="" srcSet="" />
                     <img onClick={(event) => this.props.toggleIsRead(event, email)} className="email-card-star smallerAnim"
                         title="Toggle Read/Unread" src={`assets/img/${email.isRead ? 'read' : 'unread'}.png`} alt="" srcSet="" />
