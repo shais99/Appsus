@@ -1,16 +1,21 @@
 import bookService from "../services/bookService.js"
 import LongTxt from '../cmps/longTxt.jsx'
 import ReviewAdd from '../cmps/reviewAdd.jsx'
+import ReviewList from '../cmps/reviewList.jsx'
+import reviewService from '../services/reviewService.js'
+
 const { Link } = ReactRouterDOM
 const history = History.createBrowserHistory()
 
 export default class BookDetails extends React.Component {
     state = {
+        reviews: [],
         book: null
     }
     componentDidMount() {
         this.prevNext = bookService.getNextPrevBooks(this.props.match.params.theBookId);
         this.loadBook()
+        this.loadReviews()
     }
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.theBookId !== this.props.match.params.theBookId) {
@@ -25,8 +30,9 @@ export default class BookDetails extends React.Component {
                 this.setState({ book })
             })
     }
-    loadReviews() {
-        const bookId = this.state.review.bookId
+    loadReviews = () => {
+        const bookId = this.props.match.params.theBookId
+
         reviewService.query(bookId)
             .then(reviews => { this.setState({ reviews }) })
     }
@@ -68,9 +74,12 @@ export default class BookDetails extends React.Component {
         if (!isOnSale) return
         else return 'The Book is On Sale!'
     }
-
+    onRemoveReview = (reviewId) => {
+        reviewService.remove(reviewId)
+            .then(() => { this.loadReviews() })
+    }
     render() {
-        const { book } = this.state
+        const { book, reviews } = this.state
         const loading = <p>Loading...</p>
 
         return ((!book) ? loading :
@@ -99,7 +108,7 @@ export default class BookDetails extends React.Component {
                             Description: <LongTxt text={book.description} />
                         </p>
                     </div>
-                    <ReviewAdd bookId={book.id} />
+                    <ReviewAdd loadReviews={this.loadReviews} bookId={book.id} />
                 </div>
 
                 <div className="prev-next flex justify-center">
@@ -107,7 +116,9 @@ export default class BookDetails extends React.Component {
                     <Link className="nav-books" to={`/books/${this.prevNext.prevId}`}>Prev Book</Link>
                     <Link className="nav-books" to={`/books/${this.prevNext.nextId}`}>Next Book</Link>
                 </div>
-                {/* <h2 className="reviews-title">Reviews:</h2> */}
+
+                {reviews.length > 0 && <div className="reviews-title">Reviews</div>}
+                <ReviewList reviews={reviews} onRemoveReview={this.onRemoveReview} />
             </div>
         )
     }
