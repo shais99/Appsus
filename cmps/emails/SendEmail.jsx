@@ -31,7 +31,6 @@ export default class SendEmail extends React.Component {
         console.log('laoding email id ', id)
         let email = emailService.getById(id)
 
-        console.log('unset?', this.email.id)
         if (this.state.email.id !== 'unSet') {
 
 
