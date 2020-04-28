@@ -32,7 +32,10 @@ export default class SendEmail extends React.Component {
         const value = (target.type === 'number') ? parseInt(target.value) : target.value
         this.setState(prevState => ({ newEmail: { ...prevState.newEmail, [field]: value } }))
     }
+test(){
+    console.log('testing ')
 
+}
 
     render() {
         var email = this.state.newEmail
@@ -45,10 +48,8 @@ export default class SendEmail extends React.Component {
                 <input className="sendmail-input-form" type="text" value={replayEmail.subject} name='subject' placeholder="Subject" onChange={this.handleChange} />
                 <textarea id="" rows="4" cols="30" maxLength="1000" value={replayEmail.body} name="body" placeholder="Share Your Thoughts" onChange={this.handleChange}>
                 </textarea>
-                <Link to="/email">
-                
-                <button className="btn-form" type="submit">Submit</button>
-                </Link>
+                <button  className="btn-form" >Submit</button>
+
             </form>
         </section>
         )

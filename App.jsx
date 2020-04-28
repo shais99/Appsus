@@ -1,6 +1,6 @@
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
-
+const history = History.createBrowserHistory()
 
 import Home from './pages/Home.jsx'
 import Books from './pages/Books.jsx'
@@ -22,13 +22,13 @@ export class App extends React.Component {
                                 <h1 className="logo">Appsus</h1>
                             </a>
                         </div>
-                        <NavBar />
+                        <NavBar history={history}/>
                     </header>
                     <main className="fade-in">
                         <Switch>
                             <Route component={Books} path="/books" />
                             <Route component={Notes} path="/notes" />
-                            <Route component={Email} path="/email" />
+                            <Route component={Email} path="/email/:filter" />
                             <Route component={Home} path="/" />
                         </Switch>
                     </main>

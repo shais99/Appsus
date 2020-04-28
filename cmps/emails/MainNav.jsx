@@ -21,14 +21,14 @@ export default class MainNav extends React.Component {
                             <p>Compose</p>
                         </div>
                     </Link>
-                    <Link to="/email/">
+                    <Link to="/email/star">
 
                         <div className={`email-send-btn flex even align-center ${this.props.currTab === 'star' ? 'active-tab' : ''}`} onClick={() => this.props.filterByStar()}>
                             <img src="assets/img/star.png" alt="" />
                             <p>Starred</p>
                         </div>
                     </Link>
-                    <Link to="/email">
+                    <Link to="/email/inbox">
 
                         <div className={`container-number-pop email-send-btn flex even align-center ${this.props.currTab === 'inbox' ? 'active-tab' : ''}`} onClick={() => this.props.filterByBox('inbox')}>
                             <img src="assets/img/inbox.png" alt="" />
@@ -36,7 +36,7 @@ export default class MainNav extends React.Component {
                             <p>Inbox</p>
                         </div>
                     </Link>
-                    <Link to="/email">
+                    <Link to="/email/sent">
                         <div id="sent" className={`email-send-btn flex even align-center ${this.props.currTab === 'sent' ? 'active-tab' : ''}`} onClick={() => this.props.filterByBox('sent')}>
                             <img src="assets/img/sent.png" alt="" />
                             <p>Sent</p>
@@ -48,12 +48,12 @@ export default class MainNav extends React.Component {
                     <Switch>
 
 
-                        <Route component={(props) => <SendEmail {...props} replayEmail={this.props.emailReplay} sendEmail={this.props.sendEmail} />} path='/email/compose' />
+                        <Route exact component={(props) => <SendEmail {...props} replayEmail={this.props.emailReplay} sendEmail={this.props.sendEmail} />} path='/email/compose' />
 
-                        <Route component={(props) => <EmailDetails {...props} onReplay={this.props.onReplay} email={this.props.email} onRemoveEmail={this.props.onRemoveEmail} toggleIsRead={this.props.toggleIsRead} toggleStarEmail={this.props.toggleStarEmail} isFocusOff={this.props.isFocusOff} />} path='/email/:emailId' />
+                        <Route exact component={(props) => <EmailDetails {...props} onReplay={this.props.onReplay} email={this.props.email} onRemoveEmail={this.props.onRemoveEmail} toggleIsRead={this.props.toggleIsRead} toggleStarEmail={this.props.toggleStarEmail} isFocusOff={this.props.isFocusOff} />} path='/email/details/:emailId' />
                         {/* YOU HAVE TO PASS PROPS FROM ROUTE INTO THE NESTED ROUTE! :))))) */}
                                        {/* HERE                   AND HERE!!!! */}
-                        <Route component={(props) => <ListEmail {...props} onReplay={this.props.onReplay} toggleIsRead={this.props.toggleIsRead} onRemoveEmail={this.props.onRemoveEmail} toggleStarEmail={this.props.toggleStarEmail} getEmails={this.props.getEmails} onSetFilter={this.props.onSetFilter} isFocus={this.props.isFocus} />} path='/email' />
+                        <Route  component={(props) => <ListEmail {...props} onReplay={this.props.onReplay} toggleIsRead={this.props.toggleIsRead} onRemoveEmail={this.props.onRemoveEmail} toggleStarEmail={this.props.toggleStarEmail} getEmails={this.props.getEmails} onSetFilter={this.props.onSetFilter} isFocus={this.props.isFocus} />} path='/email' />
 
                     </Switch>
                 </div>

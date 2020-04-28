@@ -1,5 +1,5 @@
 
-const { Route, Switch, Link ,useParams} = ReactRouterDOM
+const { Route, Switch, Link, useParams } = ReactRouterDOM
 import emailService from '../../services/emailService.js'
 
 export default class EmailDetails extends React.Component {
@@ -10,7 +10,7 @@ export default class EmailDetails extends React.Component {
 
     componentDidMount() {
 
-        
+
         const emailId = this.props.match.params.emailId
         console.log("EmailDetails -> componentDidUpdate -> this.props.match.params.emailId", emailId)
 
@@ -39,7 +39,7 @@ export default class EmailDetails extends React.Component {
         // }
     }
     loadEmail() {
-       
+
 
         const id = this.props.match.params.emailId
         emailService.getById(id)
@@ -60,8 +60,12 @@ export default class EmailDetails extends React.Component {
         ev.stopPropagation()
         this.props.toggleStarEmail(email)
     }
-    render() {
+    onClickBack = () => {
 
+        this.props.history.push(`/email/${this.state.email.isStarred ? 'star' : this.state.email.box}`)
+        this.props.isFocusOff
+    }
+    render() {
 
         const { filterBy, search } = this.state
         var email = this.state.email
@@ -88,9 +92,9 @@ export default class EmailDetails extends React.Component {
                 <p className="email-details-msg" > {email.body}</p>
 
             </div>
-            <Link to="/email">
-                <button className="email-details-back" onClick={this.props.isFocusOff}>Back</button>
-            </Link>
+            {/* <Link to="/email"> */}
+            <button className="email-details-back" onClick={this.onClickBack}>Back</button>
+            {/* </Link> */}
 
         </div>
 

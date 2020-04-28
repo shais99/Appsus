@@ -37,6 +37,7 @@ export default class ListEmail extends React.Component {
     toggleStarEmail(ev, email) {
         console.log("isStarred -> 1231231231ev", ev)
         ev.stopPropagation()
+        // ev.preventDefault()
         this.props.toggleStarEmail(email)
     }
     render() {
@@ -52,7 +53,7 @@ export default class ListEmail extends React.Component {
                 <div className="emails-list flex column fade-in">
                     {emails.map((email, idx) => {
                         return (
-                            <Link key={idx} to={`/email/${email.id}/`}>
+                            // <Link key={idx} to={`/email/details/${email.id}/`}>
                            
                             <div onClick={() => this.props.isFocus(email)} className={` flex space-between align-center fade-in ${email.isRead ? 'email-isRead' : 'email-card'}`} key={idx}>
                                 <img onClick={(event) => this.toggleStarEmail(event, email)} className="email-card-star biggerAnim" title="Save As Starred" src={`assets/img/${this.isStarred(email)}.png`} alt="" srcSet="" />
@@ -71,7 +72,7 @@ export default class ListEmail extends React.Component {
                                     <img onClick={(event) => this.props.toggleIsRead(event, email)} className="email-card-star smallerAnim" title="Toggle Read/Unread" src={`assets/img/${email.isRead ? 'read' : 'unread'}.png`} alt="" srcSet="" />
                                 </div>
                             </div>
-                            </Link>
+                            // </Link>
                         )
                     })}
                 </div>

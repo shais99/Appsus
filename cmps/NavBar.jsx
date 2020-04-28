@@ -6,7 +6,7 @@ export function NavBar(props) {
             <li><NavLink exact to="/">Home</NavLink></li>
             <li><NavLink to="/books">Books</NavLink></li>
             <li><NavLink to="/notes">Notes</NavLink></li>
-            <li><NavLink to="/email">Email</NavLink></li>
+            <li><NavLink to="/email/inbox">Email</NavLink></li>
         </ul>
     )
 }
