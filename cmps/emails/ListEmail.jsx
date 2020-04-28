@@ -1,7 +1,7 @@
 import EmailPreview from "./EmailDetails.jsx"
+const { Route, Switch, Link } = ReactRouterDOM
 
 export default class ListEmail extends React.Component {
-
     state = {
         filter: {
             filterBy: '',
@@ -43,6 +43,7 @@ export default class ListEmail extends React.Component {
         const { filterBy, search } = this.state
         var emails = this.getEmails(filterBy)
         return (
+           
             <section className="email-section fade-in">
                 <form className="flex align-center justify-center" onSubmit={this.onFilter}>
                     <img className="email-search-img smallerAnim" src="assets/img/search.png" alt="" />
@@ -51,6 +52,8 @@ export default class ListEmail extends React.Component {
                 <div className="emails-list flex column fade-in">
                     {emails.map((email, idx) => {
                         return (
+                            <Link key={idx} to={`/email/${email.id}/`}>
+                           
                             <div onClick={() => this.props.isFocus(email)} className={` flex space-between align-center fade-in ${email.isRead ? 'email-isRead' : 'email-card'}`} key={idx}>
                                 <img onClick={(event) => this.toggleStarEmail(event, email)} className="email-card-star biggerAnim" title="Save As Starred" src={`assets/img/${this.isStarred(email)}.png`} alt="" srcSet="" />
                                 <h2 title="Name" className={`email-card-name ${email.isRead ? 'read-email-lowopcatiy' : ''}`}>{email.name}</h2>
@@ -68,6 +71,7 @@ export default class ListEmail extends React.Component {
                                     <img onClick={(event) => this.props.toggleIsRead(event, email)} className="email-card-star smallerAnim" title="Toggle Read/Unread" src={`assets/img/${email.isRead ? 'read' : 'unread'}.png`} alt="" srcSet="" />
                                 </div>
                             </div>
+                            </Link>
                         )
                     })}
                 </div>

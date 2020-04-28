@@ -8,7 +8,8 @@ export default {
     createEmail,
     getUnreadAmount,
     getCurrUser,
-    toggleIsRead
+    toggleIsRead,
+    getById
 }
 
 import utilService from './utilService.js'
@@ -63,7 +64,6 @@ function createEmail(name, to, body, isFocus, box, subject) {
 }
 
 function query(filterBy) {
-    console.log("currFilter", currFilter)
     sortEmails()
 
     if (filterBy) {
@@ -74,6 +74,7 @@ function query(filterBy) {
             filterBy = filterBy.toUpperCase()
             return (name.includes(filterBy) && email.box === currFilter || body.includes(filterBy) && email.box === currFilter || subject.includes(filterBy) && email.box === currFilter)
         })
+        console.log(emails)
         return emails
     }
 
@@ -87,7 +88,7 @@ function toggleStarEmail(email) {
 }
 
 function sortEmails() {
-    gEmails.sort(function (a, b) { return a.isRead - b.isRead });
+    gEmails.sort(function(a, b) { return a.isRead - b.isRead });
 }
 
 
@@ -104,7 +105,6 @@ function filterByBox(filterBy) {
             // if (email.box === filterBy) return true
             return email.box === filterBy
         })
-        console.log("filterByBox -> emails", emails)
         return emails
     }
 

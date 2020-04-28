@@ -1,4 +1,5 @@
 
+const { Route, Switch, Link ,useParams} = ReactRouterDOM
 export default class SendEmail extends React.Component {
 
     state = {
@@ -44,7 +45,10 @@ export default class SendEmail extends React.Component {
                 <input className="sendmail-input-form" type="text" value={replayEmail.subject} name='subject' placeholder="Subject" onChange={this.handleChange} />
                 <textarea id="" rows="4" cols="30" maxLength="1000" value={replayEmail.body} name="body" placeholder="Share Your Thoughts" onChange={this.handleChange}>
                 </textarea>
+                <Link to="/email">
+                
                 <button className="btn-form" type="submit">Submit</button>
+                </Link>
             </form>
         </section>
         )

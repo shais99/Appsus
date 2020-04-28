@@ -385,18 +385,26 @@
     background-color: #ffffff;
 }
 
-.box-side-nav>* {
+
+/* .box-side-nav>* {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.233);
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+} */
+
+.email-send-btn {
     border-bottom: 1px solid rgba(0, 0, 0, 0.233);
     cursor: pointer;
     margin-left: 5px;
     margin-right: 5px;
 }
 
-.box-side-nav p {
+.email-send-btn p {
     width: 5vw;
 }
 
-.box-side-nav p:hover {
+.email-send-btn p:hover {
     transform: scale(1.1);
     transition: 7s ease-in;
 }
