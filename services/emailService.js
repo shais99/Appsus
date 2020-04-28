@@ -1,5 +1,4 @@
 export default {
-    getEmails,
     removeEmail,
     query,
     filterByBox,
@@ -12,12 +11,18 @@ export default {
     getById,
     getStarredAmount
 }
-
 import utilService from './utilService.js'
-
-var currFilter = 'inbox'
+import storageService from './storageService.js'
 var gCurrUser = 'Abir Nadav'
-const gEmails = []
+
+const KEYEmails = 'emails1'
+const gEmails = getEmailsFrom()
+
+function getEmailsFrom() {
+    let emails = storageService.loadFromStorage(KEYEmails)
+    if (!emails) return []
+    return emails
+}
 createEmail('Abir', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'sent', 'icecream')
 createEmail('Shai', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'pepers')
 createEmail('abi34rw', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
@@ -42,9 +47,6 @@ createEmail('abi34rw', 'whoscares@walla.com', 'Lorem ipsum dolor sit amet consec
 createEmail('Shai', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
 createEmail('test', 'test', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
 createEmail('abi34rw', 'gogo', 'gogogo', true, 'sent', 'IM AWEOSOME')
-
-
-
 
 function createEmail(name, to, body, isFocus, box, subject) {
     var email = {
@@ -72,50 +74,54 @@ function getStarredAmount() {
     return num
 }
 
-function query(filterBy) {
+function query(filterBy, box) {
     sortEmails()
-
+    let filteredEmails = filterByBox(box)
     if (filterBy) {
-        const emails = gEmails.filter(email => {
+        const emails = filteredEmails.filter(email => {
             let name = email.name.toUpperCase()
             let body = email.body.toUpperCase()
             let subject = email.subject.toUpperCase()
-            filterBy = filterBy.toUpperCase()
-            return (name.includes(filterBy) && email.box === currFilter || body.includes(filterBy) && email.box === currFilter || subject.includes(filterBy) && email.box === currFilter)
+            let filterToUpper = filterBy.toUpperCase()
+            return (name.includes(filterToUpper) || body.includes(filterToUpper) || subject.includes(filterToUpper))
         })
-        console.log(emails)
         return emails
     }
-
-    return filterByBox(currFilter)
+    return filteredEmails
 }
 
-function toggleStarEmail(email) {
-    // if (email.isStarred === true) return email.isStarred = false
-    // email.isStarred = true
-    email.isStarred = !email.isStarred
+function filterByBox(filterBy) {
+    if (filterBy === 'star') return gEmails.filter(email => email.isStarred)
+    const emails = gEmails.filter(email => {
+        return email.box === filterBy
+    })
+    return emails
+}
+
+function filterByStar() {
+    const emails = gEmails.filter(email => {
+        if (email.isStarred) return true
+
+    })
+    return emails
 }
 
 function sortEmails() {
     gEmails.sort(function(a, b) { return a.isRead - b.isRead });
 }
 
+//Togglers
+function toggleStarEmail(email) {
+    // if (email.isStarred === true) return email.isStarred = false
+    // email.isStarred = true
+    email.isStarred = !email.isStarred
+}
+
+
 
 function toggleIsRead(email) {
     if (email.isRead) return email.isRead = false
     return email.isRead = true
-}
-
-function filterByBox(filterBy) {
-    sortEmails()
-    currFilter = filterBy
-    if (filterBy) {
-        const emails = gEmails.filter(email => {
-            return email.box === filterBy
-        })
-        return emails
-    }
-
 }
 
 function getUnreadAmount() {
@@ -124,38 +130,24 @@ function getUnreadAmount() {
 
         if (!mail.isRead && mail.box === 'inbox') unReadNum++
     })
-    console.log('unread Number ', unReadNum)
     return unReadNum
-}
-
-function filterByStar() {
-
-    const emails = gEmails.filter(email => {
-        console.log('email body', email.body)
-        if (email.isStarred) return true
-
-    })
-    return emails
-}
-
-function getEmails() {
-    return gEmails
 }
 
 function removeEmail(emailId) {
     const emailIdx = _getIdxById(emailId)
     gEmails.splice(emailIdx, 1)
-
     return Promise.resolve();
 }
 
 function getById(emailId) {
+
     const email = gEmails.find(email => email.id === emailId)
-    return Promise.resolve(email);
+    return email;
 }
 
 function _getIdxById(emailId) {
     return gEmails.findIndex(email => email.id === emailId)
+
 }
 
 function getCurrUser() {

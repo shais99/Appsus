@@ -26,7 +26,9 @@ export default class MainNav extends React.Component {
 
                         <div className="container-number-pop email-send-btn flex even align-center">
                             <img src="assets/img/inbox.png" alt="" />
-                            <h4 className="number-pop flex align-center justify-center"></h4>
+                            <h4 className="number-pop flex align-center justify-center" 
+                            hidden={this.props.getUnreadAmount() < 1}>{this.props.getUnreadAmount()}</h4>
+
                             <p>Inbox</p>
                         </div>
                     </NavLink>

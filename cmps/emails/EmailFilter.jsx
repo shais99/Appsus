@@ -11,7 +11,7 @@ export default class EmailFilter extends React.Component {
         const field = target.name
         const value = (target.type === 'number') ? parseInt(target.value) : target.value
         this.setState(prevState => ({ filter: { ...prevState.filter, [field]: value } }), () => {
-            this.props.onSetFilter(this.state.filter.search)
+        this.props.onSetFilter(this.state.filter.search)
         })
     }
     onFilter = (ev) => {
@@ -20,7 +20,7 @@ export default class EmailFilter extends React.Component {
     }
 
     render() {
-        const { search } = this.state
+        const { search } = this.state.filter
         return (
             <form className="flex align-center justify-center" onSubmit={this.onFilter}>
                 <img className="email-search-img smallerAnim" src="assets/img/search.png" alt="" />
