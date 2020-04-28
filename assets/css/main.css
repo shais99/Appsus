@@ -111,6 +111,9 @@ audio {
 }
 
 @media (max-width: 760px) {
+    .main-header {
+        padding: 15px;
+    }
     .btn-menu {
         background: url("../img/menu.png");
         width: 24px;
