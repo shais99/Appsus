@@ -9,42 +9,13 @@ export default class EmailDetails extends React.Component {
     }
 
     componentDidMount() {
-
-
-        const emailId = this.props.match.params.emailId
-        console.log("EmailDetails -> componentDidUpdate -> this.props.match.params.emailId", emailId)
-
-        if (emailId) {
-            emailService.getById(emailId)
-                .then(email => {
-                    this.setState({ email })
-                })
-        }
-
         this.loadEmail()
-        // this.props.email.isRead = true
-
-
-
     }
 
-    componentDidUpdate(prevProps) {
-        // console.log("EmailDetails -> componentDidUpdate -> this.props.match.params.emailId", this.props.match)
-
-        // if (prevProps.match.params.emailId !== this.props.match.params.emailId) {
-        //     console.log('Route changed, so we should load the new car');
-        //     console.log('Email id ', this.props.match.params.emailId)
-
-        //     this.loadEmail()
-        // }
-    }
     loadEmail() {
-
-
         const id = this.props.match.params.emailId
         emailService.getById(id)
             .then(email => {
-                console.log('GOT email', email);
                 this.setState({ email })
             })
     }
@@ -56,23 +27,18 @@ export default class EmailDetails extends React.Component {
     }
 
     toggleStarEmail(ev, email) {
-        console.log("isStarred -> 1231231231ev", ev)
         ev.stopPropagation()
         this.props.toggleStarEmail(email)
     }
     onClickBack = () => {
-
         this.props.history.push(`/email/${this.state.email.isStarred ? 'star' : this.state.email.box}`)
-        this.props.isFocusOff
+        // this.props.isFocusOff
     }
     render() {
-
         const { filterBy, search } = this.state
         var email = this.state.email
-        const Loading = <p>Loading...</p>
-
+        const Loading = <h4 className="empty-box-msg" >This Box this empty!</h4>
         return ((!email) ? Loading : <div className="email-card-details column flex space-between align-center fade-in" key={'asd'}>
-
             <div className="email-details-topinfo border flex align-center space-between">
                 <div className="details-name-toEmail">
                     <p className="email-details-name">{email.name}</p>

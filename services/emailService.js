@@ -9,7 +9,8 @@ export default {
     getUnreadAmount,
     getCurrUser,
     toggleIsRead,
-    getById
+    getById,
+    getStarredAmount
 }
 
 import utilService from './utilService.js'
@@ -63,6 +64,14 @@ function createEmail(name, to, body, isFocus, box, subject) {
     gEmails.unshift(email)
 }
 
+function getStarredAmount() {
+    let num = 0
+    gEmails.forEach(email => {
+        if (email.isStarred) num++
+    })
+    return num
+}
+
 function query(filterBy) {
     sortEmails()
 
@@ -102,7 +111,6 @@ function filterByBox(filterBy) {
     currFilter = filterBy
     if (filterBy) {
         const emails = gEmails.filter(email => {
-            // if (email.box === filterBy) return true
             return email.box === filterBy
         })
         return emails

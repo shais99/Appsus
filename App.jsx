@@ -32,7 +32,6 @@ export class App extends React.Component {
                     </header>
                     <main className="main-container fade-in">
                         <Switch>
-
                             <Route component={BookDetails} path="/books/:theBookId" />
                             <Route component={BookApp} path="/books" />
                             <Route component={Notes} path="/notes" />
