@@ -51,8 +51,15 @@ iframe, audio {
 /* HEADER */
 
 .main-header {
-    margin-top: 10px;
     margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(231, 231, 231);
+    background-color: white;
+    width: 100%;
+    position: fixed;
+    z-index: 99999;
+    margin-bottom: 100px;
+    top: 0;
 }
 
 .logo {
@@ -70,6 +77,10 @@ iframe, audio {
 
 .main-nav li {
     margin-right: 10px;
+}
+
+.main-container {
+    margin-top: 90px;
 }
 
 /* User Msg */

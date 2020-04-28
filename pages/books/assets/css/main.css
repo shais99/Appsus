@@ -1,0 +1,311 @@
+img {
+    width: 80%;
+}
+
+.main-filter-title {
+    margin-bottom: 10px;
+}
+
+.filter-form input {
+    margin-right: 20px;
+}
+
+.books-list>* {
+    margin: 10px;
+}
+
+@media (max-width: 1020px) {
+    .books-list .book-preview {
+        width: 30vw;
+    }
+}
+
+@media (max-width: 860px) {
+    .books-list .book-preview {
+        width: 35vw;
+    }
+}
+
+@media (max-width: 760px) {
+    .books-list .book-preview {
+        width: 93vw;
+    }
+    .book-preview {
+        align-items: center;
+    }
+    .book-preview-img img {
+        width: unset;
+    }
+}
+
+.book-preview {
+    background-color: #f0f0f0;
+    border: 1px solid rgb(224, 224, 224);
+    height: 350px;
+    width: 250px;
+    border-radius: 5px;
+    padding: 10px;
+    color: black;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.book-preview p:first-of-type {
+    flex-grow: 1;
+    margin-bottom: 10px;
+}
+
+.book-preview p {
+    margin: 0;
+    padding: 0 30px;
+}
+
+.book-preview:hover {
+    background-color: #26de81;
+    border: 1px solid #20bf6b;
+    color: white;
+}
+
+.book-title {
+    background-color: #40407a;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: white;
+    padding: 10px 25px;
+    margin-top: 20px;
+}
+
+.back-btn {
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    transition: .3s;
+}
+
+.back-btn:hover {
+    box-shadow: 0 0 7px 0;
+}
+
+.book-sub-title {
+    background-color: #474787;
+    padding: 10px;
+    color: white;
+    padding: 10px 25px;
+}
+
+.book-img {
+    min-width: 300px;
+    max-width: 300px;
+    margin-right: 20px;
+}
+
+.book-details p {
+    margin-bottom: 15px;
+}
+
+.book-content {
+    padding: 10px;
+}
+
+.prev-next {
+    margin-left: 10px;
+}
+
+.nav-books {
+    background-color: #ffb142;
+    padding: 8px;
+    margin-right: 10px;
+    color: white;
+    border-radius: 5px;
+    transition: .3s;
+    font-size: .9rem;
+    font-family: openSansBold;
+}
+
+.nav-books:hover {
+    background-color: #cc8e35;
+}
+
+.read-toggle {
+    background-color: #84817a;
+    border: none;
+    color: #d1ccc0;
+    transition: .3s;
+    padding: 8px;
+    border-radius: 3px;
+    display: block;
+    margin-top: 10px;
+}
+
+.read-toggle:hover {
+    color: white;
+}
+
+.sale-msg {
+    color: crimson;
+    font-weight: bold;
+}
+
+.reviews-title {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.main-reviews {
+    min-height: 150px;
+    text-align: center;
+}
+
+.single-review {
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.single-review:nth-child(odd) {
+    background-color: #d1ccc0;
+}
+
+.single-review:nth-child(even) {
+    background-color: #84817a;
+    color: white;
+}
+
+.single-review:last-of-type {
+    margin-bottom: 20px;
+}
+
+.add-review {
+    width: 25%;
+    margin: auto;
+}
+
+.add-review * {
+    margin-bottom: 10px;
+    padding: 5px;
+    font-family: openSans;
+    width: 100%;
+}
+
+.review-name {
+    font-weight: bold;
+    font-size: 1.2rem
+}
+
+.review-txt {
+    resize: none;
+}
+
+.add-review-btn {
+    width: 40%;
+    background-color: #84817a;
+    border: none;
+    color: #d1ccc0;
+    transition: .3s;
+    padding: 8px;
+    border-radius: 3px;
+}
+
+.add-review-btn:hover {
+    color: white
+}
+
+.delete-review {
+    background: transparent;
+    border: none;
+    color: red;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.search-filter-container {
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 30px;
+    padding-top: 15px;
+}
+
+.search-book-form label {
+    font-family: openSansBold;
+}
+
+.search-book-input {
+    background-color: #e2e8ee;
+    padding: 15px;
+    border-radius: 5px;
+    width: 35vw;
+    border: none;
+    outline: none;
+    font-family: openSans;
+}
+
+.filter-form input {
+    background-color: #e2e8ee;
+    padding: 15px;
+    border-radius: 5px;
+    width: 15vw;
+    border: none;
+    outline: none;
+    font-family: openSans;
+}
+
+.searches-container {
+    position: absolute;
+    margin-top: 50px;
+    width: 35%;
+}
+
+.single-search {
+    margin: 0 auto;
+    padding: 12px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.single-search span {
+    padding-right: 50px;
+}
+
+.single-search:nth-of-type(odd) {
+    background-color: #f0f0f0;
+}
+
+.single-search:nth-of-type(even) {
+    background-color: #e0e0e0;
+}
+
+.add-book {
+    background-color: #00a8ff;
+    border: none;
+    padding: 14px;
+    border-radius: 5px;
+    color: white;
+    font-family: openSansBold;
+    transition: .3s;
+}
+
+.add-book:hover {
+    background-color: #2d98da;
+}
+
+/* HELPERS */
+
+.bold {
+    font-weight: bold;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: rgb(88, 180, 12);
+}
+
+.blue {
+    color: blue;
+}
+
+.clean-list {
+    list-style: none;
+}
