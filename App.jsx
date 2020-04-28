@@ -10,14 +10,17 @@ import UserMsg from './cmps/UserMsg.jsx'
 import BookApp from './pages/books/pages/BookApp.jsx'
 import BookDetails from './pages/books/pages/BookDetails.jsx'
 
-import { NavBar } from './cmps/NavBar.jsx'
+import NavBar from './cmps/NavBar.jsx'
 
 export class App extends React.Component {
-
+    toggleMenu() {
+        document.body.classList.toggle('menu-open')
+    }
     render() {
         return (
             <Router>
                 <div>
+                    <section className="screen" onClick={() => this.toggleMenu()}></section>
                     <header className="main-header">
                         <div className="container flex align-center space-between">
                             <div className="logo-container flex align-center">
@@ -26,8 +29,8 @@ export class App extends React.Component {
                                     <h1 className="logo">Appsus</h1>
                                 </a>
                             </div>
-                     
-                        <NavBar history={history}/>
+
+                            <NavBar toggleMenu={this.toggleMenu} history={history} />
                         </div>
                     </header>
                     <main className="main-container fade-in">
@@ -42,7 +45,7 @@ export class App extends React.Component {
                     </main>
                 </div>
                 <UserMsg />
-            </Router>
+            </Router >
         )
     }
 }
