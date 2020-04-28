@@ -14,7 +14,6 @@
     src: url(fonts/OpenSans-Bold.ttf)
 }
 
-
 /* BASICS */
 
 body {
@@ -22,12 +21,7 @@ body {
     font-family: openSans;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
@@ -40,12 +34,10 @@ a {
     text-decoration: none;
 }
 
-iframe,
-audio {
+iframe, audio {
     width: 100%;
     outline: none;
 }
-
 
 /* CONTAINER */
 
@@ -54,9 +46,36 @@ audio {
     margin: 0 auto;
 }
 
-
 /* *** COMPONENTS *** */
 
+/* Main Menu Mobile */
+
+.screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .6s;
+    z-index: 99998;
+}
+
+.menu-open .screen {
+    visibility: visible;
+    opacity: 1;
+}
+
+.btn-menu {
+    display: none;
+}
+
+.quit-menu button {
+    display: none;
+}
 
 /* HEADER */
 
@@ -67,7 +86,7 @@ audio {
     background-color: white;
     width: 100%;
     position: fixed;
-    z-index: 99999;
+    z-index: 99998;
     margin-bottom: 100px;
     top: 0;
 }
@@ -86,13 +105,82 @@ audio {
 }
 
 .main-nav li {
-    margin-right: 10px;
+    margin-right: 30px;
+}
+
+.main-nav a {
+    padding: 10px 15px;
+    transition: .3s;
+}
+
+.main-nav a:hover {
+    color: #45aaf2;
+}
+
+@media (max-width: 760px) {
+    .btn-menu {
+        background: url("../img/menu.png");
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        cursor: pointer;
+        border: none;
+    }
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        flex-direction: column;
+        height: 100vh;
+        background-color: black;
+        width: 200px;
+        transform: translateX(105%);
+        transition: transform .6s;
+        box-shadow: -4px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    }
+    .main-nav li {
+        margin-bottom: 10px;
+        margin-right: 0px;
+    }
+    a.active {
+        display: block;
+        border-radius: 0;
+    }
+    .main-nav a {
+        color: white;
+        padding: 5px;
+    }
+    .menu-open .main-nav {
+        transform: translateX(0);
+    }
+    .main-nav .quit-menu {
+        visibility: visible;
+        text-align: right;
+        margin: 7px;
+    }
+    .quit-menu button {
+        background: url("../img/quit.png");
+        width: 24px;
+        height: 24px;
+        border: none;
+        cursor: pointer;
+        display: inline-block;
+    }
+}
+
+.active {
+    background-color: #3867d6;
+    border-radius: 3px;
+    color: white
+}
+
+a.active:hover {
+    color: white;
 }
 
 .main-container {
     margin-top: 90px;
 }
-
 
 /* User Msg */
 
@@ -124,7 +212,6 @@ audio {
     color: white;
 }
 
-
 /* *** HELPERS *** */
 
 .fade-in {
@@ -153,7 +240,6 @@ audio {
     }
 }
 
-
 /* List Helpers */
 
 .clean-list {
@@ -161,7 +247,6 @@ audio {
     margin: 0;
     padding: 0;
 }
-
 
 /* Flex Helpers */
 

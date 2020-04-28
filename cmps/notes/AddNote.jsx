@@ -59,7 +59,7 @@ export default class AddNote extends React.Component {
         const { currType, note } = this.state
         const { typesMap } = this
         return (
-            <div className="flex">
+            <div className="add-note-container flex">
                 <form onSubmit={this.onAddNote}>
                     <input type="text" autoComplete="off" value={note.value} name="noteValue" onChange={this.handleInput} className="add-note-input" placeholder={this.placeHolderValue} />
                 </form>
