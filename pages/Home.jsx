@@ -37,7 +37,7 @@ export default class Home extends React.Component {
                             <p className="single-app-desc">
                                 Our mail application is ready! Take a look on it and send some emails :&#41;
                             </p>
-                            <a className="single-app-btn email-btn" href="index.html#/email">Take a look</a>
+                            <a className="single-app-btn email-btn" href="index.html#/email/inbox">Take a look</a>
                         </div>
                     </div>
 
