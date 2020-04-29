@@ -9,21 +9,57 @@ export default class SendEmail extends React.Component {
             body: '',
             toEmail: '',
             subject: '',
+            type: '',
             id: 'unSet',
         },
         isReAdded: false
 
     }
 
+    splitTodo(str) {
+        let newStr = str.split(',', 500)
+        let newStrJoin = newStr.join('\n\n')
+        console.log(' new str split ', newStrJoin)
+        return newStrJoin
+    }
+    getNotesContent = () => {
+        let noteToEmail = {}
+        let type = this.getParameterByName('type')
+        console.log(' type ', type)
+        let content = this.getParameterByName('content')
+        if (type === 'NoteTodos') {
+            content = this.splitTodo(content)
+        }
+        noteToEmail.body = this.getParameterByName('subject') + '\n\n\n' + content + '\n\n\n' + this.getParameterByName('createdAt')
+        this.setState({ email: noteToEmail })
+    }
     componentDidMount() {
-        console.log('state', this.state.email);
+
 
         if (this.props.match.params.id && this.state.email.id === 'unSet') {
             this.loadEmail()
         }
+
+        let isNote = this.getParameterByName('type')
+        if (isNote) {
+
+            this.getNotesContent()
+        }
+
         this.setState({ isReAdded: true })
     }
+    // `index.html#/email/compose?type=${note.type}&createdAt=
+    // ${note.createdAt}&subject=${note.info.label}&content=${todoTxt}`
 
+    getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
 
     loadEmail = () => {
         console.log('Loading EMails')
@@ -37,21 +73,13 @@ export default class SendEmail extends React.Component {
             let subject = 'Re' + email.subject
             email.subject = '' + subject
         }
-        // let subject = 'Re: ' + email.subject
-        // email.subject 
-        // = subject
+
         this.setState({ email: { ...email } })
         console.log('email loaded email', email)
 
 
 
-        // emailService.getById(id)
-        // .then(email => {
-        //     let subject = 'Re: ' + email.subject
-        //     email.subject = subject
 
-        //     this.setState({ email })
-        // })
     }
 
     handleChange = ({ target }) => {
@@ -60,19 +88,9 @@ export default class SendEmail extends React.Component {
         this.setState(prevState => ({ email: { ...prevState.email, [field]: value } }))
     }
 
-    // getSTR = () => {
-    //     var { email, isReAdded } = this.state
-    //     let str
 
-    //     if (email.id !== 'unSet') {
-    //         str = 'Re: ' + email.subject
-    //     } else {
-    //         str = email.subject
-    //     }
-    //     return str
-    // }
 
-    // (isReAdded && email.id === 'unSet') ? email.subject : 'Re:' + email.subject
+
     render() {
         var { email, isReAdded } = this.state
         return (<section className="email-form-content fade-in">

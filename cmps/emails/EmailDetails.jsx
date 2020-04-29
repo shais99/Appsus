@@ -42,6 +42,10 @@ export default class EmailDetails extends React.Component {
     onClickBack = () => {
         this.props.history.goBack()
     }
+
+    saveAsNote(email) {
+        this.props.history.push(`/notes?emailName=${email.name}&emailSubject=${email.subject}&emailBody=${email.body}`)
+    }
     render() {
         const { filterBy, search } = this.state
         var email = this.state.email
@@ -55,23 +59,18 @@ export default class EmailDetails extends React.Component {
                 <div className="email-details-right-btns">
                     <img onClick={(event) => this.toggleStarEmail(event, email)} className="email-card-star biggerAnim" title="Save As Starred" src={`assets/img/${this.isStarred(email)}.png`} alt="" srcSet="" />
                     <img onClick={(event) => this.props.onReplay(event, email)} className="email-card-star biggerAnim" title="Replay Email" src={`assets/img/replay-white.png`} alt="" srcSet="" />
-                    <img onClick={(event) => this.onRemoveEmail(event, email.id)} className="email-card-star smallerAnim" title="Delete" src={`assets/img/delete-white.png`} alt="" srcSet="" />
-                    <img onClick={(event) => this.props.toggleIsRead(event, email)} className="email-card-star smallerAnim" title="Toggle Read/Unread" src={`assets/img/${email.isRead ? 'read-white' : 'unread-white'}.png`} alt="" srcSet="" />
+                    <img onClick={(event) => this.onRemoveEmail(event, email.id)} className="email-card-star biggerAnim" title="Delete" src={`assets/img/delete-white.png`} alt="" srcSet="" />
+                    <img onClick={(event) => this.props.toggleIsRead(event, email)} className="email-card-star biggerAnim" title="Toggle Read/Unread" src={`assets/img/${email.isRead ? 'read-white' : 'unread-white'}.png`} alt="" srcSet="" />
+                    <img onClick={(event) => this.saveAsNote(email)} className="email-card-star biggerAnim" title="Save As Note" src={`assets/img/writenote.png`} alt="" srcSet="" />
                 </div>
             </div>
             <div className="email-details-body fade-in border">
                 <p className="email-details-subject" >{email.subject} <span className="email-details-date" >{email.date}</span></p>
                 <p className="email-details-msg" > {email.body}</p>
                 <p className="email-details-toEmail" > {email.toEmail}</p>
-
             </div>
             <button className="email-details-back" onClick={this.onClickBack}>Back</button>
         </div>
-
-
-
         )
-
-
     }
 }

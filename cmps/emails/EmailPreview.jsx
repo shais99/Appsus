@@ -21,6 +21,12 @@ export default class EmailPreview extends React.Component {
         ev.stopPropagation()
         this.props.onRemoveEmail(id)
     }
+
+    // /notes?emailName=Shai&emailSubject=Happy%20Birthday&emailBody=Mazal%20tov%20ah%20yakar!
+    saveAsNote(ev,email) {
+        ev.stopPropagation()
+        this.props.history.push(`/notes?emailName=${email.name}&emailSubject=${email.subject}&emailBody=${email.body}`)
+    }
     render() {
         const { email } = this.props
         return (
@@ -41,11 +47,13 @@ export default class EmailPreview extends React.Component {
 
                 {/* // Buttons! */}
                 <div className="email-list-btns">
+                    <img onClick={(event) => this.saveAsNote(event,email)} className="email-card-star biggerAnim"
+                     title="Save As Note" src={`assets/img/writenote.png`} alt="" srcSet="" />
                     <img onClick={(event) => this.props.onReplay(event, email)} className="email-card-star biggerAnim"
                         title="Replay Email" src={`assets/img/replay.png`} alt="" srcSet="" />
-                    <img onClick={(event) => this.onRemoveEmail(event, email.id)} className="email-card-star smallerAnim"
+                    <img onClick={(event) => this.onRemoveEmail(event, email.id)} className="email-card-star biggerAnim"
                         title="Delete" src={`assets/img/delete.png`} alt="" srcSet="" />
-                    <img onClick={(event) => this.props.toggleIsRead(event, email)} className="email-card-star smallerAnim"
+                    <img onClick={(event) => this.props.toggleIsRead(event, email)} className="email-card-star biggerAnim"
                         title="Toggle Read/Unread" src={`assets/img/${email.isRead ? 'read' : 'unread'}.png`} alt="" srcSet="" />
                 </div>
             </div>)
