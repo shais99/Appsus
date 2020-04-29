@@ -16,7 +16,7 @@ import utilService from './utilService.js'
 import storageService from './storageService.js'
 var gCurrUser = 'Abir Nadav'
 
-const KEYEmails = 'emails'
+const KEYEmails = 'emailsAbir'
 const gEmails = getEmailsFrom()
 
 function getEmailsFrom() {
@@ -27,23 +27,22 @@ function getEmailsFrom() {
 makeTestEmails()
 
 function makeTestEmails() {
-
     if (gEmails.length > 0) return;
+    createEmail('Abir', 'Abir@Susmail.com', 'Hello? is there Anybody out there?', false, 'sent', 'Click twice if your there!', true)
+    createEmail('Corona', 'corona@virus.com', 'Hey', false, 'inbox', '...')
+    createEmail('Routing', 'ReactRouting@Susmail.com', 'Sorry i forgot to tell you to use me!', false, 'inbox', 'Change All your code!')
+    createEmail('Mark', 'Mark@Facebook.com', 'Im willing to raise your salary just come!', false, 'inbox', 'About the Job offer')
+    createEmail('Console.log', 'console.log@Chrome.com', 'Man im tired Leave me alone!', true, 'inbox', 'Could you stop Calling me?')
+    createEmail('Shai', 'ShaikeMozaike@Susmail.com', 'If a note is noted is note still a note?', true, 'inbox', 'Wondring?', true)
+    createEmail('Google', 'hr@google.com', 'We happy to inform you passed our job interview!', false, 'inbox', 'Come Work for us!')
+    createEmail('Google', 'hr@google.com', 'Sorry the last email Wasnt for you..', false, 'inbox', 'Sorry we made a mistake')
+    createEmail('Abir', 'Abir@Susmail.com', 'React does not React', true, 'sent', 'Help Please!', 'hmm?')
+    createEmail('Shai', 'ShaikeMozaike@Susmail.com', 'Instructoorrrrr Nevo', false, 'inbox', 'On set DDDDDJ')
     createEmail('React', 'CodingAcademy@Susmail.com', 'Try to take it easy :)', true, 'inbox', 'Code Review')
-    createEmail('Shai', 'ShaikeMozaike@Susmail.com', 'If a note is noted is note still a note?', true, 'inbox', 'Wondring?')
-    createEmail('Abir', 'Abir@Susmail.com', 'React does not React', true, 'sent', 'Help Please!')
-    createEmail('Abir', 'Abir@Susmail.com', 'Hello? is there Anybody out there?', false, 'sent', 'Click twice if your there!')
-    createEmail('Abir', 'Abir@Susmail.com', 'Hello? is there Anybody out there?', false, 'sent', 'Click twice if your there!')
-    createEmail('Routing', 'ReactRouting@Susmail.com', 'sorry i forgot to tell you to use me!', false, 'inbox', 'Change All your code!')
-
-
-
-    createEmail('Shai', 'ShaikeMozaike@Susmail.com', 'asd', false, 'inbox', 'pepers')
-
-
+    createEmail('Spam', 'spam@Susmail.com', 'Im a spam', false, 'inbox', 'more spam')
 }
 
-function createEmail(name, to, body, isStarred, box, subject, time) {
+function createEmail(name, to, body, isStarred, box, subject, isRead = false) {
     var email = {
         id: utilService.makeId(),
         name,
@@ -51,7 +50,7 @@ function createEmail(name, to, body, isStarred, box, subject, time) {
         body,
         subject,
         date: utilService.getTime(),
-        isRead: false,
+        isRead,
         box,
         isStarred,
         timeStamp: Date.now()
