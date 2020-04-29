@@ -128,6 +128,7 @@ export default {
     pinNote,
     isPinned,
     updateLabel,
+    updateEmailNote
 }
 
 function addTodo(txt, note) {
@@ -187,6 +188,12 @@ function updateNote(note, txt) {
     return Promise.resolve()
 }
 
+function updateEmailNote(note, editType, txt) {
+    note.info[editType] = txt
+    storageService.saveToStorage(STORAGE_KEY,gNotes)
+    return Promise.resolve()
+}
+
 function remove(noteId) {
     const noteIdx = _getIdxById(noteId)
     gNotes.splice(noteIdx, 1)
@@ -198,7 +205,6 @@ function remove(noteId) {
 function onChangeBgColor(noteId, backgroundColor) {
     const noteIdx = _getIdxById(noteId)
 
-    // gNotes[noteIdx].style.backgroundColor = backgroundColor
     gNotes[noteIdx].style = { ...gNotes[noteIdx].style, backgroundColor }
 
     storageService.saveToStorage(STORAGE_KEY, gNotes)
@@ -265,10 +271,10 @@ function _createTodo(txt) {
 function _createTodoNote(todos) {
     return {
         id: utilService.makeId(),
-        type: "NoteTodos",
+        type: 'NoteTodos',
         isPinned: false,
         info: {
-            label: "New Todo Title",
+            label: 'New Todo Title',
             todos,
             value: todos
         },

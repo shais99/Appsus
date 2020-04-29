@@ -26,6 +26,7 @@ export default class Notes extends React.Component {
         }
         noteService.addNote(note, 'NoteEmail')
         this.loadNotes()
+        window.location.href = `index.html#/notes`
     }
     getParameterByName(name, url) {
         if (!url) url = window.location.href;

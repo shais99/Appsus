@@ -52,6 +52,8 @@ export default class NotePreview extends React.Component {
         if (note.type === 'NoteTodos') {
             let todoTxt = note.info.todos.map(todo => todo.txt)
             window.location.href = `index.html#/email/compose?type=${note.type}&createdAt=${note.createdAt}&subject=${note.info.label}&content=${todoTxt}`
+        } else if(note.type === 'NoteEmail') {
+            window.location.href = `index.html#/email/compose?type=${note.type}&createdAt=${note.createdAt}&subject=${note.info.label}&emailName=${note.info.emailName}&content=${note.info.emailBody}`
         } else {
             window.location.href = `index.html#/email/compose?type=${note.type}&createdAt=${note.createdAt}&subject=${note.info.label}&content=${note.info.value}`
         }
