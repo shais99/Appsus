@@ -2,6 +2,7 @@ import noteService from '../services/notes/noteService.js'
 import AddNote from '../cmps/notes/AddNote.jsx'
 import NoteList from '../cmps/notes/NoteList.jsx'
 import SearchNote from '../cmps/notes/SearchNote.jsx'
+import { eventBus } from '../services/eventBusService.js'
 
 
 export default class Notes extends React.Component {
@@ -27,6 +28,8 @@ export default class Notes extends React.Component {
         noteService.addNote(note, 'NoteEmail')
         this.loadNotes()
         window.location.href = `index.html#/notes`
+
+        eventBus.emit('show-msg', { txt: 'Note Added Successfully from email!' })
     }
     getParameterByName(name, url) {
         if (!url) url = window.location.href;

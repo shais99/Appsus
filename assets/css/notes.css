@@ -53,8 +53,8 @@
     width: 20px;
     margin-right: 12px;
     cursor: pointer;
-    opacity: .5;
-    transition: .3s;
+    opacity: .4;
+    transition: .4s;
 }
 
 .add-note-options img:hover {
@@ -140,6 +140,10 @@
 
 .add-todo-input::placeholder {
     color: black;
+}
+
+.todo-checked {
+    text-decoration: line-through;
 }
 
 .note-options {

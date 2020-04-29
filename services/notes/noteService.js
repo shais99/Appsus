@@ -20,14 +20,45 @@ var gDefaultNotes = [
     },
     {
         id: utilService.makeId(),
-        type: "NoteTxt",
+        type: "NoteImg",
         isPinned: false,
         info: {
-            label: 'Short Story',
-            value: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque minus voluptate aliquid, non repudiandae voluptatibus accusamus beatae adipisci? Non, nostrum?"
+            label: 'CSS be like:',
+            value: "assets/img/programming-gif.gif",
         },
         style: {
-            backgroundColor: "#ffe06e",
+            backgroundColor: "#2bcbba",
+            color: 'black'
+        },
+        createdAt: utilService.getTime()
+    },
+    {
+        id: utilService.makeId(),
+        type: "NoteTodos",
+        isPinned: false,
+        info: {
+            label: "Things To Do:",
+            todos: [
+                { id: utilService.makeId(), txt: "Talk With Nevo", doneAt: null, isChecked: true },
+                { id: utilService.makeId(), txt: "Learn Code From Yaron", doneAt: 187111111, isChecked: false }
+            ]
+        },
+        style: {
+            backgroundColor: "#2bcbba",
+            color: 'black'
+        },
+        createdAt: utilService.getTime()
+    },
+    {
+        id: utilService.makeId(),
+        type: "NoteImg",
+        isPinned: false,
+        info: {
+            label: 'Appsus application ;)',
+            value: "assets/img/horse-gif.gif",
+        },
+        style: {
+            backgroundColor: "rgb(255, 224, 110)",
             color: 'black'
         },
         createdAt: utilService.getTime()
@@ -60,24 +91,7 @@ var gDefaultNotes = [
             value: "assets/img/little-puppy.jpg",
         },
         style: {
-            backgroundColor: "#20bf6b",
-            color: 'black'
-        },
-        createdAt: utilService.getTime()
-    },
-    {
-        id: utilService.makeId(),
-        type: "NoteTodos",
-        isPinned: false,
-        info: {
-            label: "Things To Do:",
-            todos: [
-                { id: utilService.makeId(), txt: "Talk With Nevo", doneAt: null, isChecked: true },
-                { id: utilService.makeId(), txt: "Learn Code From Yaron", doneAt: 187111111, isChecked: false }
-            ]
-        },
-        style: {
-            backgroundColor: "#ffe06e",
+            backgroundColor: "#2bcbba",
             color: 'black'
         },
         createdAt: utilService.getTime()
@@ -105,7 +119,7 @@ var gDefaultNotes = [
             value: "assets/sound/horse.mp3"
         },
         style: {
-            backgroundColor: "#ffe06e",
+            backgroundColor: "#4b7bec",
             color: 'black'
         },
         createdAt: utilService.getTime()

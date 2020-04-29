@@ -40,7 +40,7 @@ export default class TodoList extends React.Component {
                 {this.props.todo.info.todos.map(todo => {
                     return <p key={todo.id}>
                         <input type="checkbox" onChange={() => onTodoChecked(todo)} checked={todo.isChecked} />
-                        &raquo; <span contentEditable="true" suppressContentEditableWarning={true} onInput={(event => onChangeFunc(event, todo.id))} className="todo-content">{todo.txt}</span>
+                        &raquo; <span contentEditable="true" suppressContentEditableWarning={true} onInput={(event => onChangeFunc(event, todo.id))} className={`todo-content ${todo.isChecked ? 'todo-checked' : ''}`}>{todo.txt}</span>
                     </p>
                 })}
                 <form onSubmit={onAddTodo}>

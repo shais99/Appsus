@@ -89,6 +89,10 @@ img {
     max-width: 300px;
 }
 
+.book-content {
+    height: 340px;
+}
+
 .book-content-desc {
     width: 80%;
 }
@@ -96,6 +100,7 @@ img {
 @media (max-width: 1150px) {
     .book-content {
         flex-wrap: wrap;
+        height: unset;
     }
     .book-details {
         width: 60%;
