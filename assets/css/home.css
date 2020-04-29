@@ -4,7 +4,7 @@
     background: url(../img/homebgc.svg);
     border-image-width: 100%;
     background-size: cover;
-    height: calc(100vh - 75px);
+    height: calc(100vh - 63px);
     background-attachment: fixed;
     margin-top: -15px;
     padding-top: 1px;

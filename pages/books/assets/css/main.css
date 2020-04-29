@@ -341,8 +341,7 @@ img {
 }
 
 .search-filter-container {
-    border-bottom: 1px solid lightgrey;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
     padding-top: 15px;
 }
 
