@@ -1,6 +1,5 @@
 import EmailPreview from "./EmailPreview.jsx"
 const { Route, Switch, Link } = ReactRouterDOM
-import emailService from '../../services/emailService.js'
 export default class ListEmail extends React.Component {
   
 
@@ -8,8 +7,6 @@ export default class ListEmail extends React.Component {
 
         const { emails } = this.props
         return (
-
-
                 <div className="emails-list flex column">
                    
                     {!emails ? <h4 className="empty-box-msg" >This Box this empty!</h4> : emails.map((email, idx) => {

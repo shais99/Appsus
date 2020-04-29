@@ -9,7 +9,8 @@ export default {
     getCurrUser,
     toggleIsRead,
     getById,
-    getStarredAmount
+    getStarredAmount,
+    saveEmailsToStorage
 }
 import utilService from './utilService.js'
 import storageService from './storageService.js'
@@ -66,7 +67,7 @@ function createEmail(name, to, body, isStarred, box, subject) {
         isRead: false,
         box,
         isSaved: true,
-        isStarred: false,
+        isStarred,
     }
     gEmails.unshift(email)
     storageService.saveToStorage(KEYEmails, gEmails)
@@ -129,7 +130,9 @@ function toggleStarEmail(email) {
     storageService.saveToStorage(KEYEmails, gEmails)
 }
 
-
+function saveEmailsToStorage() {
+    storageService.saveToStorage(KEYEmails, gEmails)
+}
 
 function toggleIsRead(email) {
     if (email.isRead) {

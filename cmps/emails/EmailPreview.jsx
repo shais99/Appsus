@@ -1,4 +1,5 @@
-
+import emailService from '../../services/emailService.js'
+import storageService from './storageService.js'
 export default class EmailPreview extends React.Component {
 
     componentDidMount() {
@@ -11,6 +12,9 @@ export default class EmailPreview extends React.Component {
         return 'starempty'
     }
     onOpenMail(emailId) {
+        let email = emailService.getById(emailId)
+        email.isRead = true
+        storageService.saveEmailsToStorage()
         this.props.history.push(`/email/details/${emailId}`)
     }
     toggleStarEmail = (ev, email) => {
@@ -24,11 +28,11 @@ export default class EmailPreview extends React.Component {
     }
 
     // /notes?emailName=Shai&emailSubject=Happy%20Birthday&emailBody=Mazal%20tov%20ah%20yakar!
-    saveAsNote(ev,email) {
+    saveAsNote(ev, email) {
         ev.stopPropagation()
         this.props.history.push(`/notes?emailName=${email.name}&emailSubject=${email.subject}&emailBody=${email.body}`)
     }
-    toggleIsRead(ev,email){
+    toggleIsRead(ev, email) {
         ev.stopPropagation();
         ev.nativeEvent.stopImmediatePropagation()
         this.props.toggleIsRead(email)
@@ -53,14 +57,16 @@ export default class EmailPreview extends React.Component {
 
                 {/* // Buttons! */}
                 <div className="email-list-btns">
-                    <img onClick={(event) => this.saveAsNote(event,email)} className="email-card-star biggerAnim"
-                     title="Save As Note" src={`assets/img/writenote.png`} alt="" srcSet="" />
+                    <img onClick={(event) => this.saveAsNote(event, email)} className="email-card-star biggerAnim"
+                        title="Save As Note" src={`assets/img/writenote.png`} alt="" srcSet="" />
                     <img onClick={(event) => this.props.onReplay(event, email)} className="email-card-star biggerAnim"
                         title="Replay Email" src={`assets/img/replay.png`} alt="" srcSet="" />
                     <img onClick={(event) => this.onRemoveEmail(event, email.id)} className="email-card-star biggerAnim"
                         title="Delete" src={`assets/img/delete.png`} alt="" srcSet="" />
                     <img onClick={(event) => this.toggleIsRead(event, email)} className="email-card-star biggerAnim"
                         title="Toggle Read/Unread" src={`assets/img/${email.isRead ? 'read' : 'unread'}.png`} alt="" srcSet="" />
+                          {/* {email.isRead ? <img className="email-card-vmark biggerAnim"
+                        src={`assets/img/readV.png`}  /> : ''} */}
                 </div>
             </div>)
 

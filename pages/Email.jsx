@@ -6,6 +6,7 @@ import SendEmail from "../cmps/emails/SendEmail.jsx"
 import MainNav from "../cmps/emails/MainNav.jsx"
 import EmailFilter from '../cmps/emails/EmailFilter.jsx'
 import { eventBus } from '../services/eventBusService.js'
+
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch, Link } = ReactRouterDOM
 
@@ -122,9 +123,8 @@ export default class Email extends React.Component {
                             <React.Fragment>
                                 <section className="email-section fade-in">
                                     <EmailFilter onSetFilter={this.onSetFilter}></EmailFilter>
-                                    <div className="emails-list-topbar flex space-between">
-
-
+                                    <div className="emails-list-topbar flex ">
+                                        <h3>Read/Unread</h3>
                                         <input onChange={this.toggleSortIsRead} title="Filter Read/Unread" className="emails-switch" type="checkbox" />
                                     </div>
                                     <Route component={() => <ListEmail
