@@ -28,9 +28,10 @@ makeTestEmails()
 
 function makeTestEmails() {
     if (gEmails.length > 0) return;
+    createEmail('Nevoi', 'nevo@hmail.com', 'Dafuk ooooo DAFUKONININI', true, 'inbox', 'dafukoni noni', true)
     createEmail('Abir', 'Abir@Susmail.com', 'Hello? is there Anybody out there?', false, 'sent', 'Click twice if your there!', true)
     createEmail('Corona', 'corona@virus.com', 'Hey', false, 'inbox', '...')
-    createEmail('Routing', 'ReactRouting@Susmail.com', 'Sorry i forgot to tell you to use me!', false, 'inbox', 'Change All your code!')
+    createEmail('Routing', 'ReactRouting@Susmail.com', 'Sorry I forgot to tell you to use me!', false, 'inbox', 'Change All your code!')
     createEmail('Mark', 'Mark@Facebook.com', 'Im willing to raise your salary just come!', false, 'inbox', 'About the Job offer')
     createEmail('Console.log', 'console.log@Chrome.com', 'Man im tired Leave me alone!', true, 'inbox', 'Could you stop Calling me?')
     createEmail('Shai', 'ShaikeMozaike@Susmail.com', 'If a note is noted is note still a note?', true, 'inbox', 'Wondring?', true)
@@ -40,6 +41,8 @@ function makeTestEmails() {
     createEmail('Shai', 'ShaikeMozaike@Susmail.com', 'Instructoorrrrr Nevo', false, 'inbox', 'On set DDDDDJ')
     createEmail('React', 'CodingAcademy@Susmail.com', 'Try to take it easy :)', true, 'inbox', 'Code Review')
     createEmail('Spam', 'spam@Susmail.com', 'Im a spam', false, 'inbox', 'more spam')
+    createEmail('Avigail', 'Djs@dj-company.com', 'You are listening toooo D D Dj Avigailll', true, 'inbox', 'Dj - COME HERE!', true)
+    createEmail('Zohar', 'yeshDvarim@nomail.com', 'Yesh dvarim nistarim, lo navin lo NEDAAAA', true, 'inbox', 'Dvarim nistarim')
 }
 
 function createEmail(name, to, body, isStarred, box, subject, isRead = false) {
@@ -69,10 +72,10 @@ function getStarredAmount() {
 
 function query(filterBy, box, sortBy = false, sortByDate = false) {
     let emails = gEmails.slice()
+    let filteredEmails = filterByBox(box, emails)
     if (sortBy || sortByDate) {
         emails = sortEmails(sortBy, sortByDate)
     }
-    let filteredEmails = filterByBox(box, emails)
     if (filterBy) {
         const emails = filteredEmails.filter(email => {
             let name = email.name.toUpperCase()
@@ -105,10 +108,11 @@ function filterByStar() {
 function sortEmails(sortBy, sortByDate) {
     let emails = gEmails.slice()
     if (sortByDate) {
-        console.log('sorted by date')
-        emails.sort(function(a, b) { return a.timeStamp - b.timeStamp });
+        emails.sort(function (a, b) { return a.timeStamp - b.timeStamp });
     } else if (sortBy) {
-        emails.sort(function(a, b) { return a.isRead - b.isRead });
+        console.log(emails);
+
+        emails.sort(function (a, b) { return a.isRead - b.isRead });
     }
     return emails
 }
