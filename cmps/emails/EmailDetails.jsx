@@ -1,7 +1,5 @@
 
-const { Route, Switch, Link, useParams } = ReactRouterDOM
 import emailService from '../../services/emailService.js'
-
 export default class EmailDetails extends React.Component {
     state = {
         email: null,
@@ -16,6 +14,7 @@ export default class EmailDetails extends React.Component {
         this.setState({ email })
     }
     onRemoveEmail(ev, id) {
+        this.props.history.goBack()
         ev.stopPropagation()
         this.props.onRemoveEmail(id)
     }
@@ -49,7 +48,7 @@ export default class EmailDetails extends React.Component {
                     <img onClick={(event) => this.toggleStarEmail(event, email)} className="email-card-star biggerAnim" title="Save As Starred" src={`assets/img/${this.isStarred(email)}.png`} alt="" srcSet="" />
                     <img onClick={(event) => this.saveAsNote(email)} className="email-card-star biggerAnim" title="Save As Note" src={`assets/img/writenote-white.png`} alt="" srcSet="" />
                     <img onClick={(event) => this.props.onReplay(event, email)} className="email-card-star biggerAnim" title="Replay Email" src={`assets/img/replay-white.png`} alt="" srcSet="" />
-                    <img onClick={(event) => this.onRemoveEmail(event, email.id)} className="email-card-star biggerAnim" title="Delete" src={`assets/img/delete-white.png`} alt="" srcSet="" />
+                    <img onClick={(event) => this.onRemoveEmail(event, email.id,true)} className="email-card-star biggerAnim" title="Delete" src={`assets/img/delete-white.png`} alt="" srcSet="" />
                     <img onClick={(event) => this.props.toggleIsRead(event, email)} className="email-card-star biggerAnim" title="Toggle Read/Unread" src={`assets/img/${email.isRead ? 'read-white' : 'unread-white'}.png`} alt="" srcSet="" />
                 </div>
             </div>

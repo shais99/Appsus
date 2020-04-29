@@ -2,30 +2,22 @@ import emailService from "../services/emailService.js"
 import ListEmail from '../cmps/emails/ListEmail.jsx'
 import EmailDetails from '../cmps/emails/EmailDetails.jsx'
 import SendEmail from "../cmps/emails/SendEmail.jsx"
-// import UnFinishedEmails from "../cmps/emails/UnFinishedEmails.jsx"
 import MainNav from "../cmps/emails/MainNav.jsx"
 import EmailFilter from '../cmps/emails/EmailFilter.jsx'
 import { eventBus } from '../services/eventBusService.js'
-
-const Router = ReactRouterDOM.HashRouter
-const { Route, Switch, Link } = ReactRouterDOM
-
+const { Route, Switch } = ReactRouterDOM
 export default class Email extends React.Component {
     state = {
         filterBy: null,
         filterByBox: null,
         emails: null,
-        // unReadAmount: null,
         emailReplay: null,
-        // unFinished: 1,
         isChecked: false
-
     }
     componentDidMount() {
         this.loadEmails()
 
     }
-
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.filter !== this.props.match.params.filter) {
             this.onSetFilter(this.state.filterBy, this.getFilterByBox())
@@ -57,10 +49,8 @@ export default class Email extends React.Component {
         console.log('remove email', emailId)
         emailService.removeEmail(emailId)
             .then(() => {
-                // this.props.history.goBack()
                 this.loadEmails()
             })
-
     }
     sendEmail = (ev, newEmail, isReply = false) => {
         ev.preventDefault()
@@ -106,8 +96,7 @@ export default class Email extends React.Component {
         this.props.history.push(`/email/compose/${emailReplay.id}`)
     }
     render() {
-        const { emails, unReadAmount } = this.state
-
+        const { emails } = this.state
         return (
             <section className="email-main-content">
                 <div className="flex email-content ">
@@ -118,11 +107,9 @@ export default class Email extends React.Component {
                             <Route component={(props) => <SendEmail {...props}
                                 sendEmail={this.sendEmail} />}
                                 path='/email/compose/:id' />
-
                             <Route component={(props) => <SendEmail {...props}
                                 sendEmail={this.sendEmail} />}
                                 path='/email/compose/' />
-
                             <Route exact component={(props) => <EmailDetails {...props}
                                 onReplay={this.onReply}
                                 onRemoveEmail={this.onRemoveEmail}
@@ -132,14 +119,12 @@ export default class Email extends React.Component {
                             <React.Fragment>
                                 <section className="email-section fade-in">
                                     <div className="emails-list-topbar flex align-center space-between">
-                                        {/* <div className="flex space-between  align-center"> */}
                                         <div className="email-search-container">
                                             <EmailFilter onSetFilter={this.onSetFilter}></EmailFilter>
                                         </div>
                                         <div className="latest-read-container flex">
                                             <h3>Show Latest</h3>
                                             <input onClick={this.toggleSortByDate} title="Filter Read/Unread" className="emails-switch" type="checkbox" />
-                                            {/* </div> */}
                                             <div className="flex space-between">
                                                 <h3>Read/Unread</h3>
                                                 <input onChange={this.toggleSortIsRead} title="Filter Read/Unread" className="emails-switch" type="checkbox" />
@@ -147,7 +132,6 @@ export default class Email extends React.Component {
                                         </div>
                                     </div>
                                     <Route component={() => <ListEmail
-
                                         emails={emails}
                                         onReplay={this.onReply}
                                         toggleIsRead={this.toggleIsRead}
@@ -158,9 +142,6 @@ export default class Email extends React.Component {
                             </React.Fragment>
                         </Switch>
                     </div>
-
-                    {/* {this.state.unFinished > 0 && <UnFinishedEmails email={this.state.email}></UnFinishedEmails>} */}
-
                 </div>
             </section>
         )

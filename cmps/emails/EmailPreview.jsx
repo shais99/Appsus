@@ -1,16 +1,13 @@
 import emailService from '../../services/emailService.js'
-import storageService from '../../services/storageService.js'
 export default class EmailPreview extends React.Component {
-
     isStarred(email) {
-
         if (email.isStarred) return 'star'
         return 'starempty'
     }
     onOpenMail(emailId) {
         let email = emailService.getById(emailId)
         email.isRead = true
-        storageService.saveEmailsToStorage()
+        emailService.saveEmailsToStorage()
         this.props.history.push(`/email/details/${emailId}`)
     }
     toggleStarEmail = (ev, email) => {
@@ -23,7 +20,6 @@ export default class EmailPreview extends React.Component {
         this.props.onRemoveEmail(id)
     }
 
-    // /notes?emailName=Shai&emailSubject=Happy%20Birthday&emailBody=Mazal%20tov%20ah%20yakar!
     saveAsNote(ev, email) {
         ev.stopPropagation()
         this.props.history.push(`/notes?emailName=${email.name}&emailSubject=${email.subject}&emailBody=${email.body}`)
@@ -48,9 +44,6 @@ export default class EmailPreview extends React.Component {
                     <p title="Message" className={`email-card-msg ${email.isRead ? 'emailCard-effect' : ''}`} >{email.body}</p>
                 </div>
                 <p title="Current Date" className={`email-card-date ${email.isRead ? 'emailCard-effect' : ''}`} > {email.date}</p>
-
-
-
                 {/* // Buttons! */}
                 <div className="email-list-btns">
                     <img onClick={(event) => this.saveAsNote(event, email)} className="email-card-star biggerAnim"
@@ -61,12 +54,7 @@ export default class EmailPreview extends React.Component {
                         title="Delete" src={`assets/img/delete.png`} alt="" srcSet="" />
                     <img onClick={(event) => this.toggleIsRead(event, email)} className="email-card-star biggerAnim"
                         title="Toggle Read/Unread" src={`assets/img/${email.isRead ? 'read' : 'unread'}.png`} alt="" srcSet="" />
-                          {/* {email.isRead ? <img className="email-card-vmark biggerAnim"
-                        src={`assets/img/readV.png`}  /> : ''} */}
                 </div>
             </div>)
-
-
-
     }
 }

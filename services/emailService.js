@@ -29,30 +29,18 @@ makeTestEmails()
 function makeTestEmails() {
 
     if (gEmails.length > 0) return;
-    createEmail('Abir', 'Someone@walla.com', 'This is the Emails Body', false, 'sent', 'icecream')
-    createEmail('Shai', 'Someone@walla.com', 'This is the Emails Body', false, 'inbox', 'pepers')
-    createEmail('abi34rw', 'Someone@walla.com', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject')
-    createEmail('Shai', 'Someone@walla.com', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject', 4)
-    createEmail('abi34rw', 'Someone@walla.com', 'This is the Emails Body', false, 'inbox', 'IM SOME')
-    createEmail('Shai', 'Someone@walla.com', 'This is the Emails Body', true, 'inbox', 'IM This is the emails Subject')
-    createEmail('abi34rw', 'Someone@walla.com', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject')
-    createEmail('Shai', 'Someone@walla.com', 'This is the Emails Body', false, 'inbox', 'IM AWE')
-    createEmail('Chips', 'Someone@walla.com', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject', 6)
-    createEmail('pizza', 'Someone@walla.com', 'This is the Emails Body', true, 'inbox', 'IM This is the emails Subject')
-    createEmail('abi34rw', 'Someone@walla.com', 'This is the Emails Body', true, 'inbox', 'IM This is the emails Subject')
-    createEmail('another email', 'gogo', 'gogogo', true, 'sent', 'IM This is the emails Subject')
-    createEmail('Abir', 'Someone@walla.com', 'This is the Emails Body', false, 'sent', 'icecream', 2)
-    createEmail('Shai', 'sha423i22w', 'This is the Emails Body', false, 'inbox', 'pepers')
-    createEmail('wow', 'sha423i22w', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject')
-    createEmail('Shai', 'whoscares@walla.com', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject')
-    createEmail('cool5', 'whoscares@walla.com', 'This is the Emails Body', false, 'inbox', 'IM SOME', 5)
-    createEmail('Shai1', 'whoscares@walla.com', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject', 1)
-    createEmail('abi34rw2', 'whoscares@walla.com', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject', 2)
-    createEmail('Shai7', 'whoscares@walla.com', 'This is the Emails Body', false, 'inbox', 'IM AWE', 7)
-    createEmail('abi34rw3', 'whoscares@walla.com', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject', 3)
-    createEmail('Shai0', 'Someone@walla.com', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject', 9)
-    createEmail('test1', 'test', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject', 1)
-    createEmail('abi34rw1', 'gogo', 'gogogo', true, 'sent', 'IM This is the emails Subject', 1)
+    createEmail('React', 'CodingAcademy@Susmail.com', 'Try to take it easy :)', true, 'inbox', 'Code Review')
+    createEmail('Shai', 'ShaikeMozaike@Susmail.com', 'If a note is noted is note still a note?', true, 'inbox', 'Wondring?')
+    createEmail('Abir', 'Abir@Susmail.com', 'React does not React', true, 'sent', 'Help Please!')
+    createEmail('Abir', 'Abir@Susmail.com', 'Hello? is there Anybody out there?', false, 'sent', 'Click twice if your there!')
+    createEmail('Abir', 'Abir@Susmail.com', 'Hello? is there Anybody out there?', false, 'sent', 'Click twice if your there!')
+    createEmail('Routing', 'ReactRouting@Susmail.com', 'sorry i forgot to tell you to use me!', false, 'inbox', 'Change All your code!')
+
+
+
+    createEmail('Shai', 'ShaikeMozaike@Susmail.com', 'asd', false, 'inbox', 'pepers')
+
+
 }
 
 function createEmail(name, to, body, isStarred, box, subject, time) {
@@ -63,10 +51,8 @@ function createEmail(name, to, body, isStarred, box, subject, time) {
         body,
         subject,
         date: utilService.getTime(),
-        isSent: null,
         isRead: false,
         box,
-        isSaved: true,
         isStarred,
         timeStamp: Date.now()
     }
@@ -112,7 +98,6 @@ function filterByBox(filterBy, emailsToFilter) {
 function filterByStar() {
     const emails = gEmails.filter(email => {
         if (email.isStarred) return true
-
     })
     return emails
 }
@@ -131,8 +116,6 @@ function sortEmails(sortBy, sortByDate) {
 
 //Togglers
 function toggleStarEmail(email) {
-    // if (email.isStarred === true) return email.isStarred = false
-    // email.isStarred = true
     email.isStarred = !email.isStarred
     storageService.saveToStorage(KEYEmails, gEmails)
 }
