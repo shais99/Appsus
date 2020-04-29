@@ -1,17 +1,18 @@
+import noteService from '../../services/notes/noteService.js'
+
 export default class NoteEmail extends React.Component {
-    onChangeFunc = (ev, todoId) => {
+    onChangeFunc = (ev, editType) => {
         let value = ev.target.innerText
-        // this.props.updateTodo(this.props.todo, todoId, value)
+        noteService.updateEmailNote(this.props.note, editType, value)
     }
     render() {
-        console.log(this.props.note)
         const { note } = this.props
         return (
             <React.Fragment>
-                <p contentEditable="true" suppressContentEditableWarning={true} onInput={(event => onChangeFunc(event, note.id))}>
+                <p contentEditable="true" suppressContentEditableWarning={true} onInput={(event => this.onChangeFunc(event, 'emailName'))}>
                     {note.info.emailName}
                 </p>
-                <p contentEditable="true" suppressContentEditableWarning={true} onInput={(event => onChangeFunc(event, note.id))}>
+                <p contentEditable="true" suppressContentEditableWarning={true} onInput={(event => this.onChangeFunc(event, 'emailBody'))}>
                     {note.info.emailBody}
                 </p>
             </React.Fragment>
