@@ -1,6 +1,7 @@
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch, NavLink } = ReactRouterDOM
 import emailService from '../../services/emailService.js'
+
 export default class MainNav extends React.Component {
     state = {
         navBarIsOpen: false
@@ -48,7 +49,7 @@ export default class MainNav extends React.Component {
                         </div>
                     </NavLink>
                     <div className="mobile-burger">
-                        <img onClick={() => this.onOpenNavMobile()} src="../../assets/img/menumobile.png" />
+                        <img onClick={() => this.onOpenNavMobile()} src="assets/img/menumobile.png" />
                     </div>
                 </div>
             </React.Fragment>
