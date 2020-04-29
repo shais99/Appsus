@@ -29,20 +29,20 @@ makeTestEmails()
 function makeTestEmails() {
     if (gEmails.length > 0) return;
     createEmail('Nevoi', 'nevo@hmail.com', 'Dafuk ooooo DAFUKONININI', true, 'inbox', 'dafukoni noni', true)
-    createEmail('Abir', 'Abir@Susmail.com', 'Hello? is there Anybody out there?', false, 'sent', 'Click twice if your there!', true)
+    createEmail('Abir', 'Abir@Susmail.com', 'Hello? is there Anybody out there?', true, 'sent', 'Click twice if your there!', true)
+    createEmail('Avigail', 'Djs@dj-company.com', 'You are listening toooo D D Dj Avigailll', true, 'inbox', 'Dj - COME HERE!', true)
+    createEmail('Zohar', 'yeshDvarim@nomail.com', 'Yesh dvarim nistarim, lo navin lo NEDAAAA', true, 'inbox', 'Dvarim nistarim')
     createEmail('Corona', 'corona@virus.com', 'Hey', false, 'inbox', '...')
-    createEmail('Routing', 'ReactRouting@Susmail.com', 'Sorry I forgot to tell you to use me!', false, 'inbox', 'Change All your code!')
-    createEmail('Mark', 'Mark@Facebook.com', 'Im willing to raise your salary just come!', false, 'inbox', 'About the Job offer')
-    createEmail('Console.log', 'console.log@Chrome.com', 'Man im tired Leave me alone!', true, 'inbox', 'Could you stop Calling me?')
+    createEmail('Spam', 'spam@Susmail.com', 'Im a spam', false, 'inbox', 'more spam')
     createEmail('Shai', 'ShaikeMozaike@Susmail.com', 'If a note is noted is note still a note?', true, 'inbox', 'Wondring?', true)
     createEmail('Google', 'hr@google.com', 'We happy to inform you passed our job interview!', false, 'inbox', 'Come Work for us!')
     createEmail('Google', 'hr@google.com', 'Sorry the last email Wasnt for you..', false, 'inbox', 'Sorry we made a mistake')
     createEmail('Abir', 'Abir@Susmail.com', 'React does not React', true, 'sent', 'Help Please!', 'hmm?')
     createEmail('Shai', 'ShaikeMozaike@Susmail.com', 'Instructoorrrrr Nevo', false, 'inbox', 'On set DDDDDJ')
     createEmail('React', 'CodingAcademy@Susmail.com', 'Try to take it easy :)', true, 'inbox', 'Code Review')
-    createEmail('Spam', 'spam@Susmail.com', 'Im a spam', false, 'inbox', 'more spam')
-    createEmail('Avigail', 'Djs@dj-company.com', 'You are listening toooo D D Dj Avigailll', true, 'inbox', 'Dj - COME HERE!', true)
-    createEmail('Zohar', 'yeshDvarim@nomail.com', 'Yesh dvarim nistarim, lo navin lo NEDAAAA', true, 'inbox', 'Dvarim nistarim')
+    createEmail('Console.log', 'console.log@Chrome.com', 'Man im tired Leave me alone!', true, 'inbox', 'Could you stop Calling me?')
+    createEmail('Routing', 'ReactRouting@Susmail.com', 'Sorry I forgot to tell you to use me!', false, 'inbox', 'Change All your code!')
+    createEmail('Mark', 'Mark@Facebook.com', 'Im willing to raise your salary just come!', false, 'inbox', 'About the Job offer')
 }
 
 function createEmail(name, to, body, isStarred, box, subject, isRead = false) {
@@ -108,11 +108,11 @@ function filterByStar() {
 function sortEmails(sortBy, sortByDate) {
     let emails = gEmails.slice()
     if (sortByDate) {
-        emails.sort(function (a, b) { return a.timeStamp - b.timeStamp });
+        emails.sort(function(a, b) { return a.timeStamp - b.timeStamp });
     } else if (sortBy) {
         console.log(emails);
 
-        emails.sort(function (a, b) { return a.isRead - b.isRead });
+        emails.sort(function(a, b) { return a.isRead - b.isRead });
     }
     return emails
 }

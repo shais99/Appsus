@@ -151,7 +151,7 @@
 }
 
 @media (max-width: 440px) {
-    .main-email-content .emails-list .email-card  {
+    .main-email-content .emails-list .email-card {
         padding-top: 25px;
         padding-bottom: 25px;
     }
@@ -696,9 +696,9 @@
 }
 
 .emailCard-effect {
-    color: rgba(128, 128, 128, 0.781);
+    color: black;
     font-weight: lighter;
-    opacity: 0.5;
+    /* opacity: 0.5; */
 }
 
 
