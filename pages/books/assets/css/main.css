@@ -334,6 +334,32 @@ img {
     padding-top: 15px;
 }
 
+@media (max-width: 760px) {
+    .search-filter-container {
+        flex-direction: column;
+        padding-bottom: 15px;
+    }
+    .main-search-book {
+        margin-bottom: 15px;
+    }
+    .search-filter-container .filter-form input {
+        width: 45vw;
+        margin-right: 0;
+    }
+    .search-book-form .search-book-input {
+        width: 90vw;
+    }
+    .main-search-book .searches-container {
+        width: 90vw;
+    }
+    .book-preview p:first-of-type{
+        flex-grow: unset;
+    }
+    .book-preview {
+        height: unset;
+    }
+}
+
 .search-book-form label {
     font-family: openSansBold;
 }
