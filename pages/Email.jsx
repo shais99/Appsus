@@ -48,8 +48,8 @@ export default class Email extends React.Component {
         this.setState({ filterBy: 'star', emails })
     }
 
-    loadEmails = (sortRead = false) => {
-        var emails = emailService.query(this.state.filterBy, this.getFilterByBox(), sortRead)
+    loadEmails = (sortBy = false, sortByDate) => {
+        var emails = emailService.query(this.state.filterBy, this.getFilterByBox(), sortBy, sortByDate)
         this.setState({ emails })
     }
 
@@ -85,11 +85,20 @@ export default class Email extends React.Component {
     }
     toggleSortIsRead = () => {
         if (this.state.isChecked) {
-            this.loadEmails(false)
-            this.setState({isChecked : false})
-        } else{
-            this.loadEmails(true)
-            this.setState({isChecked : true})
+            this.loadEmails(false, this.state.isSortedByDate)
+            this.setState({ isChecked: false })
+        } else {
+            this.loadEmails(true, this.state.isSortedByDate)
+            this.setState({ isChecked: true })
+        }
+    }
+    toggleSortByDate = () => {
+        if (this.state.isChecked) {
+            this.loadEmails(this.state.isChecked, false)
+            this.setState({ isSortedByDate: false })
+        } else {
+            this.loadEmails(this.state.isChecked, true)
+            this.setState({ isSortedByDate: true })
         }
     }
     onReply = (ev, emailReplay) => {
@@ -122,10 +131,20 @@ export default class Email extends React.Component {
                                 path='/email/details/:emailId' />
                             <React.Fragment>
                                 <section className="email-section fade-in">
-                                    <EmailFilter onSetFilter={this.onSetFilter}></EmailFilter>
-                                    <div className="emails-list-topbar flex ">
-                                        <h3>Read/Unread</h3>
-                                        <input onChange={this.toggleSortIsRead} title="Filter Read/Unread" className="emails-switch" type="checkbox" />
+                                    <div className="emails-list-topbar flex align-center space-between">
+                                        {/* <div className="flex space-between  align-center"> */}
+                                        <div className="email-search-container">
+                                            <EmailFilter onSetFilter={this.onSetFilter}></EmailFilter>
+                                        </div>
+                                        <div className="latest-read-container flex">
+                                            <h3>Show Latest</h3>
+                                            <input onClick={this.toggleSortByDate} title="Filter Read/Unread" className="emails-switch" type="checkbox" />
+                                            {/* </div> */}
+                                            <div className="flex space-between">
+                                                <h3>Read/Unread</h3>
+                                                <input onChange={this.toggleSortIsRead} title="Filter Read/Unread" className="emails-switch" type="checkbox" />
+                                            </div>
+                                        </div>
                                     </div>
                                     <Route component={() => <ListEmail
 

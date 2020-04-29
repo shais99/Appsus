@@ -29,33 +29,33 @@ makeTestEmails()
 function makeTestEmails() {
 
     if (gEmails.length > 0) return;
-    createEmail('Abir', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'sent', 'icecream')
-    createEmail('Shai', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'pepers')
-    createEmail('abi34rw', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
-    createEmail('Shai', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
-    createEmail('abi34rw', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM SOME')
-    createEmail('Shai', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', true, 'inbox', 'IM AWEOSOME')
-    createEmail('abi34rw', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
-    createEmail('Shai', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWE')
-    createEmail('abi34rw', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
-    createEmail('Shai', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', true, 'inbox', 'IM AWEOSOME')
-    createEmail('abi34rw', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', true, 'inbox', 'IM AWEOSOME')
-    createEmail('abi34rw', 'gogo', 'gogogo', true, 'sent', 'IM AWEOSOME')
-    createEmail('Abir', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'sent', 'icecream')
-    createEmail('Shai', 'sha423i22w', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'pepers')
-    createEmail('abi34rw', 'sha423i22w', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
-    createEmail('Shai', 'whoscares@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
-    createEmail('abi34rw', 'whoscares@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM SOME')
-    createEmail('Shai', 'whoscares@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
-    createEmail('abi34rw', 'whoscares@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
-    createEmail('Shai', 'whoscares@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWE')
-    createEmail('abi34rw', 'whoscares@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
-    createEmail('Shai', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
-    createEmail('test', 'test', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
-    createEmail('abi34rw', 'gogo', 'gogogo', true, 'sent', 'IM AWEOSOME')
+    createEmail('Abir', 'Someone@walla.com', 'This is the Emails Body', false, 'sent', 'icecream')
+    createEmail('Shai', 'Someone@walla.com', 'This is the Emails Body', false, 'inbox', 'pepers')
+    createEmail('abi34rw', 'Someone@walla.com', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject')
+    createEmail('Shai', 'Someone@walla.com', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject', 4)
+    createEmail('abi34rw', 'Someone@walla.com', 'This is the Emails Body', false, 'inbox', 'IM SOME')
+    createEmail('Shai', 'Someone@walla.com', 'This is the Emails Body', true, 'inbox', 'IM This is the emails Subject')
+    createEmail('abi34rw', 'Someone@walla.com', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject')
+    createEmail('Shai', 'Someone@walla.com', 'This is the Emails Body', false, 'inbox', 'IM AWE')
+    createEmail('Chips', 'Someone@walla.com', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject', 6)
+    createEmail('pizza', 'Someone@walla.com', 'This is the Emails Body', true, 'inbox', 'IM This is the emails Subject')
+    createEmail('abi34rw', 'Someone@walla.com', 'This is the Emails Body', true, 'inbox', 'IM This is the emails Subject')
+    createEmail('another email', 'gogo', 'gogogo', true, 'sent', 'IM This is the emails Subject')
+    createEmail('Abir', 'Someone@walla.com', 'This is the Emails Body', false, 'sent', 'icecream', 2)
+    createEmail('Shai', 'sha423i22w', 'This is the Emails Body', false, 'inbox', 'pepers')
+    createEmail('wow', 'sha423i22w', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject')
+    createEmail('Shai', 'whoscares@walla.com', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject')
+    createEmail('cool5', 'whoscares@walla.com', 'This is the Emails Body', false, 'inbox', 'IM SOME', 5)
+    createEmail('Shai1', 'whoscares@walla.com', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject', 1)
+    createEmail('abi34rw2', 'whoscares@walla.com', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject', 2)
+    createEmail('Shai7', 'whoscares@walla.com', 'This is the Emails Body', false, 'inbox', 'IM AWE', 7)
+    createEmail('abi34rw3', 'whoscares@walla.com', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject', 3)
+    createEmail('Shai0', 'Someone@walla.com', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject', 9)
+    createEmail('test1', 'test', 'This is the Emails Body', false, 'inbox', 'IM This is the emails Subject', 1)
+    createEmail('abi34rw1', 'gogo', 'gogogo', true, 'sent', 'IM This is the emails Subject', 1)
 }
 
-function createEmail(name, to, body, isStarred, box, subject) {
+function createEmail(name, to, body, isStarred, box, subject, time) {
     var email = {
         id: utilService.makeId(),
         name,
@@ -68,6 +68,7 @@ function createEmail(name, to, body, isStarred, box, subject) {
         box,
         isSaved: true,
         isStarred,
+        timeStamp: Date.now()
     }
     gEmails.unshift(email)
     storageService.saveToStorage(KEYEmails, gEmails)
@@ -81,10 +82,10 @@ function getStarredAmount() {
     return num
 }
 
-function query(filterBy, box, filterRead) {
+function query(filterBy, box, sortBy = false, sortByDate = false) {
     let emails = gEmails.slice()
-    if (filterRead) {
-        emails = sortEmails()
+    if (sortBy || sortByDate) {
+        emails = sortEmails(sortBy, sortByDate)
     }
     let filteredEmails = filterByBox(box, emails)
     if (filterBy) {
@@ -116,9 +117,15 @@ function filterByStar() {
     return emails
 }
 
-function sortEmails() {
+
+function sortEmails(sortBy, sortByDate) {
     let emails = gEmails.slice()
-    emails.sort(function(a, b) { return a.isRead - b.isRead });
+    if (sortByDate) {
+        console.log('sorted by date')
+        emails.sort(function(a, b) { return a.timeStamp - b.timeStamp });
+    } else if (sortBy) {
+        emails.sort(function(a, b) { return a.isRead - b.isRead });
+    }
     return emails
 }
 

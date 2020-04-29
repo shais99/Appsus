@@ -1,11 +1,7 @@
 import emailService from '../../services/emailService.js'
-import storageService from './storageService.js'
+import storageService from '../../services/storageService.js'
 export default class EmailPreview extends React.Component {
 
-    componentDidMount() {
-
-
-    }
     isStarred(email) {
 
         if (email.isStarred) return 'star'
