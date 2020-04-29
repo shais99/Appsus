@@ -22,7 +22,7 @@ export default class NotePreview extends React.Component {
         const { note, type } = this.props
 
         switch (type) {
-            case 'NoteText':
+            case 'NoteTxt':
                 return <NoteTxt note={note} updateNote={this.onUpdateNote} />
             case 'NoteImg':
                 return <NoteImg note={note} />
@@ -45,14 +45,25 @@ export default class NotePreview extends React.Component {
         let value = ev.target.innerText
         noteService.updateLabel(note, value)
     }
+    onSendEmail (note) {
+        console.log(note);
+        if (note.type === 'NoteTodos') {
+            let todoTxt = note.info.todos.map(todo => todo.txt)
+            window.location.href = `index.html#/email/compose?type=${note.type}&createdAt=${note.createdAt}&subject=${note.info.label}&content=${todoTxt}`
+        } else {
+            window.location.href = `index.html#/email/compose?type=${note.type}&createdAt=${note.createdAt}&subject=${note.info.label}&content=${note.info.value}`
+        }
+    }
     render() {
         const { note, onDeleteNote, onChangeBgColor, onChangeTxtColor } = this.props
+        const {isPinned, onChangeLabel, noteToRender, onPinNote, onSendEmail} = this
+        const {isBgColorPicker, isTxtColorPicker} = this.state
         return (
             <article className="single-note flex column" style={note.style}>
-                <p className="pinned">{this.isPinned(note.id) ? <img src="assets/img/pinned.png" className="pinned-img" alt="" /> : ''}</p>
-                <p contentEditable="true" suppressContentEditableWarning={true} onInput={(event => this.onChangeLabel(note, event))} className="note-title">{note.info.label}</p>
+                <p className="pinned">{isPinned(note.id) ? <img src="assets/img/pinned.png" className="pinned-img" alt="" /> : ''}</p>
+                <p contentEditable="true" suppressContentEditableWarning={true} onInput={(event => onChangeLabel(note, event))} className="note-title">{note.info.label}</p>
                 <div className="note-content">
-                    {this.noteToRender}
+                    {noteToRender}
                 </div>
 
                 <span className="note-created">{note.createdAt}</span>
@@ -61,10 +72,11 @@ export default class NotePreview extends React.Component {
 
                     <img onClick={() => { this.setState(prevState => { return { isBgColorPicker: !prevState.isBgColorPicker } }) }} src="assets/img/paint.png" title="Change Note Color" alt="" />
                     <img onClick={() => { this.setState(prevState => { return { isTxtColorPicker: !prevState.isTxtColorPicker } }) }} title="Change Note Text Color" src="assets/img/font.png" alt="" />
-                    <img src="assets/img/pin.png" title="Pin Note" onClick={() => this.onPinNote(note.id)} alt="" />
+                    <img src="assets/img/pin.png" title="Pin Note" onClick={() => onPinNote(note.id)} alt="" />
+                    <img src="assets/img/send-email.png" title="Send As Email" onClick={() => onSendEmail(note)} />
 
-                    <ColorPicker mainClass='cp-left' isShown={this.state.isBgColorPicker} onChange={onChangeBgColor} noteId={note.id} />
-                    <ColorPicker mainClass='cp-right' isShown={this.state.isTxtColorPicker} onChange={onChangeTxtColor} noteId={note.id} />
+                    <ColorPicker mainClass='cp-left' isShown={isBgColorPicker} onChange={onChangeBgColor} noteId={note.id} />
+                    <ColorPicker mainClass='cp-right' isShown={isTxtColorPicker} onChange={onChangeTxtColor} noteId={note.id} />
                     
                 </div>
             </article>

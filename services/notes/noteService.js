@@ -6,7 +6,7 @@ const STORAGE_KEY = 'notes'
 var gDefaultNotes = [
     {
         id: utilService.makeId(),
-        type: "NoteText",
+        type: "NoteTxt",
         isPinned: true,
         info: {
             label: 'Need to remember!',
@@ -20,7 +20,7 @@ var gDefaultNotes = [
     },
     {
         id: utilService.makeId(),
-        type: "NoteText",
+        type: "NoteTxt",
         isPinned: false,
         info: {
             label: 'Short Story',
@@ -215,7 +215,7 @@ function onChangeTxtColor(noteId, color) {
 }
 
 function addNote(note, type) {
-
+    debugger
     if (type === 'NoteTodos') {
         const values = note.value.split(',')
 

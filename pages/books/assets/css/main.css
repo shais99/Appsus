@@ -352,7 +352,7 @@ img {
     .main-search-book .searches-container {
         width: 90vw;
     }
-    .book-preview p:first-of-type{
+    .book-preview p:first-of-type {
         flex-grow: unset;
     }
     .book-preview {

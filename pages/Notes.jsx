@@ -11,7 +11,26 @@ export default class Notes extends React.Component {
         searchBy: null
     }
     componentDidMount() {
+        this.loadNotes();
+        this.createNoteByUrl()
+    }
+    createNoteByUrl() {
+        const content = this.getParameterByName('content');
+        if (!content) return
+        let note = {
+            value: content
+        }
+        noteService.addNote(note, 'NoteTxt')
         this.loadNotes()
+    }
+    getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
     loadNotes = () => {
         noteService.query(this.state.searchBy)
