@@ -15,12 +15,16 @@ export default class Notes extends React.Component {
         this.createNoteByUrl()
     }
     createNoteByUrl() {
-        const content = this.getParameterByName('content');
-        if (!content) return
+        const emailName = this.getParameterByName('emailName');
+        const emailSubject = this.getParameterByName('emailSubject');
+        const emailBody = this.getParameterByName('emailBody');
+        if (!emailName && !emailSubject && !emailBody) return
         let note = {
-            value: content
+            emailName,
+            emailSubject,
+            emailBody
         }
-        noteService.addNote(note, 'NoteTxt')
+        noteService.addNote(note, 'NoteEmail')
         this.loadNotes()
     }
     getParameterByName(name, url) {

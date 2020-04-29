@@ -215,7 +215,6 @@ function onChangeTxtColor(noteId, color) {
 }
 
 function addNote(note, type) {
-    debugger
     if (type === 'NoteTodos') {
         const values = note.value.split(',')
 
@@ -226,10 +225,30 @@ function addNote(note, type) {
         storageService.saveToStorage(STORAGE_KEY, gNotes)
         return
     }
+    if (type === 'NoteEmail') {
+        const newNote = _createEmailNote(note.emailName, note.emailSubject, note.emailBody)
+        gNotes.unshift(newNote)
+        storageService.saveToStorage(STORAGE_KEY, gNotes)
+        return;
+    }
     const newNote = _createNote(note, type)
 
     gNotes.unshift(newNote)
     storageService.saveToStorage(STORAGE_KEY, gNotes)
+}
+
+function _createEmailNote(emailName, emailSubject, emailBody) {
+    return {
+        id: utilService.makeId(),
+        type: 'NoteEmail',
+        isPinned: false,
+        info: {
+            label: emailSubject,
+            emailName,
+            emailBody
+        },
+        createdAt: utilService.getTime()
+    }
 }
 
 function _createTodo(txt) {
