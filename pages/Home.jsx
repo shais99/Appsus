@@ -10,8 +10,8 @@ export default class Home extends React.Component {
 
                 <div className="apps-container flex even">
 
-                    <div className="single-app flex  puff-in-center">
-                        <img src="assets/img/books.png" className="single-app-img" alt="" />
+                    <div className="single-app flex column align-center puff-in-center">
+                        <img src="assets/img/books.jpg" className="single-app-img" alt="" />
                         <div className="single-app-content flex column even">
                             <div className="single-app-title">Books</div>
                             <p className="single-app-desc">
@@ -20,8 +20,8 @@ export default class Home extends React.Component {
                             <a className="single-app-btn books-btn" href="index.html#/books">Take a look</a>
                         </div>
                     </div>
-                    <div className="single-app flex align-center bounce-in-top">
-                        <img src="assets/img/notes.png" className="single-app-img" alt="" />
+                    <div className="single-app flex column align-center bounce-in-top">
+                        <img src="assets/img/notes.jpg" className="single-app-img" alt="" />
                         <div className="single-app-content flex column even">
                             <div className="single-app-title">Notes</div>
                             <p className="single-app-desc">
@@ -30,8 +30,8 @@ export default class Home extends React.Component {
                             <a className="single-app-btn notes-btn" href="index.html#/notes">Take a look</a>
                         </div>
                     </div>
-                    <div className="single-app flex roll-in-bottom">
-                        <img src="assets/img/books.png" className="single-app-img" alt="" />
+                    <div className="single-app flex column align-center roll-in-bottom">
+                    <img src="assets/img/email.jpg" className="single-app-img" alt="" />
                         <div className="single-app-content flex column even">
                             <div className="single-app-title">Email</div>
                             <p className="single-app-desc">
