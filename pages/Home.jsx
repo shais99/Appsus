@@ -7,6 +7,7 @@ export default class Home extends React.Component {
                     <h2 className="home-content-title">Appsus Application</h2>
                     <h4>Three Applications In One Site</h4>
                 </div>
+                
             </section>
         )
     }
