@@ -3,11 +3,9 @@ const { Route, Switch, Link, useParams } = ReactRouterDOM
 import emailService from '../../services/emailService.js'
 
 export default class EmailDetails extends React.Component {
-
     state = {
         email: null,
     }
-
     componentDidMount() {
         this.loadEmail()
     }
@@ -15,15 +13,7 @@ export default class EmailDetails extends React.Component {
     loadEmail() {
         const id = this.props.match.params.emailId
         let email = emailService.getById(id)
-
         this.setState({ email })
-
-
-
-        // emailService.getById(id)
-        // .then(email => {
-        //     this.setState({ email })
-        // })
     }
     onRemoveEmail(ev, id) {
         ev.stopPropagation()
@@ -47,7 +37,6 @@ export default class EmailDetails extends React.Component {
         this.props.history.push(`/notes?emailName=${email.name}&emailSubject=${email.subject}&emailBody=${email.body}`)
     }
     render() {
-        const { filterBy, search } = this.state
         var email = this.state.email
         const Loading = <h4 className="empty-box-msg" >This Box this empty!</h4>
         return ((!email) ? Loading : <div className="email-card-details column flex space-between align-center " key={'asd'}>
