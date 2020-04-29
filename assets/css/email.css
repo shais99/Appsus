@@ -247,12 +247,12 @@
 }
 
 .email-form-content {
-    width: 80vw;
+    width: 75vw;
     margin: 2vw;
 }
 
 .email-form-content h3 {
-    width: 80vw;
+    /* width: 80vw; */
     background-color: #353b48;
     margin-bottom: 1rem;
     color: white;
@@ -509,16 +509,27 @@
 }
 
 @media (max-width: 700px) {
-    .email-content .box-side-nav {
+    #root .email-content .box-side-nav {
         /* display: none; */
         position: fixed;
-        flex-direction: row;
-        width: 95vw;
-        height: 60vw;
-        z-index: 5;
-        bottom: 2%;
-        left: 2.5vw;
-        border: 1px solid black
+        /* flex-direction: row; */
+        /* width: 95vw; */
+        height: 30vh;
+        z-index: 900;
+        bottom: 130px;
+        left: 78px;
+        background-color: rgba(0, 128, 0, 0);
+        border: none;
+    }
+    .email-content .box-side-nav p {
+        visibility: hidden;
+        background: transparent;
+    }
+    .container-number-pop .number-pop {
+        position: fixed;
+        bottom: 136px;
+        left: 45px;
+        top: unset;
     }
     /* .side-nav-mobile-show {
         visibility: visible;
@@ -531,24 +542,48 @@
         margin-left: 0px;
         margin-right: 0px;
         height: 10px;
+        background: transparent;
+        user-select: none;
+    }
+    .box-side-nav .email-send-btn {
+        border: none;
     }
     .box-side-nav .hello-user-container {
         display: none;
+    }
+    .email-content .box-side-nav img::selection {
+        background: transparent;
+    }
+    .box-side-nav .active-tab {
+        background: transparent;
+    }
+    .box-side-nav .email-send-btn {
+        user-select: none;
+        background: transparent;
     }
     .email-content .box-side-nav img {
         margin-left: -130px;
         width: 35px;
         height: 35px;
+        user-select: none;
+    }
+    .email-content .box-side-nav img:hover {
+        transform: scale(1.5);
+        transition: ease-in;
+        transition-duration: 0.1s;
     }
     .box-side-nav .hello-user-header {
         display: none;
     }
-    #root .box-side-nav .mobile-burger {
+    .box-side-nav .mobile-burger {
         bottom: 5vh;
-        left: 2vh;
-        z-index: 4;
+        left: 10vh;
+        z-index: 3;
+        width: 10vw;
         visibility: visible;
+        user-select: none;
     }
+    .box-side-nav .mobile-burger:hover {}
     /* .fade-in-bottom {
         animation: fade-in-bottom 7.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     }
@@ -562,6 +597,9 @@
             opacity: 1;
         }
     } */
+    .box-side-nav .mobile-burger {
+        border: none;
+    }
 }
 
 .mobile-burger {
