@@ -33,12 +33,12 @@ function makeTestEmails() {
     createEmail('abi34rw', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
     createEmail('Shai', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
     createEmail('abi34rw', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM SOME')
-    createEmail('Shai', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
+    createEmail('Shai', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', true, 'inbox', 'IM AWEOSOME')
     createEmail('abi34rw', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
     createEmail('Shai', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWE')
     createEmail('abi34rw', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
-    createEmail('Shai', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
-    createEmail('abi34rw', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'IM AWEOSOME')
+    createEmail('Shai', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', true, 'inbox', 'IM AWEOSOME')
+    createEmail('abi34rw', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', true, 'inbox', 'IM AWEOSOME')
     createEmail('abi34rw', 'gogo', 'gogogo', true, 'sent', 'IM AWEOSOME')
     createEmail('Abir', 'Someone@walla.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'sent', 'icecream')
     createEmail('Shai', 'sha423i22w', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi veniam eius deserunt? Architecto, amet laboriosam! Magni at earum debitis odit libero nemo natus cu', false, 'inbox', 'pepers')
@@ -54,7 +54,7 @@ function makeTestEmails() {
     createEmail('abi34rw', 'gogo', 'gogogo', true, 'sent', 'IM AWEOSOME')
 }
 
-function createEmail(name, to, body, isFocus, box, subject) {
+function createEmail(name, to, body, isStarred, box, subject) {
     var email = {
         id: utilService.makeId(),
         name,
@@ -66,7 +66,6 @@ function createEmail(name, to, body, isFocus, box, subject) {
         isRead: false,
         box,
         isSaved: true,
-        isFocus,
         isStarred: false,
     }
     gEmails.unshift(email)
@@ -81,9 +80,12 @@ function getStarredAmount() {
     return num
 }
 
-function query(filterBy, box) {
-    sortEmails()
-    let filteredEmails = filterByBox(box)
+function query(filterBy, box, filterRead) {
+    let emails = gEmails.slice()
+    if (filterRead) {
+        emails = sortEmails()
+    }
+    let filteredEmails = filterByBox(box, emails)
     if (filterBy) {
         const emails = filteredEmails.filter(email => {
             let name = email.name.toUpperCase()
@@ -97,9 +99,9 @@ function query(filterBy, box) {
     return filteredEmails
 }
 
-function filterByBox(filterBy) {
-    if (filterBy === 'star') return gEmails.filter(email => email.isStarred)
-    const emails = gEmails.filter(email => {
+function filterByBox(filterBy, emailsToFilter) {
+    if (filterBy === 'star') return emailsToFilter.filter(email => email.isStarred)
+    const emails = emailsToFilter.filter(email => {
         return email.box === filterBy
     })
     return emails
@@ -114,7 +116,9 @@ function filterByStar() {
 }
 
 function sortEmails() {
-    gEmails.sort(function(a, b) { return a.isRead - b.isRead });
+    let emails = gEmails.slice()
+    emails.sort(function(a, b) { return a.isRead - b.isRead });
+    return emails
 }
 
 //Togglers
@@ -128,9 +132,14 @@ function toggleStarEmail(email) {
 
 
 function toggleIsRead(email) {
-    if (email.isRead) return email.isRead = false && storageService.saveToStorage(KEYEmails, gEmails)
-
-    return email.isRead = true && storageService.saveToStorage(KEYEmails, gEmails)
+    if (email.isRead) {
+        email.isRead = false
+        storageService.saveToStorage(KEYEmails, gEmails)
+        return
+    }
+    email.isRead = true
+    storageService.saveToStorage(KEYEmails, gEmails)
+    return
 
 }
 

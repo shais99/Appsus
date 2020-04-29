@@ -18,7 +18,8 @@ export default class EmailPreview extends React.Component {
         this.props.toggleStarEmail(email)
     }
     onRemoveEmail(ev, id) {
-        ev.stopPropagation()
+        ev.stopPropagation();
+        ev.nativeEvent.stopImmediatePropagation()
         this.props.onRemoveEmail(id)
     }
 
@@ -26,6 +27,11 @@ export default class EmailPreview extends React.Component {
     saveAsNote(ev,email) {
         ev.stopPropagation()
         this.props.history.push(`/notes?emailName=${email.name}&emailSubject=${email.subject}&emailBody=${email.body}`)
+    }
+    toggleIsRead(ev,email){
+        ev.stopPropagation();
+        ev.nativeEvent.stopImmediatePropagation()
+        this.props.toggleIsRead(email)
     }
     render() {
         const { email } = this.props
@@ -53,7 +59,7 @@ export default class EmailPreview extends React.Component {
                         title="Replay Email" src={`assets/img/replay.png`} alt="" srcSet="" />
                     <img onClick={(event) => this.onRemoveEmail(event, email.id)} className="email-card-star biggerAnim"
                         title="Delete" src={`assets/img/delete.png`} alt="" srcSet="" />
-                    <img onClick={(event) => this.props.toggleIsRead(event, email)} className="email-card-star biggerAnim"
+                    <img onClick={(event) => this.toggleIsRead(event, email)} className="email-card-star biggerAnim"
                         title="Toggle Read/Unread" src={`assets/img/${email.isRead ? 'read' : 'unread'}.png`} alt="" srcSet="" />
                 </div>
             </div>)

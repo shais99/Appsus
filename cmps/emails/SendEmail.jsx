@@ -28,7 +28,7 @@ export default class SendEmail extends React.Component {
         if (type === 'NoteTodos') content = this.splitTodo(content)
         if (type === 'NoteEmail') noteToEmail.name = this.getParameterByName('emailName')
         noteToEmail.subject = this.getParameterByName('subject')
-        noteToEmail.body = content + '\n\n\n' + this.getParameterByName('createdAt')
+        noteToEmail.body = content + '\n\n\n Note Created At: ' + this.getParameterByName('createdAt')
         this.setState({ email: noteToEmail })
     }
     componentDidMount() {
