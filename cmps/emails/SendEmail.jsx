@@ -19,18 +19,16 @@ export default class SendEmail extends React.Component {
     splitTodo(str) {
         let newStr = str.split(',', 500)
         let newStrJoin = newStr.join('\n\n')
-        console.log(' new str split ', newStrJoin)
         return newStrJoin
     }
     getNotesContent = () => {
         let noteToEmail = {}
         let type = this.getParameterByName('type')
-        console.log(' type ', type)
         let content = this.getParameterByName('content')
-        if (type === 'NoteTodos') {
-            content = this.splitTodo(content)
-        }
-        noteToEmail.body = this.getParameterByName('subject') + '\n\n\n' + content + '\n\n\n' + this.getParameterByName('createdAt')
+        if (type === 'NoteTodos') content = this.splitTodo(content)
+        if (type === 'NoteEmail') noteToEmail.name = this.getParameterByName('emailName')
+        noteToEmail.subject = this.getParameterByName('subject')
+        noteToEmail.body = content + '\n\n\n' + this.getParameterByName('createdAt')
         this.setState({ email: noteToEmail })
     }
     componentDidMount() {
@@ -39,17 +37,13 @@ export default class SendEmail extends React.Component {
         if (this.props.match.params.id && this.state.email.id === 'unSet') {
             this.loadEmail()
         }
-
         let isNote = this.getParameterByName('type')
         if (isNote) {
-
             this.getNotesContent()
         }
-
         this.setState({ isReAdded: true })
     }
-    // `index.html#/email/compose?type=${note.type}&createdAt=
-    // ${note.createdAt}&subject=${note.info.label}&content=${todoTxt}`
+    
 
     getParameterByName(name, url) {
         if (!url) url = window.location.href;
