@@ -6,6 +6,7 @@ import NoteAudio from './NoteAudio.jsx'
 import NoteTodos from './NoteTodos.jsx'
 import ColorPicker from './ColorPicker.jsx'
 import noteService from '../../services/notes/noteService.js'
+import NoteEmail from './NoteEmail.jsx'
 
 export default class NotePreview extends React.Component {
     state = {
@@ -32,6 +33,8 @@ export default class NotePreview extends React.Component {
                 return <NoteAudio note={note} />
             case 'NoteTodos':
                 return <NoteTodos todo={note} updateTodo={this.onUpdateTodo} loadNotes={this.props.loadNotes} />
+            case 'NoteEmail':
+                return <NoteEmail note={note} loadNotes={this.props.loadNotes} />
         }
     }
     onPinNote = (noteId) => {
@@ -46,7 +49,6 @@ export default class NotePreview extends React.Component {
         noteService.updateLabel(note, value)
     }
     onSendEmail (note) {
-        console.log(note);
         if (note.type === 'NoteTodos') {
             let todoTxt = note.info.todos.map(todo => todo.txt)
             window.location.href = `index.html#/email/compose?type=${note.type}&createdAt=${note.createdAt}&subject=${note.info.label}&content=${todoTxt}`

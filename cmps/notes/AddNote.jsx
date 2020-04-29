@@ -3,14 +3,14 @@ import { eventBus } from '../../services/eventBusService.js'
 
 export default class AddNote extends React.Component {
     typesMap = {
-        txt: 'NoteText',
+        txt: 'NoteTxt',
         img: 'NoteImg',
         youtube: 'NoteYoutube',
         audio: 'NoteAudio',
         todos: 'NoteTodos'
     }
     state = {
-        currType: 'NoteText',
+        currType: 'NoteTxt',
         note: {
             value: '',
         },
@@ -20,7 +20,7 @@ export default class AddNote extends React.Component {
     }
     get placeHolderValue() {
         switch (this.state.currType) {
-            case 'NoteText':
+            case 'NoteTxt':
                 return 'Type Some text...'
             case 'NoteImg':
                 return 'Enter Img URL...'
