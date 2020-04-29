@@ -26,7 +26,7 @@ export default class BookFilter extends React.Component {
                 {/* <input type="number" name='minPrice' value={minPrice} placeholder="Min Price" onChange={this.handleChange} />
                 <input type="number" name='maxPrice' value={maxPrice} placeholder="Max Price" onChange={this.handleChange} /> */}
 
-                <button className="add-book">Search now</button>
+                {/* <button className="add-book">Search now</button> */}
             </form>
         )
     }
