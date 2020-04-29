@@ -224,26 +224,31 @@ a.active:hover {
     background: url(../img/homebgc.svg);
     border-image-width: 100%;
     background-size: cover;
-    height: 600px;
+    height: calc(100vh - 75px);
     background-attachment: fixed;
+    margin-top: -15px;
     /* justify-content: flex-end; */
 }
 
-.home-content {
+.home-content-title {
     background: rgba(255, 255, 255, 0.365);
     height: 115px;
     padding: 0 20px;
     border-radius: 5px;
-    margin: 0 40px;
     text-align: center;
 }
 
-.home-content-title {
+.home-main-title {
+    font-size: 3rem;
+    font-family: openSansBold;
+}
+
+/* .home-content-title {
     color: white;
     font-size: 3rem;
     font-family: openSansBold;
     color: black;
-}
+} */
 
 
 /* User Msg */

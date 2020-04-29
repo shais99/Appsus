@@ -52,11 +52,11 @@ export default class reviews extends React.Component {
     }
     onAddReview = (ev) => {
         ev.preventDefault()
-        if (!this.state.review.fullName) this.state.review.fullName = 'Books Reader...'
         if (!this.state.review.stars) {
             eventBus.emit('show-msg', { txt: 'Please set stars on review!' })
             return;
         }
+        if (!this.state.review.fullName) this.state.review.fullName = 'Books Reader...'
         eventBus.emit('show-msg', { txt: 'Review added successfully!' })
         reviewService.addReview(this.state.review)
         this.setState({ review: { fullName: '', readDate: this.todayDate, reviewTxt: '' } })

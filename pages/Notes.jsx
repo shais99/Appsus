@@ -28,7 +28,6 @@ export default class Notes extends React.Component {
         noteService.addNote(note, 'NoteEmail')
         this.loadNotes()
         window.location.href = `index.html#/notes`
-
         eventBus.emit('show-msg', { txt: 'Note Added Successfully from email!' })
     }
     getParameterByName(name, url) {

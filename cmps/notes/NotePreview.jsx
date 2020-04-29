@@ -8,6 +8,8 @@ import ColorPicker from './ColorPicker.jsx'
 import noteService from '../../services/notes/noteService.js'
 import NoteEmail from './NoteEmail.jsx'
 
+const history = History.createBrowserHistory()
+
 export default class NotePreview extends React.Component {
     state = {
         isBgColorPicker: false,
@@ -48,20 +50,20 @@ export default class NotePreview extends React.Component {
         let value = ev.target.innerText
         noteService.updateLabel(note, value)
     }
-    onSendEmail (note) {
+    onSendEmail = (note) => {
         if (note.type === 'NoteTodos') {
             let todoTxt = note.info.todos.map(todo => todo.txt)
-            window.location.href = `index.html#/email/compose?type=${note.type}&createdAt=${note.createdAt}&subject=${note.info.label}&content=${todoTxt}`
-        } else if(note.type === 'NoteEmail') {
-            window.location.href = `index.html#/email/compose?type=${note.type}&createdAt=${note.createdAt}&subject=${note.info.label}&emailName=${note.info.emailName}&content=${note.info.emailBody}`
+            history.push(`/email/compose?type=${note.type}&createdAt=${note.createdAt}&subject=${note.info.label}&content=${todoTxt}`)
+        } else if (note.type === 'NoteEmail') {
+            history.push(`/email/compose?type=${note.type}&createdAt=${note.createdAt}&subject=${note.info.label}&emailName=${note.info.emailName}&content=${note.info.emailBody}`)
         } else {
-            window.location.href = `index.html#/email/compose?type=${note.type}&createdAt=${note.createdAt}&subject=${note.info.label}&content=${note.info.value}`
+            history.push(`index.html#/email/compose?type=${note.type}&createdAt=${note.createdAt}&subject=${note.info.label}&content=${note.info.value}`)
         }
     }
     render() {
         const { note, onDeleteNote, onChangeBgColor, onChangeTxtColor } = this.props
-        const {isPinned, onChangeLabel, noteToRender, onPinNote, onSendEmail} = this
-        const {isBgColorPicker, isTxtColorPicker} = this.state
+        const { isPinned, onChangeLabel, noteToRender, onPinNote, onSendEmail } = this
+        const { isBgColorPicker, isTxtColorPicker } = this.state
         return (
             <article className="single-note flex column" style={note.style}>
                 <p className="pinned">{isPinned(note.id) ? <img src="assets/img/pinned.png" className="pinned-img" alt="" /> : ''}</p>
@@ -81,7 +83,7 @@ export default class NotePreview extends React.Component {
 
                     <ColorPicker mainClass='cp-left' isShown={isBgColorPicker} onChange={onChangeBgColor} noteId={note.id} />
                     <ColorPicker mainClass='cp-right' isShown={isTxtColorPicker} onChange={onChangeTxtColor} noteId={note.id} />
-                    
+
                 </div>
             </article>
         )

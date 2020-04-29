@@ -288,6 +288,13 @@ img {
     width: 320px;
 }
 
+.add-review input, select, textarea {
+    background-color: white;
+    border: 1px solid #ccc;
+    font-family: openSans;
+    width: 100%;
+}
+
 .add-review-title {
     text-align: center;
     margin-bottom: 10px;
