@@ -6,7 +6,7 @@ export default class MainNav extends React.Component {
         navBarIsOpen: false
     }
     onOpenNavMobile = () => {
-        this.setState({ navBarIsOpen: (this.state.navBarIsOpen)? false : true})
+        this.setState({ navBarIsOpen: (this.state.navBarIsOpen) ? false : true })
         // if (this.state.navBarIsOpen) {
         //     this.setState({ navBarIsOpen: false })
         //     return;
@@ -17,7 +17,7 @@ export default class MainNav extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div onClick={this.onOpenNavMobile} className={`box-side-nav fade-in fade-in-bottom ${(this.state.navBarIsOpen)? 'side-nav-mobile-hide' : ''}}`}>
+                <div onClick={this.onOpenNavMobile} className={`box-side-nav fade-in fade-in-bottom ${(this.state.navBarIsOpen) ? 'side-nav-mobile-hide' : ''}`}>
                     <div className="hello-user-container">
                         <h2 className="hello-user-header">Hello {emailService.getCurrUser()}</h2>
                     </div>
@@ -50,8 +50,8 @@ export default class MainNav extends React.Component {
                             <p>Sent</p>
                         </div>
                     </NavLink>
-                    <div onClick={this.onOpenNavMobile} className="mobile-burger">
-                        <button>CLICK ME</button>
+                    <div className="mobile-burger">
+                        <img onClick={() => this.onOpenNavMobile()} src="../../assets/img/menumobile.png" />
                     </div>
                 </div>
             </React.Fragment>
