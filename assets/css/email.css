@@ -32,7 +32,6 @@
 .email-main-content {
     min-height: 70vh;
     background-color: #d1d8e0;
-    margin: 0 auto;
 }
 
 .main-email-content {
@@ -149,6 +148,13 @@
 
 .email-card:hover {
     border-bottom: 2px solid #45aaf294;
+}
+
+@media (max-width: 440px) {
+    .main-email-content .emails-list .email-card  {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
 }
 
 .email-card-subject-body>* {
@@ -387,7 +393,7 @@
     background-color: #ffffff;
     width: 80vw;
     height: 70vh;
-    margin: 0 auto;
+    margin: 25px auto;
 }
 
 .email-details-name {
@@ -459,6 +465,9 @@
     .email-details-body .email-details-toEmail {
         display: none;
     }
+    .emails-list-topbar {
+        flex-direction: column;
+    }
 }
 
 .email-details-topinfo {
@@ -482,7 +491,7 @@
 }
 
 .details-name-toEmail {
-    width: 300px;
+    width: 335px;
 }
 
 .details-name-toEmail>* {
