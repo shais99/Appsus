@@ -11,6 +11,7 @@ export default class ListEmail extends React.Component {
 
 
                 <div className="emails-list flex column">
+                   
                     {!emails ? <h4 className="empty-box-msg" >This Box this empty!</h4> : emails.map((email, idx) => {
                         return (
                             <EmailPreview onReplay={this.props.onReplay} onRemoveEmail={this.props.onRemoveEmail}

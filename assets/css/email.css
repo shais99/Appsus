@@ -1,19 +1,24 @@
 /* // Email Styles */
 
 .email-search {
-    height: 5vh;
+    height: 6vh;
     background-color: rgba(128, 128, 128, 0.068);
     border-radius: 20px;
-    text-align: center;
+    /* text-align: center; */
     color: black;
-    font-size: 20px;
+    font-size: 1.2rem;
     margin-bottom: 3vh;
     margin-top: 3vh;
     user-select: none;
+    font-family: openSans;
     outline: none;
     border: none;
     border: 1px solid rgba(255, 255, 255, 0.623);
     /* box-shadow: 0px 0px 26px 5px rgba(165, 166, 167, 0.158); */
+    padding-left: 50px;
+    padding-right: 15px;
+    /* text */
+    transition: 0.5s;
 }
 
 .email-search:focus {
@@ -23,6 +28,8 @@
 .email-search-img {
     width: 35px;
     padding: 5px;
+    margin-right: -40px;
+    opacity: 0.6;
 }
 
 .search-container {}
@@ -46,6 +53,16 @@
     padding-left: 3rem;
     padding-right: 3rem;
     padding-top: 1rem;
+}
+
+.emails-list-topbar {
+    background-color: #45aaf2a6;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /* margin-top: -30px; */
+    margin-bottom: 20px;
+    border-radius: 20px;
 }
 
 @media (max-width: 1060px) {
@@ -484,7 +501,12 @@
     font-size: 1.1rem;
     padding-top: 26px;
     padding-bottom: 26px;
+    border-radius: 50px;
     cursor: auto;
+}
+
+.hello-user-container {
+    border: none;
 }
 
 .email-send-btn {
@@ -512,7 +534,7 @@
     font-size: 1.6rem;
     color: rgba(0, 0, 0, 0.637);
     border-right: 1px solid rgba(0, 0, 0, 0.233);
-    border-top: 1px solid rgba(0, 0, 0, 0.233);
+    /* border-top: 1px solid rgba(0, 0, 0, 0.233); */
     background-color: #ffffff;
 }
 
@@ -606,7 +628,7 @@
 }
 
 .box-side-nav>* {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.233);
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.233); */
     cursor: pointer;
     margin-left: 5px;
     margin-right: 5px;
@@ -695,4 +717,39 @@
     height: 40px;
     width: 100px;
     background-color: #353b48;
+}
+
+.emails-switch[type=checkbox] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    width: 51px;
+    height: 25px;
+    /* background-color: rgba(201, 201, 201, 0.842); */
+    border: 1px solid rgba(128, 128, 128, 0.781);
+    border-radius: 30px;
+    user-select: none;
+    outline: none;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.emails-switch[type=checkbox]::after {
+    content: '';
+    position: absolute;
+    background: rgb(96, 96, 97);
+    transition: all 0.5s ease-in-out;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    /* margin: 1px; */
+    margin: 0 auto;
+    user-select: none;
+    outline: none;
+}
+
+.emails-switch[type=checkbox]:checked::after {
+    transform: translateX(20px);
+    transition: 0.5;
 }

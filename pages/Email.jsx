@@ -17,6 +17,7 @@ export default class Email extends React.Component {
         // unReadAmount: null,
         emailReplay: null,
         // unFinished: 1,
+        isChecked: false
 
     }
     componentDidMount() {
@@ -46,25 +47,24 @@ export default class Email extends React.Component {
         this.setState({ filterBy: 'star', emails })
     }
 
-    loadEmails = () => {
-        var emails = emailService.query(this.state.filterBy, this.getFilterByBox())
+    loadEmails = (sortRead = false) => {
+        var emails = emailService.query(this.state.filterBy, this.getFilterByBox(), sortRead)
         this.setState({ emails })
     }
 
     onRemoveEmail = (emailId) => {
+        console.log('remove email', emailId)
         emailService.removeEmail(emailId)
             .then(() => {
-                this.props.history.goBack()
+                // this.props.history.goBack()
+                this.loadEmails()
             })
 
     }
     sendEmail = (ev, newEmail, isReply = false) => {
         ev.preventDefault()
         eventBus.emit('show-msg', { txt: 'Email Sent!' })
-        console.log('event',ev);
-        
-       
-       
+        console.log('event', ev);
         if (isReply) newEmail.subject = 'Re: ' + newEmail.subject
         emailService.createEmail(newEmail.name, newEmail.to, newEmail.body, false, 'sent', newEmail.subject)
         this.setState({ email: null, })
@@ -78,12 +78,19 @@ export default class Email extends React.Component {
         var amount = emailService.getUnreadAmount()
         return amount
     }
-    toggleIsRead = (ev, email) => {
-        ev.stopPropagation()
+    toggleIsRead = (email) => {
         emailService.toggleIsRead(email)
         this.loadEmails()
     }
-
+    toggleSortIsRead = () => {
+        if (this.state.isChecked) {
+            this.loadEmails(false)
+            this.setState({isChecked : false})
+        } else{
+            this.loadEmails(true)
+            this.setState({isChecked : true})
+        }
+    }
     onReply = (ev, emailReplay) => {
         ev.stopPropagation()
         this.props.history.push(`/email/compose/${emailReplay.id}`)
@@ -93,7 +100,7 @@ export default class Email extends React.Component {
 
         return (
             <section className="email-main-content">
-                <div className="flex email-content">
+                <div className="flex email-content ">
 
                     {this.state.emails && <MainNav getUnreadAmount={this.getUnreadAmount} />}
                     <div className="main-email-content">
@@ -115,7 +122,11 @@ export default class Email extends React.Component {
                             <React.Fragment>
                                 <section className="email-section fade-in">
                                     <EmailFilter onSetFilter={this.onSetFilter}></EmailFilter>
+                                    <div className="emails-list-topbar flex space-between">
 
+
+                                        <input onChange={this.toggleSortIsRead} title="Filter Read/Unread" className="emails-switch" type="checkbox" />
+                                    </div>
                                     <Route component={() => <ListEmail
 
                                         emails={emails}

@@ -24,7 +24,7 @@ export default class EmailFilter extends React.Component {
         return (
             <form className="flex align-center justify-center" onSubmit={this.onFilter}>
                 <img className="email-search-img smallerAnim" src="assets/img/search.png" alt="" />
-                <input className="email-search" type="text" name='search' placeholder="Search" value={search}
+                <input autoComplete="off" className="email-search" type="text" name='search' placeholder="Search" value={search}
                     onChange={this.handleChange} />
             </form>
 
